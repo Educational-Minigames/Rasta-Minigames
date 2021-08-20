@@ -1,0 +1,23 @@
+
+
+.agent {
+	opacity:1;
+}
+
+.A {
+	fill: black;
+}
+
+.B {
+	fill: darkred;
+}
+
+.C {
+	fill: white;
+	stroke: black;
+	stroke-width:0.5;
+}
+
+.D {
+	fill: rgb(0,120,180);
+}

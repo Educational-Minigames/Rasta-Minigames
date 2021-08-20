@@ -1,0 +1,37 @@
+.edge {
+	stroke: rgb(80,80,80);
+	stroke-width:0.5px;
+}
+
+
+
+.blob {
+	fill:rgb(80,80,80);
+}
+
+.man {
+	fill:#839192;
+	stroke: black;
+}
+
+.giant {
+	fill:#922B21;
+}
+
+.vacc {
+	fill:#2874A6;
+}
+
+.herd {
+	fill:#839192;
+}
+
+.legend{
+	font-size:16px;
+}
+
+.buttonlabel{
+	font-size:24px;
+	pointer-events:none;
+}
+
