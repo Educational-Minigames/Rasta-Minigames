@@ -1,4 +1,4 @@
-import './Theme/Styles/App.css';
+import './theme/Styles/App.css';
 
 import { CssBaseline } from '@material-ui/core';
 import { StylesProvider } from '@material-ui/core/styles';
@@ -10,12 +10,12 @@ import { IntlProvider } from 'react-redux-multilingual';
 
 import Notifier from './components/Notifications/Notifications';
 import Root from './root';
-import MuiTheme from './Theme/MuiThemes/MuiTheme';
-import RTLMuiTheme from './Theme/MuiThemes/RTLMuiTheme';
+import MuiTheme from './theme/MuiThemes/MuiTheme';
+import RTLMuiTheme from './theme/MuiThemes/RTLMuiTheme';
 import translations from './translations';
 import jss from './utils/jssRTL';
 
-const ArticleApp = () => (
+const MiniGameApp = () => (
   <SnackbarProvider>
     <Notifier />
     <CssBaseline />
@@ -34,14 +34,14 @@ const App = ({ dir }) => {
         <>
           <ThemeProvider theme={RTLMuiTheme}>
             <StylesProvider jss={jss}>
-              <ArticleApp />
+              <MiniGameApp />
             </StylesProvider>
           </ThemeProvider>
         </>
       ) : (
           <>
             <ThemeProvider theme={MuiTheme}>
-              <ArticleApp />
+              <MiniGameApp />
             </ThemeProvider>
           </>
         )}
