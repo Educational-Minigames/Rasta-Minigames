@@ -11,6 +11,7 @@ import { IntlProvider } from 'react-redux-multilingual';
 import Notifier from './components/Notifications/Notifications';
 import Root from './root';
 import MuiTheme from './Theme/MuiThemes/MuiTheme';
+import RTLMuiTheme from './Theme/MuiThemes/RTLMuiTheme';
 import translations from './translations';
 import jss from './utils/jssRTL';
 
@@ -31,7 +32,7 @@ const App = ({ dir }) => {
     <IntlProvider translations={translations}>
       {dir === 'rtl' ? (
         <>
-          <ThemeProvider theme={MuiTheme}>
+          <ThemeProvider theme={RTLMuiTheme}>
             <StylesProvider jss={jss}>
               <ArticleApp />
             </StylesProvider>

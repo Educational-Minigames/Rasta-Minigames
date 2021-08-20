@@ -2,20 +2,20 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Landing from '../containers/Landing';
-import Account2Points from '../MiniGames/Account2Points';
-import Ant_Colony_Optimization from '../MiniGames/Ant_Colony_Optimization';
-import Collective_Behavior_Of_Fish from '../MiniGames/Collective_Behavior_Of_Fish';
-import Conways_Game_Of_Life from '../MiniGames/Conways_Game_Of_Life';
-import Defusing_Bomb from '../MiniGames/Defusing_Bomb';
-import Donor_Patient1 from '../MiniGames/Donor_Patient1';
-import Donor_Patient2 from '../MiniGames/Donor_Patient2';
-import Donor_Patient3 from '../MiniGames/Donor_Patient3';
-import Donor_Patient4 from '../MiniGames/Donor_Patient4';
-import Game_Of_Life_Simulation from '../MiniGames/Game_Of_Life_Simulation';
-import Network_Vaccination from '../MiniGames/Network_Vaccination';
-import Tarkibiat1 from '../MiniGames/Tarkibiat1';
-import Tarkibiat2 from '../MiniGames/Tarkibiat2';
-import Tarkibiat3 from '../MiniGames/Tarkibiat3';
+import Account2Points from '../miniGames/Account2Points';
+import Ant_Colony_Optimization from '../miniGames/Ant_Colony_Optimization';
+import Collective_Behavior_Of_Fish from '../miniGames/Collective_Behavior_Of_Fish';
+import Conways_Game_Of_Life from '../miniGames/Conways_Game_Of_Life';
+import Defusing_Bomb from '../miniGames/Defusing_Bomb';
+import Donor_Patient1 from '../miniGames/Donor_Patient1';
+import Donor_Patient2 from '../miniGames/Donor_Patient2';
+import Donor_Patient3 from '../miniGames/Donor_Patient3';
+import Donor_Patient4 from '../miniGames/Donor_Patient4';
+import Game_Of_Life_Simulation from '../miniGames/Game_Of_Life_Simulation';
+import Network_Vaccination from '../miniGames/Network_Vaccination';
+import Tarkibiat1 from '../miniGames/Tarkibiat1';
+import Tarkibiat2 from '../miniGames/Tarkibiat2';
+import Tarkibiat3 from '../miniGames/Tarkibiat3';
 
 const MyRoute = () => {
   return (
