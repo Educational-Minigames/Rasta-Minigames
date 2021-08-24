@@ -8,7 +8,7 @@ var ui = {
     newNode: {
         title: "",
         value: "Input",
-        values: [["INPUT", "Input"], ["OUTPUT", "Output"], ["NOT", "Not"], ["AND", "And"], ["AND (3 ورودی)", "And3"], ["NAND", "Nand"], ["OR", "Or"], ["NOR", "Nor"], ["XOR", "Xor"],]
+        values: [["INPUT", "Input"], ["OUTPUT", "Output"], ["NOT", "Not"], ["AND", "And"], ["AND (3 ورودی)", "And3"], ["OR", "Or"], ]
     }, addNode: {title: "افزودن گیت", type: "button"},
 };
 var logicAnimationID;
@@ -50,23 +50,6 @@ function Or(id) {
     jsPlumb.draggable(jsPlumb.getSelector(".window"), {containment: 'parent'});
 }
 
-function Nor(id) {
-    this.id = "nor-" + id;
-    this.state = 0;
-    this.inputs = [];
-    $("#demo").append('<div class="window window-nor" id="' + this.id + '"><button class="close">&times;</button><img alt="NOR gate" src="symbols/nor.svg"/></div>');
-    _addEndpoints(this.id, ["RightMiddle"], [[0, 0.25, -1, 0], [0, 0.75, -1, 0]]);
-    jsPlumb.draggable(jsPlumb.getSelector(".window"), {containment: 'parent'});
-}
-
-function Xor(id) {
-    this.id = "xor-" + id;
-    this.state = 0;
-    this.inputs = [];
-    $("#demo").append('<div class="window xor window-xor" id="' + this.id + '"><button class="close">&times;</button><img alt="XOR gate" src="symbols/xor.svg"/></div>');
-    _addEndpoints(this.id, ["RightMiddle"], [[0, 0.25, -1, 0], [0, 0.75, -1, 0]]);
-    jsPlumb.draggable(jsPlumb.getSelector(".window"), {containment: 'parent'});
-}
 
 function Not(id) {
     this.id = "not-" + id;
@@ -81,7 +64,7 @@ function Input(id) {
     this.id = "input-" + id;
     this.state = 0;
     var _this = this;
-    $("#demo").append('<div class="window switch" id="' + this.id + '"><button class="close">&times;</button><div class="col-sm-5"><button type="button" class="toggle btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"><div class="handle"></div></button></div>');
+    $("#demo").append('<div class="window switch" id="' + this.id + '"><button class="close">&times;</button><div class="col-sm-5"><button type="button" class="toggle btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"><div class="handle"></div></button><input style="width: 100%;" placeholder="نام ورودی"/></div>');
     $("#" + this.id).data('state', "off");
     _addEndpoints(this.id, ["RightMiddle"]);
     jsPlumb.draggable(jsPlumb.getSelector(".window"), {containment: 'parent'});
