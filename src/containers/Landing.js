@@ -3,6 +3,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 
+import MINI_GAMES from '../miniGames';
 
 const useStyles = makeStyles(() => ({
   body: {
@@ -17,6 +18,15 @@ function Homepage() {
   return (
     <>
       <ol>
+        {MINI_GAMES.map((miniGame, index) => {
+          return (
+            <li key={index}>
+              <a href={miniGame.url}>
+                {miniGame.name}
+              </a>
+            </li>
+          )
+        })}
         <li>
           <a href='/Conways_Game_Of_Life'>
             {'بازی زندگی کانوی (سیستم‌های پیچیده)'}
