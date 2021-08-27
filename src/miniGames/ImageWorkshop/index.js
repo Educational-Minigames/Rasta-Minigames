@@ -138,7 +138,7 @@ export default function InputSlider() {
       <Container>
         <form onChange={(e) => onChange(e)}>
           <div>
-            <img src={imagePreview} />
+            <img alt='' src={imagePreview} />
             <input
               type="file"
               name="avatar"
@@ -192,8 +192,8 @@ export default function InputSlider() {
                 <Grid item container>
                   {Array(hValue)
                     .fill(null)
-                    .map(() => (
-                      <Grid item>
+                    .map((val, index) => (
+                      <Grid item key={index}>
                         <TextField
                           className={`${classes.kernelInput} kernelInput`}
                           margin="dense"

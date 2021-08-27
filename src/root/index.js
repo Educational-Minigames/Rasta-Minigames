@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Landing from '../containers/Landing';
+import MINI_GAMES from '../miniGames';
 import Account2Points from '../miniGames/Account2Points';
 import Ant_Colony_Optimization from '../miniGames/Ant_Colony_Optimization';
 import Collective_Behavior_Of_Fish from '../miniGames/Collective_Behavior_Of_Fish';
@@ -20,6 +21,13 @@ import Tarkibiat3 from '../miniGames/Tarkibiat3';
 const MyRoute = () => {
   return (
     <Switch>
+      {
+        MINI_GAMES.map((miniGame, index) => {
+          return (
+            <Route key={index} exact path={miniGame.url} component={miniGame.component} />
+          )
+        })
+      }
       <Route exact path="/Conways_Game_Of_Life" component={Conways_Game_Of_Life} />
       <Route exact path="/Collective_Behavior_Of_Fish" component={Collective_Behavior_Of_Fish} />
       <Route exact path="/Ant_Colony_Optimization" component={Ant_Colony_Optimization} />

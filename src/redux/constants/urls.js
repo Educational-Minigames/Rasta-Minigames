@@ -1,3 +1,6 @@
+export const imageProcessingWorkshop1Url = 'image/password/'
+
+
 export const loginUrl = 'auth/token/obtain/';
 export const registerUrl = 'auth/signup/';
 export const changePasswordUrl = 'auth/changepass/';
