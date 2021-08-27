@@ -5,7 +5,7 @@ import {
   ButtonGroup,
   makeStyles,
 } from '@material-ui/core';
-import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 
@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100vh',
+    minHeight: '100vh',
   },
 }))
 
@@ -54,22 +54,6 @@ function Index({
   return (
     <Container className={classes.container} >
       <Grid container spacing={2} justify='center' alignItems='center'>
-        <Grid container item justify='center' alignItems='center' xs={5}>
-          <img alt='' width='150px' height='150px'
-            style={{ objectFit: 'cover', borderRadius: '5px' }}
-            src={(file && URL.createObjectURL(file)) || process.env.PUBLIC_URL + '/logo.png'} />
-        </Grid>
-        <Grid container item justify='center' alignItems='center' xs={2} direction='column'>
-          <Grid item>
-            <KeyboardBackspaceIcon />
-          </Grid>
-          <Grid item>
-            <KeyboardBackspaceIcon />
-          </Grid>
-          <Grid item>
-            <KeyboardBackspaceIcon />
-          </Grid>
-        </Grid>
         <Grid container item justify='center' alignItems='center' xs={5} direction='column' spacing={2}>
           <Grid container item justify='center' alignItems='center' xs={12}>
             <img alt='' width='150px' height='150px'
@@ -86,6 +70,22 @@ function Index({
               style={{ objectFit: 'cover', borderRadius: '5px' }}
               src={process.env.PUBLIC_URL + '/logo.png'} />
           </Grid>
+        </Grid>
+        <Grid container item justify='center' alignItems='center' xs={2} direction='column'>
+          <Grid item>
+            <ArrowRightAltIcon />
+          </Grid>
+          <Grid item>
+            <ArrowRightAltIcon />
+          </Grid>
+          <Grid item>
+            <ArrowRightAltIcon />
+          </Grid>
+        </Grid>
+        <Grid container item justify='center' alignItems='center' xs={5}>
+          <img alt='' width='150px' height='150px'
+            style={{ objectFit: 'cover', borderRadius: '5px' }}
+            src={(file && URL.createObjectURL(file)) || process.env.PUBLIC_URL + '/logo.png'} />
         </Grid>
         <Grid item xs={6}>
           <ButtonGroup fullWidth variant='contained' color='primary'>

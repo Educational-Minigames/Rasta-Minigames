@@ -11,6 +11,7 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
+import { PhotoSizeSelectLargeOutlined } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import { toast } from 'react-toastify';
@@ -23,39 +24,23 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100vh',
+    minHeight: '100vh',
   },
-  top_left: {
-    position: 'fixed',
-    top: theme.spacing(2),
-    right: theme.spacing(2),
-    zIndex: 100,
-  },
-  resetGame: {
-    position: 'fixed',
-    top: theme.spacing(2),
-    right: theme.spacing(2),
-    zIndex: 10,
-  },
-  bottomButtons: {
-    position: 'fixed',
-    bottom: theme.spacing(2),
-    left: theme.spacing(2),
-    zIndex: 10,
-  },
-  paper: {
-    padding: theme.spacing(2),
-  },
-  table: {
-    height: '500px',
-    width: '650px'
-  },
-  tableContainer: {
-    marginTop: theme.spacing(4),
-    overflowX: 'auto',
-  }
-
 }))
+
+
+const createMatrix = (size) => {
+  let table = [];
+  for (let i = 0; i < size; i++) {
+    let row = [];
+    for (let j = 0; j < size; j++) {
+      row.push(0)
+    }
+    table.push(row)
+  }
+  return table;
+}
+
 
 
 function Index({
@@ -63,10 +48,12 @@ function Index({
 }) {
   const classes = useStyles();
   const [size, setSize] = useState(3);
-  const [table, setTable] = useState(new Array(size * size).fill(0));
+  const [table, setTable] = useState(createMatrix(size));
+
+  console.log(createMatrix(3))
 
   useEffect(() => {
-    setTable(new Array(size * size).fill(0));
+    setTable(createMatrix(size));
   }, [size])
 
   const isJustDigits = (number) => {
@@ -90,12 +77,12 @@ function Index({
                 <Grid key={i} container item>
                   {[...Array(size).keys()].map((j) => (
                     <Grid key={j} item xs>
-                      <TextField variant='outlined' value={table[i * size + j]}
+                      <TextField variant='outlined' value={table[i][j]}
                         inputProps={{ className: 'ltr-input' }}
                         onChange={(e) => {
                           if (isJustDigits(e.target.value)) {
                             const newTable = [...table];
-                            newTable[i * size + j] = parseInt(e.target.value) || 0;
+                            newTable[i][j] = parseInt(e.target.value) || 0;
                             setTable(newTable)
                           }
                         }} />
@@ -129,10 +116,15 @@ function Index({
             style={{ borderRadius: '5px', objectFit: 'cover' }}
             src={image || process.env.PUBLIC_URL + '/logo.png'} />
         </Grid>
-        <Grid item xs={6}>
-          <Button fullWidth variant='contained' color='primary'>
-            {'ثبت'}
-          </Button>
+        <Grid item xs={6} container justify='center'>
+          <ButtonGroup>
+            <Button fullWidth variant='contained' color='primary'>
+              {'اعمال با فیلتر دلخواه'}
+            </Button>
+            <Button fullWidth variant='contained' color='primary'>
+              {'اعمال با فیلتر گوسی'}
+            </Button>
+          </ButtonGroup>
         </Grid>
       </Grid>
     </Container >

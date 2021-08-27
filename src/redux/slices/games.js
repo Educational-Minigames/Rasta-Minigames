@@ -4,6 +4,8 @@ import { Apis } from '../apis';
 import { createAsyncThunkApi } from '../apis/cerateApiAsyncThunk';
 import {
   imageProcessingWorkshop1Url,
+  getTimeChartOfSoundUrl,
+  applyFilterOnVoiceSegmentUrl,
 } from '../constants/urls';
 
 const initialState = {};
@@ -19,6 +21,25 @@ export const imageProcessingWorkshop1Action = createAsyncThunkApi(
     },
   }
 );
+
+export const getTimeChartOfSoundAction = createAsyncThunkApi(
+  'users/getTimeChartOfSoundAction',
+  Apis.POST,
+  getTimeChartOfSoundUrl,
+);
+
+export const applyFilterOnVoiceSegmentAction = createAsyncThunkApi(
+  'users/applyFilterOnVoiceSegmentAction',
+  Apis.POST,
+  applyFilterOnVoiceSegmentUrl,
+);
+
+
+
+
+
+
+
 
 const isFetching = (state) => {
   state.isFetching = true;
@@ -37,10 +58,18 @@ const accountSlice = createSlice({
   extraReducers: {
     [imageProcessingWorkshop1Action.pending.toString()]: isFetching,
     [imageProcessingWorkshop1Action.fulfilled.toString()]: (state, { payload: { response } }) => {
-      state.image = response;
+      state.image = response.time_dir;
       state.isFetching = false;
     },
     [imageProcessingWorkshop1Action.rejected.toString()]: isNotFetching,
+
+
+    [getTimeChartOfSoundAction.pending.toString()]: isFetching,
+    [getTimeChartOfSoundAction.fulfilled.toString()]: (state, { payload: { response } }) => {
+      state.timeChartImage = 'https://' + response.time_dir;
+      state.isFetching = false;
+    },
+    [getTimeChartOfSoundAction.rejected.toString()]: isNotFetching,
   },
 });
 

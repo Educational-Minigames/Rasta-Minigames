@@ -1,3 +1,4 @@
+import { PhotoSizeSelectLargeSharp } from '@material-ui/icons';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
@@ -24,7 +25,7 @@ const MyRoute = () => {
       {
         MINI_GAMES.map((miniGame, index) => {
           return (
-            <Route key={index} exact path={miniGame.url} component={miniGame.component} />
+            <Route key={index} exact path={miniGame.url} render={() => <miniGame.component {...miniGame.props} />} />
           )
         })
       }
