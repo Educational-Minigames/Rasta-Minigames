@@ -49,7 +49,7 @@ function Index({
 }) {
   const classes = useStyles();
   const audioRef = useRef();
-  const [segmentLength, setSegmentLength] = useState();
+  const [segmentLength, setSegmentLength] = useState(0.5);
   const [fixedSegmentLength, setFixedSegmentLength] = useState()
   const [values, setValues] = useState([0, 0]);
 
@@ -79,7 +79,7 @@ function Index({
       audioRef.current.currentTime = roundBy2(newValues[1] - parseFloat(fixedSegmentLength));
     } else {
       setValues([newValues[0], roundBy2(newValues[0] + parseFloat(fixedSegmentLength))])
-      audioRef.current.currentTime = roundBy2(newValues[0]);
+      audioRef.current.currentTime = newValues[0];
     }
   }
 
@@ -93,19 +93,8 @@ function Index({
     audioRef.current.play();
   }
 
-  const reset = () => {
-    setSegmentLength()
-    setFixedSegmentLength()
-    setValues([0, 0])
-  }
-
   return (
     <Container className={classes.container} >
-      <div style={{ position: 'fixed', left: '10px', top: '10px' }}>
-        <Button variant='contained' fullWidth color='primary' onClick={reset}>
-          {'از اول'}
-        </Button>
-      </div>
       <Grid container justify='center' direction='column' spacing={1}>
         <Grid container item justify='center' alignItems='center'>
           <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
