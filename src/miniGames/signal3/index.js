@@ -15,7 +15,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux'
 
 import {
-  applyFilterOnVoiceSegmentAction,
+  applyFilterWithSpecificFrequencyOnVoiceSegmentAction,
   getTimeChartOfSoundAction,
 } from '../../redux/slices/games';
 import {
@@ -33,15 +33,10 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const roundBy2 = (number) => {
-  return Math.round((number + Number.EPSILON) * 100) / 100
-}
-
-
 function Index({
   addNotification,
+  applyFilterWithSpecificFrequencyOnVoiceSegment,
   getTimeChartOfSoundAction,
-  applyFilterOnVoiceSegmentAction,
   sound_file = 'Noise.wav',
   duration = 1.22,
   timeChartImage,
@@ -49,42 +44,25 @@ function Index({
 }) {
   const classes = useStyles();
   const audioRef = useRef();
-  const [segmentLength, setSegmentLength] = useState(0.5);
-  const [fixedSegmentLength, setFixedSegmentLength] = useState()
-  const [values, setValues] = useState([0, 0]);
+  const [timeValues, setTimeValues] = useState([0.1, 0.6]);
+  const [frequencyValues, setFrequencyValues] = useState([-1, 1]);
 
   useEffect(() => {
     getTimeChartOfSoundAction({ sound_file });
   }, [])
 
   const applyFilter = () => {
-    applyFilterOnVoiceSegmentAction({ start: values[0], end: values[1], sound_file })
-  }
-
-  const doSetFixedSegmentLength = () => {
-    if (segmentLength >= 1 || segmentLength < 0) {
-      addNotification({
-        message: 'لطفاً یک عدد مثبت کمتر از ۱ وارد کن!',
-        type: 'error',
-      });
-      return;
-    }
-    setFixedSegmentLength(roundBy2(parseFloat(segmentLength)))
-    setValues([0, roundBy2(parseFloat(segmentLength))])
-  }
-
-  const setSliderValues = (event, newValues) => {
-    if (newValues[0] == values[0]) {
-      setValues([roundBy2(newValues[1] - parseFloat(fixedSegmentLength)), newValues[1]])
-      audioRef.current.currentTime = roundBy2(newValues[1] - parseFloat(fixedSegmentLength));
-    } else {
-      setValues([newValues[0], roundBy2(newValues[0] + parseFloat(fixedSegmentLength))])
-      audioRef.current.currentTime = newValues[0];
-    }
+    applyFilterWithSpecificFrequencyOnVoiceSegment({
+      start: timeValues[0],
+      end: timeValues[1],
+      lowcut: frequencyValues[0],
+      highcut: frequencyValues[1],
+      sound_file,
+    })
   }
 
   const manageAudioPlay = (e) => {
-    if (e.target.currentTime >= values[1]) {
+    if (e.target.currentTime >= timeValues[1]) {
       e.target.pause();
     }
   }
@@ -96,40 +74,36 @@ function Index({
   return (
     <Container className={classes.container} >
       <Grid container justify='center' direction='column' spacing={1}>
-        <Grid container item justify='center' alignItems='center'>
-          <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
-        </Grid>
-
-        <Grid item container justify='center' alignItems='center' spacing={1}>
-          <Grid item xs={6}>
-            <Button disabled={fixedSegmentLength} variant='outlined' fullWidth color='primary' onClick={doSetFixedSegmentLength}>
-              {'ثبت'}
-            </Button>
+        <Grid item container >
+          <Grid container item justify='center' alignItems='center' xs={11}>
+            <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
           </Grid>
-          <Grid item xs={6}>
-            <TextField
-              fullWidth disabled={fixedSegmentLength}
-              variant='outlined' size='small'
-              inputProps={{ className: 'ltr-input' }}
-              onChange={(e) => setSegmentLength(e.target.value)} />
+          <Grid item container xs={1} justify='center' alignItems='center'>
+            <Slider
+              orientation='vertical'
+              min={0} max={2} step={0.1} marks
+              value={frequencyValues} valueLabelDisplay="auto"
+              onChange={(_, newValues) => setFrequencyValues(newValues)} />
           </Grid>
         </Grid>
 
         <Grid container item justify='center' alignItems='center'>
-          <Grid item xs={10} container justify='center' alignItems='center'>
+          <Grid item xs={11} container justify='center' alignItems='center'>
             <audio ref={audioRef} onTimeUpdate={manageAudioPlay}>
               <source src={process.env.PUBLIC_URL + '/music/' + sound_file} type="audio/mp3" />
             </audio>
             <ThemeProvider theme={MuiTheme}>
               <Slider
-                disabled={!fixedSegmentLength}
-                min={0} max={duration} step={0.01} marks
-                value={values} valueLabelDisplay="auto"
-                onChange={setSliderValues} />
+                min={0} max={duration} step={0.1} marks
+                value={timeValues} valueLabelDisplay="auto"
+                onChange={(_, newValues) => {
+                  audioRef.current.currentTime = newValues[0];
+                  setTimeValues(newValues);
+                }} />
             </ThemeProvider>
           </Grid>
           <Grid item xs={1} container justify='center' alignItems='center'>
-            <IconButton disabled={!fixedSegmentLength} onClick={playAudio}>
+            <IconButton onClick={playAudio}>
               <PlayCircleOutlineIcon />
             </IconButton>
           </Grid>
@@ -167,6 +141,6 @@ export default connect(
   {
     addNotification: addNotificationAction,
     getTimeChartOfSoundAction,
-    applyFilterOnVoiceSegmentAction,
+    applyFilterWithSpecificFrequencyOnVoiceSegment: applyFilterWithSpecificFrequencyOnVoiceSegmentAction,
   }
 )(Index);

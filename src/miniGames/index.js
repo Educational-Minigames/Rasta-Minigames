@@ -12,6 +12,7 @@ import Physic_collision from './Physic_collision';
 // signal workshop
 import Signal1 from './signal1';
 import Signal2 from './signal2';
+import Signal3 from './signal3';
 import Sine_Waves from './Sine_Waves'
 import Sine_Waves2 from './Sine_Waves2'
 
@@ -102,6 +103,7 @@ const MINI_GAMES = [
     url: '/signal1-3',
     name: 'بازی فوریه ۱-۳',
   },
+
   {
     component: Signal2,
     props: { sound_file: 'Noise.wav', duration: 1.22 },
@@ -120,6 +122,20 @@ const MINI_GAMES = [
     url: '/signal2-3',
     name: 'بازی فوریه ۲-۳',
   },
+
+  {
+    component: Signal3,
+    props: { sound_file: 'kotlet_kargah.wav', duration: 5.54 },
+    url: '/signal3-1',
+    name: 'بازی فوریه ۳-۱',
+  },
+  {
+    component: Signal3,
+    props: { sound_file: 'kotlet_kargah-2.wav', duration: 2.22 },
+    url: '/signal3-2',
+    name: 'بازی فوریه ۳-۲',
+  },
+
 
   {
     component: Sine_Waves,

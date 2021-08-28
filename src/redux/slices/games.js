@@ -8,6 +8,7 @@ import {
   applyThresholdUrl,
   decomposeToChannelsUrl,
   getTimeChartOfSoundUrl,
+  applyFilterWithSpecificFrequencyOnVoiceSegmentUrl,
 } from '../constants/urls';
 
 const initialState = {};
@@ -30,9 +31,6 @@ export const decomposeToChannelsAction = createAsyncThunkApi(
   decomposeToChannelsUrl,
 );
 
-
-
-
 export const getTimeChartOfSoundAction = createAsyncThunkApi(
   'users/getTimeChartOfSoundAction',
   Apis.POST,
@@ -45,7 +43,11 @@ export const applyFilterOnVoiceSegmentAction = createAsyncThunkApi(
   applyFilterOnVoiceSegmentUrl,
 );
 
-
+export const applyFilterWithSpecificFrequencyOnVoiceSegmentAction = createAsyncThunkApi(
+  'users/applyFilterWithSpecificFrequencyOnVoiceSegmentAction',
+  Apis.POST,
+  applyFilterWithSpecificFrequencyOnVoiceSegmentUrl,
+);
 
 
 
@@ -109,6 +111,13 @@ const accountSlice = createSlice({
     [applyFilterOnVoiceSegmentAction.rejected.toString()]: isNotFetching,
 
 
+    [applyFilterWithSpecificFrequencyOnVoiceSegmentAction.pending.toString()]: isFetching,
+    [applyFilterWithSpecificFrequencyOnVoiceSegmentAction.fulfilled.toString()]: (state, { payload: { response } }) => {
+      console.log(response)
+      state.resultImage = 'https://' + response.fft_dir;
+      state.isFetching = false;
+    },
+    [applyFilterWithSpecificFrequencyOnVoiceSegmentAction.rejected.toString()]: isNotFetching,
 
   },
 });

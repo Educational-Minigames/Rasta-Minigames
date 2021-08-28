@@ -3,6 +3,7 @@ export const applyMatrixFilterUrl = 'image/filter/';
 export const decomposeToChannelsUrl = 'image/channels/';
 export const getTimeChartOfSoundUrl = 'frequency/timeplot/'
 export const applyFilterOnVoiceSegmentUrl = 'frequency/fft/'
+export const applyFilterWithSpecificFrequencyOnVoiceSegmentUrl = 'frequency/filter/';
 
 
 export const loginUrl = 'auth/token/obtain/';

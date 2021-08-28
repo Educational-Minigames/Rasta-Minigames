@@ -74,6 +74,10 @@ function Index({
   }
 
   const setSliderValues = (event, newValues) => {
+    if ((newValues[1] - newValues[0]) <= fixedSegmentLength) {
+      setValues[values];
+      return;
+    }
     if (newValues[0] == values[0]) {
       setValues([roundBy2(newValues[1] - parseFloat(fixedSegmentLength)), newValues[1]])
       audioRef.current.currentTime = roundBy2(newValues[1] - parseFloat(fixedSegmentLength));
