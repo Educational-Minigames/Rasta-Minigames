@@ -1,4 +1,6 @@
-export const imageProcessingWorkshop1Url = 'image/password/'
+export const applyThresholdUrl = 'image/threshold/';
+export const applyMatrixFilterUrl = 'image/filter/';
+export const decomposeToChannelsUrl = 'image/channels/';
 export const getTimeChartOfSoundUrl = 'frequency/timeplot/'
 export const applyFilterOnVoiceSegmentUrl = 'frequency/filter/'
 

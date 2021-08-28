@@ -70,7 +70,7 @@ function Index({
     <Container className={classes.container} >
       <Grid container justify='center' direction='column' spacing={2}>
         <Grid container item justify='center' alignItems='center'>
-          <img alt='' src={timeChartImage} style={{ width: '100%', maxHeight: '400px' }} />
+          <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
         </Grid>
         <Grid container item justify='center' alignItems='center'>
           <ArrowDownwardIcon />
@@ -104,7 +104,7 @@ function Index({
           <ArrowDownwardIcon />
         </Grid>
         <Grid container item justify='center' alignItems='center'>
-          <img alt='' src={timeChartImage} style={{ width: '100%' }} />
+          <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
         </Grid>
 
       </Grid>

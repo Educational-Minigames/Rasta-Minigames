@@ -3,24 +3,33 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Apis } from '../apis';
 import { createAsyncThunkApi } from '../apis/cerateApiAsyncThunk';
 import {
-  imageProcessingWorkshop1Url,
-  getTimeChartOfSoundUrl,
   applyFilterOnVoiceSegmentUrl,
+  applyMatrixFilterUrl,
+  applyThresholdUrl,
+  decomposeToChannelsUrl,
+  getTimeChartOfSoundUrl,
 } from '../constants/urls';
 
 const initialState = {};
 
-export const imageProcessingWorkshop1Action = createAsyncThunkApi(
-  'users/imageProcessingWorkshop1Action',
+export const applyThresholdAction = createAsyncThunkApi(
+  'users/applyThresholdAction',
   Apis.POST,
-  imageProcessingWorkshop1Url,
-  {
-    defaultNotification: {
-      success: 'اعمال شد',
-      error: 'یه مشکلی وجود داره!',
-    },
-  }
+  applyThresholdUrl,
 );
+
+export const applyMatrixFilterAction = createAsyncThunkApi(
+  'users/applyMatrixFilterAction',
+  Apis.POST_FORM_DATA,
+  applyMatrixFilterUrl,
+);
+
+export const decomposeToChannelsAction = createAsyncThunkApi(
+  'users/decomposeToChannelsAction',
+  Apis.POST,
+  decomposeToChannelsUrl,
+);
+
 
 export const getTimeChartOfSoundAction = createAsyncThunkApi(
   'users/getTimeChartOfSoundAction',
@@ -56,12 +65,30 @@ const accountSlice = createSlice({
     logout: () => initialState,
   },
   extraReducers: {
-    [imageProcessingWorkshop1Action.pending.toString()]: isFetching,
-    [imageProcessingWorkshop1Action.fulfilled.toString()]: (state, { payload: { response } }) => {
-      state.image = response.time_dir;
+    [applyThresholdAction.pending.toString()]: isFetching,
+    [applyThresholdAction.fulfilled.toString()]: (state, { payload: { response } }) => {
+      state.resultImage = 'https://' + response.image_dir;
       state.isFetching = false;
     },
-    [imageProcessingWorkshop1Action.rejected.toString()]: isNotFetching,
+    [applyThresholdAction.rejected.toString()]: isNotFetching,
+
+
+    [applyMatrixFilterAction.pending.toString()]: isFetching,
+    [applyMatrixFilterAction.fulfilled.toString()]: (state, { payload: { response } }) => {
+      state.resultImage = 'https://' + response.image_dir;
+      state.isFetching = false;
+    },
+    [applyMatrixFilterAction.rejected.toString()]: isNotFetching,
+
+
+    [decomposeToChannelsAction.pending.toString()]: isFetching,
+    [decomposeToChannelsAction.fulfilled.toString()]: (state, { payload: { response } }) => {
+      state.blueResultImage = 'https://' + response.blue_image_dir;
+      state.greenResultImage = 'https://' + response.green_image_dir;
+      state.redResultImage = 'https://' + response.red_image_dir;
+      state.isFetching = false;
+    },
+    [decomposeToChannelsAction.rejected.toString()]: isNotFetching,
 
 
     [getTimeChartOfSoundAction.pending.toString()]: isFetching,

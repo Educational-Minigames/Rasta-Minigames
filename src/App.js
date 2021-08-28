@@ -1,7 +1,7 @@
 import './theme/Styles/App.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline, LinearProgress } from '@material-ui/core';
 import { StylesProvider } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { SnackbarProvider } from 'notistack';
@@ -42,10 +42,25 @@ const MiniGameApp = () => (
   </SnackbarProvider>
 );
 
-const App = ({ dir }) => {
+const App = ({ dir, loading }) => {
   useEffect(() => {
     document.body.dir = dir;
   }, [dir]);
+
+  const Loading = () => {
+    if (loading) {
+      return (
+        <div style={{ width: '100%', position: 'fixed', top: '0px', zIndex: '1000' }}>
+          <LinearProgress />
+        </div>
+      )
+    } else {
+      return (
+        <>
+        </>
+      )
+    }
+  }
 
   return (
     <IntlProvider translations={translations}>
@@ -53,6 +68,7 @@ const App = ({ dir }) => {
         <>
           <ThemeProvider theme={RTLMuiTheme}>
             <StylesProvider jss={jss}>
+              <Loading />
               <MiniGameApp />
             </StylesProvider>
           </ThemeProvider>
@@ -60,6 +76,7 @@ const App = ({ dir }) => {
       ) : (
           <>
             <ThemeProvider theme={MuiTheme}>
+              <Loading />
               <MiniGameApp />
             </ThemeProvider>
           </>
@@ -70,6 +87,7 @@ const App = ({ dir }) => {
 
 const mapStateToProps = (state) => ({
   dir: state.Intl.locale === 'fa' ? 'rtl' : 'ltr',
+  loading: state.games.isFetching,
 });
 
 export default connect(mapStateToProps)(App);

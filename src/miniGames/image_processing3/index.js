@@ -8,6 +8,9 @@ import {
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
+import {
+  decomposeToChannelsAction,
+} from '../../redux/slices/games';
 
 
 const useStyles = makeStyles(() => ({
@@ -17,11 +20,21 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     minHeight: '100vh',
   },
+  image: {
+    width: '100%',
+    borderRadius: '5px',
+  }
 }))
 
 
 function Index({
-  images,
+  decomposeToChannels,
+
+  imageFileSource,
+  imageFileName,
+  blueResultImage,
+  redResultImage,
+  greenResultImage,
 }) {
   const classes = useStyles();
   const [size] = useState(3);
@@ -37,10 +50,6 @@ function Index({
     if (e.target.files[0]) {
       if (e.target.files[0].size <= 8e6) {
         setFile(e.target.files[0])
-        // uploadFile({
-        //   id,
-        //   answerFile: e.target.files[0]
-        // });
       } else {
         e.target.value = '';
         e.target.setCustomValidity('Maximum upload file size is 8 MB.');
@@ -49,6 +58,10 @@ function Index({
     }
   };
 
+  const decompose = () => {
+    decomposeToChannels({ image_file: imageFileName });
+  }
+
   console.log(file)
 
   return (
@@ -56,19 +69,13 @@ function Index({
       <Grid container spacing={2} justify='center' alignItems='center'>
         <Grid container item justify='center' alignItems='center' xs={5} direction='column' spacing={2}>
           <Grid container item justify='center' alignItems='center' xs={12}>
-            <img alt='' width='150px' height='150px'
-              style={{ objectFit: 'cover', borderRadius: '5px' }}
-              src={process.env.PUBLIC_URL + '/logo.png'} />
+            <img alt='' className={classes.image} src={blueResultImage || imageFileSource} />
           </Grid>
           <Grid container item justify='center' alignItems='center' xs={12}>
-            <img alt='' width='150px' height='150px'
-              style={{ objectFit: 'cover', borderRadius: '5px' }}
-              src={process.env.PUBLIC_URL + '/logo.png'} />
+            <img alt='' className={classes.image} src={redResultImage || imageFileSource} />
           </Grid>
           <Grid container item justify='center' alignItems='center' xs={12}>
-            <img alt='' width='150px' height='150px'
-              style={{ objectFit: 'cover', borderRadius: '5px' }}
-              src={process.env.PUBLIC_URL + '/logo.png'} />
+            <img alt='' className={classes.image} src={greenResultImage || imageFileSource} />
           </Grid>
         </Grid>
         <Grid container item justify='center' alignItems='center' xs={2} direction='column'>
@@ -83,13 +90,12 @@ function Index({
           </Grid>
         </Grid>
         <Grid container item justify='center' alignItems='center' xs={5}>
-          <img alt='' width='150px' height='150px'
-            style={{ objectFit: 'cover', borderRadius: '5px' }}
-            src={(file && URL.createObjectURL(file)) || process.env.PUBLIC_URL + '/logo.png'} />
+          <img alt='' className={classes.image}
+            src={imageFileSource} />
         </Grid>
         <Grid item xs={6}>
           <ButtonGroup fullWidth variant='contained' color='primary'>
-            <Button onClick={() => document.getElementById('userProfilePicture').click()}>
+            {/* <Button onClick={() => document.getElementById('userProfilePicture').click()}>
               {'انتخاب تصویر'}
             </Button>
             <input
@@ -99,8 +105,8 @@ function Index({
               id={'userProfilePicture'}
               type="file"
               onChange={handleFileChange}
-            />
-            <Button >
+            /> */}
+            <Button onClick={decompose}>
               {'اعمال'}
             </Button>
           </ButtonGroup>
@@ -112,11 +118,14 @@ function Index({
 
 const mapStateToProps = (state) => ({
   images: state.games.images,
+  blueResultImage: state.games.blueResultImage,
+  greenResultImage: state.games.greenResultImage,
+  redResultImage: state.games.redResultImage,
 })
 
 export default connect(
   mapStateToProps,
   {
-
+    decomposeToChannels: decomposeToChannelsAction,
   }
 )(Index);

@@ -11,13 +11,10 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import { PhotoSizeSelectLargeOutlined } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
-import { toast } from 'react-toastify';
 
-import { stringToColor } from '../../utils/stringToColor';
-import { toPersianNumber } from '../../utils/translateNumber';
+import { applyMatrixFilterAction } from "../../redux/slices/games";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -25,6 +22,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: '100vh',
+  },
+  image: {
+    width: '100%',
+    borderRadius: '5px',
   },
 }))
 
@@ -41,16 +42,17 @@ const createMatrix = (size) => {
   return table;
 }
 
-
-
 function Index({
-  image,
+  applyMatrixFilter,
+
+  imageFileName,
+  imageFileSource,
+  resultImage,
 }) {
   const classes = useStyles();
   const [size, setSize] = useState(3);
   const [table, setTable] = useState(createMatrix(size));
 
-  console.log(createMatrix(3))
 
   useEffect(() => {
     setTable(createMatrix(size));
@@ -65,7 +67,9 @@ function Index({
     }
   };
 
-  console.log(table)
+  const applyFilter = () => {
+    applyMatrixFilter({ image_file: imageFileName, kernel: table })
+  }
 
   return (
     <Container className={classes.container} >
@@ -99,8 +103,7 @@ function Index({
                 value={size}
                 onChange={(e) => { setSize(e.target.value) }}
                 name='province'
-                label='اندازه جدول'
-              >
+                label='اندازه جدول'>
                 <MenuItem value={2} >2</MenuItem>
                 <MenuItem value={3} >3</MenuItem>
                 <MenuItem value={4} >4</MenuItem>
@@ -112,16 +115,15 @@ function Index({
           </Grid>
         </Grid>
         <Grid item container justify='center' alignItems='center' xs={6}>
-          <img alt='' width='200px'
-            style={{ borderRadius: '5px', objectFit: 'cover' }}
-            src={image || process.env.PUBLIC_URL + '/logo.png'} />
+          <img alt='' className={classes.image}
+            src={resultImage || imageFileSource} />
         </Grid>
-        <Grid item xs={6} container justify='center'>
-          <ButtonGroup>
-            <Button fullWidth variant='contained' color='primary'>
+        <Grid item xs={12} container justify='center'>
+          <ButtonGroup fullWidth variant='contained' color='primary'>
+            <Button onClick={applyFilter}>
               {'اعمال با فیلتر دلخواه'}
             </Button>
-            <Button fullWidth variant='contained' color='primary'>
+            <Button>
               {'اعمال با فیلتر گوسی'}
             </Button>
           </ButtonGroup>
@@ -133,11 +135,12 @@ function Index({
 
 const mapStateToProps = (state) => ({
   image: state.games.image,
+  resultImage: state.games.resultImage,
 })
 
 export default connect(
   mapStateToProps,
   {
-
+    applyMatrixFilter: applyMatrixFilterAction
   }
 )(Index);

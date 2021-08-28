@@ -27,7 +27,7 @@ function Homepage() {
             </li>
           )
         })}
-        <li>
+        {/* <li>
           <a href='/Conways_Game_Of_Life'>
             {'بازی زندگی کانوی (سیستم‌های پیچیده)'}
           </a>
@@ -96,7 +96,7 @@ function Homepage() {
           <a href='/Defusing_Bomb'>
             {'ماشین زمان (اتوماتا)'}
           </a>
-        </li>
+        </li> */}
       </ol>
     </>
   );

@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import {
-  imageProcessingWorkshop1Action
+  applyThresholdAction
 } from '../../redux/slices/games';
 import MuiTheme from '../../theme/MuiThemes/MuiTheme';
 
@@ -23,24 +23,31 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     minHeight: '100vh',
   },
+  image: {
+    width: '100%',
+    borderRadius: '5px',
+  }
 }))
 
 function Index({
-  imageProcessingWorkshop1Action,
-  image,
+  applyThreshold,
+  imageFileName,
+  imageFileSource,
+  resultImage,
 }) {
   const classes = useStyles();
-  const [value, setValue] = useState(100);
+  const [threshold, setThreshold] = useState(100);
 
   const onClick = () => {
-    imageProcessingWorkshop1Action({ treshhold: value });
+    applyThreshold({ threshold, image_file: imageFileName });
   }
 
   return (
     <Container className={classes.container} >
       <Grid container justify='center'>
         <Grid container item justify='center' alignItems='center' xs={5}>
-          <img alt='' width='150px' src={process.env.PUBLIC_URL + '/logo.png'} />
+          <img alt='' className={classes.image}
+            src={resultImage || imageFileSource} />
         </Grid>
         <Grid container item justify='center' alignItems='center' xs={2} direction='column'>
           <Grid item>
@@ -48,13 +55,14 @@ function Index({
           </Grid>
         </Grid>
         <Grid container item justify='center' alignItems='center' xs={5}>
-          <img alt='' width='150px' src={image || process.env.PUBLIC_URL + '/logo.png'} />
+          <img alt='' className={classes.image}
+            width='150px' src={imageFileSource || process.env.PUBLIC_URL + '/loading.gif'} />
         </Grid>
         <Grid item xs={12}>
           <ThemeProvider theme={MuiTheme}>
             <Slider min={0} max={255}
-              value={value} valueLabelDisplay="auto"
-              onChange={(event, newValue) => setValue(newValue)} />
+              value={threshold} valueLabelDisplay="auto"
+              onChange={(event, newValue) => setThreshold(newValue)} />
           </ThemeProvider>
         </Grid>
         <Grid item xs={6}>
@@ -69,11 +77,12 @@ function Index({
 
 const mapStateToProps = (state) => ({
   image: state.games.image,
+  resultImage: state.games.resultImage,
 })
 
 export default connect(
   mapStateToProps,
   {
-    imageProcessingWorkshop1Action,
+    applyThreshold: applyThresholdAction,
   }
 )(Index);
