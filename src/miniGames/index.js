@@ -114,6 +114,15 @@ const MINI_GAMES = [
     name: 'فرکانس- موج‌های سینوسی۲',
   },
   {
+    component: Iframe,
+    props: {
+      src: 'https://preview.p5js.org/AlieNiT/embed/ECeLZWeFV',
+      title: 'signal_phone',
+    },
+    url: '/signal_phone',
+    name: 'فرکانس-تلفن',
+  },
+  {
     component: Furier_Draw,
     props: {},
     url: '/Fourier_Draw',
