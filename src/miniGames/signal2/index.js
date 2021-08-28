@@ -18,6 +18,9 @@ import {
   applyFilterOnVoiceSegmentAction,
   getTimeChartOfSoundAction,
 } from '../../redux/slices/games';
+import {
+  addNotificationAction,
+} from '../../redux/slices/notifications';
 import MuiTheme from '../../theme/MuiThemes/MuiTheme';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +33,13 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
+const roundBy2 = (number) => {
+  return Math.round((number + Number.EPSILON) * 100) / 100
+}
+
+
 function Index({
+  addNotification,
   getTimeChartOfSoundAction,
   applyFilterOnVoiceSegmentAction,
   sound_file = 'Noise.wav',
@@ -40,34 +49,42 @@ function Index({
 }) {
   const classes = useStyles();
   const audioRef = useRef();
-  const [segmentLength, setSegmentLength] = useState(1);
+  const [segmentLength, setSegmentLength] = useState(0.5);
   const [fixedSegmentLength, setFixedSegmentLength] = useState()
-  const [values, setValues] = useState([0.1, 0.6]);
+  const [values, setValues] = useState([0, 0]);
 
   useEffect(() => {
     getTimeChartOfSoundAction({ sound_file });
   }, [])
 
-  useEffect(() => {
-    setValues([0.1, 0.1 + fixedSegmentLength]);
-  }, [fixedSegmentLength])
-
   const applyFilter = () => {
     applyFilterOnVoiceSegmentAction({ start: values[0], end: values[1], sound_file })
   }
 
-  const setFixesSegmentLength = (e) => {
-    setSegmentLength(e.target.value)
+  const doSetFixedSegmentLength = () => {
+    if (segmentLength >= 1 || segmentLength < 0) {
+      addNotification({
+        message: 'لطفاً یک عدد مثبت کمتر از ۱ وارد کن!',
+        type: 'error',
+      });
+      return;
+    }
+    setFixedSegmentLength(roundBy2(parseFloat(segmentLength)))
+    setValues([0, roundBy2(parseFloat(segmentLength))])
   }
 
   const setSliderValues = (event, newValues) => {
-    console.log(audioRef.current.duration)
-    audioRef.current.currentTime = newValues[0];
-    setValues(newValues)
+    if (newValues[0] == values[0]) {
+      setValues([roundBy2(newValues[1] - parseFloat(fixedSegmentLength)), newValues[1]])
+      audioRef.current.currentTime = roundBy2(newValues[1] - parseFloat(fixedSegmentLength));
+    } else {
+      setValues([newValues[0], roundBy2(newValues[0] + parseFloat(fixedSegmentLength))])
+      audioRef.current.currentTime = newValues[0];
+    }
   }
 
   const manageAudioPlay = (e) => {
-    if (e.target.currentTime > values[1]) {
+    if (e.target.currentTime >= values[1]) {
       e.target.pause();
     }
   }
@@ -76,18 +93,16 @@ function Index({
     audioRef.current.play();
   }
 
-
   return (
     <Container className={classes.container} >
       <Grid container justify='center' direction='column' spacing={1}>
-
         <Grid container item justify='center' alignItems='center'>
           <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
         </Grid>
 
         <Grid item container justify='center' alignItems='center' spacing={1}>
           <Grid item xs={6}>
-            <Button disabled={fixedSegmentLength} variant='outlined' fullWidth color='primary' onClick={() => setFixedSegmentLength(segmentLength)}>
+            <Button disabled={fixedSegmentLength} variant='outlined' fullWidth color='primary' onClick={doSetFixedSegmentLength}>
               {'ثبت'}
             </Button>
           </Grid>
@@ -96,7 +111,7 @@ function Index({
               fullWidth disabled={fixedSegmentLength}
               variant='outlined' size='small'
               inputProps={{ className: 'ltr-input' }}
-              onChange={setFixesSegmentLength} />
+              onChange={(e) => setSegmentLength(e.target.value)} />
           </Grid>
         </Grid>
 
@@ -108,13 +123,13 @@ function Index({
             <ThemeProvider theme={MuiTheme}>
               <Slider
                 disabled={!fixedSegmentLength}
-                min={0} max={duration} step={0.001}
+                min={0} max={duration} step={0.01} marks
                 value={values} valueLabelDisplay="auto"
                 onChange={setSliderValues} />
             </ThemeProvider>
           </Grid>
           <Grid item xs={1} container justify='center' alignItems='center'>
-            <IconButton onClick={playAudio}>
+            <IconButton disabled={!fixedSegmentLength} onClick={playAudio}>
               <PlayCircleOutlineIcon />
             </IconButton>
           </Grid>
@@ -150,6 +165,7 @@ const mapStateToProps = (state) => ({
 export default connect(
   mapStateToProps,
   {
+    addNotification: addNotificationAction,
     getTimeChartOfSoundAction,
     applyFilterOnVoiceSegmentAction,
   }

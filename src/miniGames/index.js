@@ -1,5 +1,6 @@
 
 import BioNewspaper from './BioNewspaper';
+import Furier_Draw from './Furier_Draw'
 // logic workshop
 import Iframe from './Iframe'
 // Image Processing workshop
@@ -9,8 +10,8 @@ import ImageProcessing3 from './image_processing3';
 // Physics workshop
 import Physic_collision from './Physic_collision';
 // signal workshop
-import Signal from './signal1';
-import Furier_Draw from './Furier_Draw'
+import Signal1 from './signal1';
+import Signal2 from './signal2';
 import Sine_Waves from './Sine_Waves'
 import Sine_Waves2 from './Sine_Waves2'
 
@@ -84,32 +85,51 @@ const MINI_GAMES = [
 
   // Signal games
   {
-    component: Signal,
+    component: Signal1,
     props: { sound_file: 'Noise.wav', duration: 1.22 },
     url: '/signal1-1',
     name: 'بازی فوریه ۱-۱',
   },
   {
-    component: Signal,
+    component: Signal1,
     props: { sound_file: 'Noisy.wav', duration: 1.22 },
     url: '/signal1-2',
     name: 'بازی فوریه ۱-۲',
   },
   {
-    component: Signal,
+    component: Signal1,
     props: { sound_file: 'Main.wav', duration: 1.22 },
     url: '/signal1-3',
     name: 'بازی فوریه ۱-۳',
   },
   {
+    component: Signal2,
+    props: { sound_file: 'Noise.wav', duration: 1.22 },
+    url: '/signal2-1',
+    name: 'بازی فوریه ۲-۱',
+  },
+  {
+    component: Signal2,
+    props: { sound_file: 'Noisy.wav', duration: 1.22 },
+    url: '/signal2-2',
+    name: 'بازی فوریه ۲-۲',
+  },
+  {
+    component: Signal2,
+    props: { sound_file: 'Main.wav', duration: 1.22 },
+    url: '/signal2-3',
+    name: 'بازی فوریه ۲-۳',
+  },
+
+  {
     component: Sine_Waves,
-    probs = {},
+    props: {},
     url: '/Sine_Waves',
     name: 'فرکانس- موج‌های سینوسی',
   },
   {
     component: Sine_Waves2,
-    probs = {},
+    props: {},
     url: '/Sine_Waves2',
     name: 'فرکانس- موج‌های سینوسی۲',
   },
