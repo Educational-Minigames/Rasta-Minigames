@@ -2,7 +2,7 @@
 import ImageProcessing1 from './image_processing1';
 import ImageProcessing2 from './image_processing2';
 import ImageProcessing3 from './image_processing3';
-// ligit woorkshop
+// logic workshop
 import Logic_Q0_Madar_1 from './Logic_Q0_1'
 import Logic_Q0_Madar_2 from './Logic_Q0_2'
 import Logic_Q1_Madar_1 from './Logic_Q1_Madar_1'
@@ -11,6 +11,8 @@ import Logic_Q1_Madar_3 from './Logic_Q1_Madar_3'
 import Logic_Q1_Madar_4 from './Logic_Q1_Madar_4'
 import Logic_Q2 from './run_circuit'
 import Logic_Q3 from './Logic_Q3'
+// Physics workshop
+import Physic_collision from '/Physic_collision';
 // signal workshop
 import Signal from './signal1';
 
@@ -149,7 +151,13 @@ const MINI_GAMES = [
     url: '/Logic_Q3',
     name: 'منطق_Q3',
   },
-
+  // Physics workshop
+  {
+    component: Physic_collision,
+    props: { },
+    url: '/physic_collision',
+    name: 'فیزیک - بازی برخورد',
+  },
 ]
 
 export default MINI_GAMES;
