@@ -19,7 +19,7 @@ var boxA = Bodies.circle(700, 550, 30);
 var boxB = Bodies.circle(100, 550, 30);
 initBody(boxA)
 initBody(boxB)
-var ground = Bodies.rectangle(400, 610, 810, 60, { isStatic: true });
+var ground = Bodies.rectangle(400, 610, 810, 60, {isStatic: true});
 
 // add all of the bodies to the world
 Composite.add(engine.world, [boxA, boxB, ground]);
@@ -33,6 +33,20 @@ var runner = Runner.create();
 // run the engine
 Runner.run(runner, engine);
 
+let doBlock = true;
+
+const selectElement = document.getElementById('lVel');
+setInterval(() => {
+    if (doBlock) return;
+    selectElement.innerText = "" + Math.round(boxB.speed);
+}, 100)
+
+const selectElement2 = document.getElementById('rVel');
+
+setInterval(() => {
+    if (doBlock) return;
+    selectElement2.innerText = "" + Math.round(boxA.speed);
+}, 100)
 
 function initBody(body) {
     body.friction = 0;
@@ -47,8 +61,9 @@ function run() {
     Matter.Body.setDensity(boxA, massRight)
     const xLeft = parseInt(document.getElementById("leftVelocity").value);
     const xRight = parseInt(document.getElementById("rightVelocity").value);
-    Matter.Body.setVelocity( boxB, {x: xLeft, y: 0});
-    Matter.Body.setVelocity( boxA, {x: -xRight, y: 0});
+    Matter.Body.setVelocity(boxB, {x: xLeft, y: 0});
+    Matter.Body.setVelocity(boxA, {x: -xRight, y: 0});
+    doBlock = false;
 }
 
 function reset() {
@@ -59,4 +74,7 @@ function reset() {
     initBody(boxA)
     initBody(boxB)
     Composite.add(engine.world, [boxA, boxB, ground]);
+    selectElement.innerText = "0";
+    selectElement2.innerText = "0";
+    doBlock = true;
 }
