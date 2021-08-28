@@ -155,7 +155,51 @@ const MINI_GAMES = [
     url: '/Fourier_Draw',
     name: 'فرکانس-نقاشی',
   },
-
+  {
+    component: Iframe,
+    props: {
+      src: 'https://preview.p5js.org/AlieNiT/embed/Jmg7vGxF2',
+      title: 'signal_state2',
+    },
+    url: '/signal_state2',
+    name: 'فرکانس -استیت ۲',
+  },
+  {
+    component: Iframe,
+    props: {
+      src: 'https://preview.p5js.org/AlieNiT/embed/avyX5fP9j',
+      title: 'signal_state3',
+    },
+    url: '/signal_state3',
+    name: 'فرکانس - استیت۳)',
+  },  
+  {
+    component: Iframe,
+    props: {
+      src: 'https://preview.p5js.org/AlieNiT/embed/nPToAiFTM',
+      title: 'signal_state5',
+    },
+    url: '/signal_state5',
+    name: 'فرکانس -استیت ۵',
+  },
+  {
+    component: Iframe,
+    props: {
+      src: 'https://preview.p5js.org/AlieNiT/embed/eZOeyX_Ph',
+      title: 'signal_state6',
+    },
+    url: '/signal_state6',
+    name: 'فرکانس - استیت۶',
+  },
+  {
+    component: Iframe,
+    props: {
+      src: 'https://preview.p5js.org/AlieNiT/embed/ECeLZWeFV',
+      title: 'signal_phone',
+    },
+    url: '/signal_phone',
+    name: 'فرکانس - تلفن(استیت ۱۳)',
+  },
   {
     component: Signal2,
     props: { sound_file: 'Noise.wav', duration: 1.22 },
@@ -174,17 +218,6 @@ const MINI_GAMES = [
     url: '/signal2-3',
     name: 'بازی سیگنال ۲-۳',
   },
-  {
-    component: Iframe,
-    props: {
-      src: 'https://preview.p5js.org/AlieNiT/embed/ECeLZWeFV',
-      title: 'signal_phone',
-    },
-    url: '/signal_phone',
-    name: 'فرکانس - تلفن',
-  },
-
-
 
   // Bio games
   {
