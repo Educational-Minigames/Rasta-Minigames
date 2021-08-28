@@ -9,6 +9,8 @@ import ImageProcessing3 from './image_processing3';
 // Physics workshop
 import Physic_collision from './Physic_collision';
 // signal workshop
+import Signal1 from './signal1';
+import Signal2 from './signal2';
 import Signal from './signal1';
 import Furier_Draw from './Furier_Draw'
 import Sine_Waves from './Sine_Waves'
@@ -84,34 +86,59 @@ const MINI_GAMES = [
 
   // Signal games
   {
-    component: Signal,
+    component: Signal1,
     props: { sound_file: 'Noise.wav', duration: 1.22 },
     url: '/signal1-1',
     name: 'بازی فوریه ۱-۱',
   },
   {
-    component: Signal,
+    component: Signal1,
     props: { sound_file: 'Noisy.wav', duration: 1.22 },
     url: '/signal1-2',
     name: 'بازی فوریه ۱-۲',
   },
   {
-    component: Signal,
+    component: Signal1,
     props: { sound_file: 'Main.wav', duration: 1.22 },
     url: '/signal1-3',
     name: 'بازی فوریه ۱-۳',
   },
   {
     component: Sine_Waves,
-    probs = {},
+    props: {},
     url: '/Sine_Waves',
     name: 'فرکانس- موج‌های سینوسی',
   },
   {
     component: Sine_Waves2,
-    probs = {},
+    props: {},
     url: '/Sine_Waves2',
     name: 'فرکانس- موج‌های سینوسی۲',
+  },
+  {
+    component: Furier_Draw,
+    props: {},
+    url: '/Fourier_Draw',
+    name: 'فرکانس-نقاشی',
+  },
+
+  {
+    component: Signal2,
+    props: { sound_file: 'Noise.wav', duration: 1.22 },
+    url: '/signal2-1',
+    name: 'بازی سیگنال ۲-۱',
+  },
+  {
+    component: Signal2,
+    props: { sound_file: 'Noisy.wav', duration: 1.22 },
+    url: '/signal2-2',
+    name: 'بازی سیگنال ۲-۲',
+  },
+  {
+    component: Signal2,
+    props: { sound_file: 'Main.wav', duration: 1.22 },
+    url: '/signal2-3',
+    name: 'بازی سیگنال ۲-۳',
   },
   {
     component: Iframe,
@@ -120,14 +147,10 @@ const MINI_GAMES = [
       title: 'signal_phone',
     },
     url: '/signal_phone',
-    name: 'فرکانس-تلفن',
+    name: 'فرکانس - تلفن',
   },
-  {
-    component: Furier_Draw,
-    props: {},
-    url: '/Fourier_Draw',
-    name: 'فرکانس-نقاشی',
-  },
+
+
 
   // Bio games
   {
