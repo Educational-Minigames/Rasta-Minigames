@@ -134,20 +134,41 @@ const MINI_GAMES = [
     name: 'فرکانس- موج‌های سینوسی۲',
   },
   {
+    component: Furier_Draw,
+    props: {},
+    url: '/Fourier_Draw',
+    name: 'فرکانس-نقاشی',
+  },
+
+  {
+    component: Signal2,
+    props: { sound_file: 'Noise.wav', duration: 1.22 },
+    url: '/signal2-1',
+    name: 'بازی سیگنال ۲-۱',
+  },
+  {
+    component: Signal2,
+    props: { sound_file: 'Noisy.wav', duration: 1.22 },
+    url: '/signal2-2',
+    name: 'بازی سیگنال ۲-۲',
+  },
+  {
+    component: Signal2,
+    props: { sound_file: 'Main.wav', duration: 1.22 },
+    url: '/signal2-3',
+    name: 'بازی سیگنال ۲-۳',
+  },
+  {
     component: Iframe,
     props: {
       src: 'https://preview.p5js.org/AlieNiT/embed/ECeLZWeFV',
       title: 'signal_phone',
     },
     url: '/signal_phone',
-    name: 'فرکانس-تلفن',
+    name: 'فرکانس - تلفن',
   },
-  {
-    component: Furier_Draw,
-    props: {},
-    url: '/Fourier_Draw',
-    name: 'فرکانس-نقاشی',
-  },
+
+
 
   // Bio games
   {
