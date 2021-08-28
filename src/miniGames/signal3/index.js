@@ -40,12 +40,15 @@ function Index({
   sound_file = 'Noise.wav',
   duration = 1.22,
   timeChartImage,
-  resultImage,
+  fftImage,
+  filteredFftImage,
+  filteredTimeImage,
+  sound,
 }) {
   const classes = useStyles();
   const audioRef = useRef();
   const [timeValues, setTimeValues] = useState([0.1, 0.6]);
-  const [frequencyValues, setFrequencyValues] = useState([-1, 1]);
+  const [frequencyValues, setFrequencyValues] = useState([600, 1300]);
 
   useEffect(() => {
     getTimeChartOfSoundAction({ sound_file });
@@ -81,7 +84,7 @@ function Index({
           <Grid item container xs={1} justify='center' alignItems='center'>
             <Slider
               orientation='vertical'
-              min={0} max={2} step={0.1} marks
+              min={0} max={2000} step={50} marks
               value={frequencyValues} valueLabelDisplay="auto"
               onChange={(_, newValues) => setFrequencyValues(newValues)} />
           </Grid>
@@ -110,18 +113,29 @@ function Index({
         </Grid>
 
         <Grid item xs={12}>
-          <Button variant='outlined' fullWidth color='primary' onClick={applyFilter}>
+          <Button variant='contained' fullWidth color='primary' onClick={applyFilter}>
             {'اعمال'}
           </Button>
         </Grid>
 
-        {resultImage &&
+        {fftImage &&
           <>
             <Grid container item justify='center' alignItems='center'>
               <ArrowDownwardIcon />
             </Grid>
             <Grid container item justify='center' alignItems='center'>
-              <img alt='' src={resultImage} style={{ width: '100%' }} />
+              <img alt='' src={fftImage} style={{ width: '100%' }} />
+            </Grid>
+            <Grid container item justify='center' alignItems='center'>
+              <img alt='' src={filteredFftImage} style={{ width: '100%' }} />
+            </Grid>
+            <Grid container item justify='center' alignItems='center'>
+              <img alt='' src={filteredTimeImage} style={{ width: '100%' }} />
+            </Grid>
+            <Grid container item justify='center' alignItems='center'>
+              <audio controls style={{ width: '100%' }}>
+                <source src={sound} />
+              </audio>
             </Grid>
           </>
         }
@@ -134,6 +148,10 @@ function Index({
 const mapStateToProps = (state) => ({
   timeChartImage: state.games.timeChartImage,
   resultImage: state.games.resultImage,
+  fftImage: state.games.fftImage,
+  filteredFftImage: state.games.filteredFftImage,
+  filteredTimeImage: state.games.filteredTimeImage,
+  sound: state.games.sound,
 })
 
 export default connect(

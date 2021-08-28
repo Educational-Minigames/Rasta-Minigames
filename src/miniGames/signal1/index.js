@@ -94,7 +94,7 @@ function Index({
             </IconButton>
           </Grid>
           <Grid item xs={12}>
-            <Button variant='outlined' fullWidth color='primary' onClick={applyFilter}>
+            <Button variant='contained' fullWidth color='primary' onClick={applyFilter}>
               {'اعمال'}
             </Button>
           </Grid>

@@ -117,14 +117,14 @@ function Index({
 
         <Grid item container justify='center' alignItems='center' spacing={1}>
           <Grid item xs={6}>
-            <Button disabled={fixedSegmentLength} variant='outlined' fullWidth color='primary' onClick={doSetFixedSegmentLength}>
+            <Button disabled={fixedSegmentLength} variant='contained' fullWidth color='primary' onClick={doSetFixedSegmentLength}>
               {'ثبت'}
             </Button>
           </Grid>
           <Grid item xs={6}>
             <TextField
               fullWidth disabled={fixedSegmentLength}
-              variant='outlined' size='small'
+              variant='outlined' size='small' label='طول بازه'
               inputProps={{ className: 'ltr-input' }}
               onChange={(e) => setSegmentLength(e.target.value)} />
           </Grid>
@@ -151,7 +151,7 @@ function Index({
         </Grid>
 
         <Grid item xs={12}>
-          <Button variant='outlined' fullWidth color='primary' onClick={applyFilter}>
+          <Button variant='contained' fullWidth color='primary' onClick={applyFilter}>
             {'اعمال'}
           </Button>
         </Grid>

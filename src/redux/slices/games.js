@@ -113,8 +113,10 @@ const accountSlice = createSlice({
 
     [applyFilterWithSpecificFrequencyOnVoiceSegmentAction.pending.toString()]: isFetching,
     [applyFilterWithSpecificFrequencyOnVoiceSegmentAction.fulfilled.toString()]: (state, { payload: { response } }) => {
-      console.log(response)
-      state.resultImage = 'https://' + response.fft_dir;
+      state.fftImage = 'https://' + response.fft_dir;
+      state.filteredFftImage = 'https://' + response.filtered_fft_dir;
+      state.filteredTimeImage = 'https://' + response.filtered_time_dir;
+      state.sound = 'https://' + response.sound_dir;
       state.isFetching = false;
     },
     [applyFilterWithSpecificFrequencyOnVoiceSegmentAction.rejected.toString()]: isNotFetching,
