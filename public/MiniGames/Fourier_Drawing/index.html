@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<link href="css/styles.css" rel="stylesheet" type="text/css">
+	<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet"> -->
+</head>
+<body>
+
+<main id="content">
+	<div class="multi-container">
+<div class="sketch" >
+    <canvas id="draw-zone" class="sketch-child" width=500 height=500></canvas>
+    <p id="draw-zone-instruction" class="instruction">Draw here!</p>
+    <button id="draw-zone-undo-button" class="button embedded-button">Undo</button>
+</div>
+<canvas id="circle-zone" class="sketch" width=500 height=500></canvas>
+</div>
+<p><input id="circle-zone-slider" type="range" min="0" max="1" value="1" step="any"></p>
+</main>
+<script src="main.bundle.js"></script>
+</body>
+</html>

@@ -11,6 +11,10 @@ import Physic_collision from './Physic_collision';
 // signal workshop
 import Signal1 from './signal1';
 import Signal2 from './signal2';
+import Signal from './signal1';
+import Furier_Draw from './Furier_Draw'
+import Sine_Waves from './Sine_Waves'
+import Sine_Waves2 from './Sine_Waves2'
 
 const MINI_GAMES = [
   // Image processing games
@@ -98,6 +102,24 @@ const MINI_GAMES = [
     props: { sound_file: 'Main.wav', duration: 1.22 },
     url: '/signal1-3',
     name: 'بازی فوریه ۱-۳',
+  },
+  {
+    component: Sine_Waves,
+    props: {},
+    url: '/Sine_Waves',
+    name: 'فرکانس- موج‌های سینوسی',
+  },
+  {
+    component: Sine_Waves2,
+    props: {},
+    url: '/Sine_Waves2',
+    name: 'فرکانس- موج‌های سینوسی۲',
+  },
+  {
+    component: Furier_Draw,
+    props: {},
+    url: '/Fourier_Draw',
+    name: 'فرکانس-نقاشی',
   },
 
   {
