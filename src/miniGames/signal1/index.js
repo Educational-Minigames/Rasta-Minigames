@@ -35,7 +35,7 @@ function Index({
   sound_file = 'Noise.wav',
   duration = 1.22,
   timeChartImage,
-  filteredImage,
+  resultImage,
 }) {
   const classes = useStyles();
   const audioRef = useRef();
@@ -72,9 +72,9 @@ function Index({
         <Grid container item justify='center' alignItems='center'>
           <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
         </Grid>
-        <Grid container item justify='center' alignItems='center'>
+        {/* <Grid container item justify='center' alignItems='center'>
           <ArrowDownwardIcon />
-        </Grid>
+        </Grid> */}
 
         <Grid container item justify='center' alignItems='center'>
           <Grid item xs={10} container justify='center' alignItems='center'>
@@ -100,12 +100,16 @@ function Index({
           </Grid>
         </Grid>
 
-        <Grid container item justify='center' alignItems='center'>
-          <ArrowDownwardIcon />
-        </Grid>
-        <Grid container item justify='center' alignItems='center'>
-          <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
-        </Grid>
+        {resultImage &&
+          <>
+            <Grid container item justify='center' alignItems='center'>
+              <ArrowDownwardIcon />
+            </Grid>
+            <Grid container item justify='center' alignItems='center'>
+              <img alt='' src={resultImage} style={{ width: '100%' }} />
+            </Grid>
+          </>
+        }
 
       </Grid>
     </Container >
@@ -114,6 +118,7 @@ function Index({
 
 const mapStateToProps = (state) => ({
   timeChartImage: state.games.timeChartImage,
+  resultImage: state.games.resultImage,
 })
 
 export default connect(

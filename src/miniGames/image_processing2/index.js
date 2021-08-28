@@ -13,6 +13,8 @@ import {
 } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
+import MuiTheme from '../../theme/MuiThemes/MuiTheme';
+import { ThemeProvider } from '@material-ui/styles';
 
 import { applyMatrixFilterAction } from "../../redux/slices/games";
 
@@ -55,8 +57,12 @@ function Index({
 
 
   useEffect(() => {
-    setTable(createMatrix(size));
   }, [size])
+
+  const changeSize = (event) => {
+    setTable(createMatrix(event.target.value));
+    setSize(event.target.value)
+  }
 
   const isJustDigits = (number) => {
     var regex = new RegExp(`\\d{${number.length}}`);
@@ -67,8 +73,10 @@ function Index({
     }
   };
 
+  console.log(table)
+
   const applyFilter = () => {
-    applyMatrixFilter({ image_file: imageFileName, kernel: table })
+    applyMatrixFilter({ image_file: imageFileName, kernel: JSON.stringify(table) })
   }
 
   return (
@@ -76,32 +84,35 @@ function Index({
       <Grid container spacing={2} justify='center' alignItems='center'>
         <Grid container item xs={6} spacing={2}>
           <Grid item xs={12}>
-            {
-              [...Array(size).keys()].map((i) => (
-                <Grid key={i} container item>
-                  {[...Array(size).keys()].map((j) => (
-                    <Grid key={j} item xs>
-                      <TextField variant='outlined' value={table[i][j]}
-                        inputProps={{ className: 'ltr-input' }}
-                        onChange={(e) => {
-                          if (isJustDigits(e.target.value)) {
-                            const newTable = [...table];
-                            newTable[i][j] = parseInt(e.target.value) || 0;
-                            setTable(newTable)
-                          }
-                        }} />
-                    </Grid>
-                  ))}
-                </Grid>
-              ))
-            }
+            <ThemeProvider theme={MuiTheme}>
+
+              {
+                [...Array(size).keys()].map((i) => (
+                  <Grid key={i} container item>
+                    {[...Array(size).keys()].map((j) => (
+                      <Grid key={j} item xs>
+                        <TextField variant='outlined' value={table[i][j]}
+                          inputProps={{ className: 'ltr-input' }}
+                          onChange={(e) => {
+                            if (isJustDigits(e.target.value)) {
+                              const newTable = [...table];
+                              newTable[i][j] = parseInt(e.target.value) || 0;
+                              setTable(newTable)
+                            }
+                          }} />
+                      </Grid>
+                    ))}
+                  </Grid>
+                ))
+              }
+            </ThemeProvider>
           </Grid>
           <Grid item xs={12}>
             <FormControl size='small' variant="outlined" fullWidth>
               <InputLabel>اندازه جدول</InputLabel>
               <Select
                 value={size}
-                onChange={(e) => { setSize(e.target.value) }}
+                onChange={changeSize}
                 name='province'
                 label='اندازه جدول'>
                 <MenuItem value={2} >2</MenuItem>

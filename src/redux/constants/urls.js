@@ -2,7 +2,7 @@ export const applyThresholdUrl = 'image/threshold/';
 export const applyMatrixFilterUrl = 'image/filter/';
 export const decomposeToChannelsUrl = 'image/channels/';
 export const getTimeChartOfSoundUrl = 'frequency/timeplot/'
-export const applyFilterOnVoiceSegmentUrl = 'frequency/filter/'
+export const applyFilterOnVoiceSegmentUrl = 'frequency/fft/'
 
 
 export const loginUrl = 'auth/token/obtain/';

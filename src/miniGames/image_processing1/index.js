@@ -5,7 +5,6 @@ import {
   makeStyles,
   Slider,
 } from '@material-ui/core';
-import { createMuiTheme } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { ThemeProvider } from '@material-ui/styles';
 import React, { useState } from 'react';

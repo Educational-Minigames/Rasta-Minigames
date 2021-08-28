@@ -31,6 +31,8 @@ export const decomposeToChannelsAction = createAsyncThunkApi(
 );
 
 
+
+
 export const getTimeChartOfSoundAction = createAsyncThunkApi(
   'users/getTimeChartOfSoundAction',
   Apis.POST,
@@ -97,6 +99,17 @@ const accountSlice = createSlice({
       state.isFetching = false;
     },
     [getTimeChartOfSoundAction.rejected.toString()]: isNotFetching,
+
+
+    [applyFilterOnVoiceSegmentAction.pending.toString()]: isFetching,
+    [applyFilterOnVoiceSegmentAction.fulfilled.toString()]: (state, { payload: { response } }) => {
+      state.resultImage = 'https://' + response.fft_dir;
+      state.isFetching = false;
+    },
+    [applyFilterOnVoiceSegmentAction.rejected.toString()]: isNotFetching,
+
+
+
   },
 });
 
