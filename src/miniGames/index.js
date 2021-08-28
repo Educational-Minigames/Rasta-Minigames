@@ -12,7 +12,7 @@ import Logic_Q1_Madar_4 from './Logic_Q1_Madar_4'
 import Logic_Q2 from './run_circuit'
 import Logic_Q3 from './Logic_Q3'
 // Physics workshop
-import Physic_collision from '/Physic_collision';
+import Physic_collision from './Physic_collision';
 // signal workshop
 import Signal from './signal1';
 import BioNewspaper from './BioNewspaper';

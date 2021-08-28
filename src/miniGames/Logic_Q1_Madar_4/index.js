@@ -17,7 +17,7 @@ function index() {
   const classes = useStyles();
   return (
     <div className={classes.div}>
-      <iframe width="600px" height="400px" src="https://circuitverse.org/simulator/embed/q1-231722f4-4288-44c7-a8eb-d8caa82666e4" id="projectPreview" scrolling="no" webkitAllowFullScreen mozAllowFullScreen allowFullScreen></iframe>
+      <iframe title="Rasta" width="600px" height="400px" src="https://circuitverse.org/simulator/embed/q1-231722f4-4288-44c7-a8eb-d8caa82666e4" id="projectPreview" scrolling="no" webkitAllowFullScreen mozAllowFullScreen allowFullScreen></iframe>
     </div>
   );
 }
