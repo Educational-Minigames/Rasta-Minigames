@@ -2,6 +2,16 @@
 import ImageProcessing1 from './image_processing1';
 import ImageProcessing2 from './image_processing2';
 import ImageProcessing3 from './image_processing3';
+// ligit woorkshop
+import Logic_Q0_Madar_1 from './Logic_Q0_1'
+import Logic_Q0_Madar_2 from './Logic_Q0_2'
+import Logic_Q1_Madar_1 from './Logic_Q1_Madar_1'
+import Logic_Q1_Madar_2 from './Logic_Q1_Madar_2'
+import Logic_Q1_Madar_3 from './Logic_Q1_Madar_3'
+import Logic_Q1_Madar_4 from './Logic_Q1_Madar_4'
+import Logic_Q2 from './run_circuit'
+import Logic_Q3 from './Logic_Q3'
+// signal workshop
 import Signal from './signal1';
 
 const MINI_GAMES = [
@@ -89,6 +99,57 @@ const MINI_GAMES = [
     url: '/signal1-3',
     name: 'بازی فوریه ۱-۳',
   },
+
+  // Logic games
+  {
+    component: Logic_Q0_Madar_1,
+    props: { },
+    url: '/logic_Q0_Madar_1',
+    name: 'منطق_Q0_1',
+  },
+  {
+    component: Logic_Q0_Madar_2,
+    props: { },
+    url: '/logic_Q0_Madar_2',
+    name: 'منطق_Q0_2',
+  },
+  {
+    component: Logic_Q1_Madar_1,
+    props: { },
+    url: '/logic_Q1_Madar_1',
+    name: 'منطق_Q1_Madar_1',
+  },
+  {
+    component: Logic_Q1_Madar_2,
+    props: { },
+    url: '/logic_Q1_Madar_2',
+    name: 'منطق_Q1_madar_2',
+  },
+  {
+    component: Logic_Q1_Madar_3,
+    props: { },
+    url: '/logic_Q1_Madar_3',
+    name: 'منطق_Q1_Madar_3',
+  },
+  {
+    component: Logic_Q1_Madar_4,
+    props: { },
+    url: '/logic_Q1_Madar_4',
+    name: 'منطق_Q1_madar_4',
+  },
+  {
+    component: Logic_Q2,
+    props: { },
+    url: '/Logic_Q2',
+    name: 'منطق_Q2_طراحی مدار',
+  },
+  {
+    component: Logic_Q3,
+    props: { },
+    url: '/Logic_Q3',
+    name: 'منطق_Q3',
+  },
+
 ]
 
 export default MINI_GAMES;
