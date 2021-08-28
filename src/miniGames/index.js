@@ -10,7 +10,6 @@ import ImageProcessing3 from './image_processing3';
 import Physic_collision from './Physic_collision';
 // signal workshop
 import Signal from './signal1';
-import Signal3 from './signal3';
 import Furier_Draw from './Furier_Draw'
 import Sine_Waves from './Sine_Waves'
 import Sine_Waves2 from './Sine_Waves2'
@@ -120,12 +119,7 @@ const MINI_GAMES = [
     url: '/Fourier_Draw',
     name: 'فرکانس-نقاشی',
   },
-  {
-    component: Signal3,
-    props: {},
-    url: '/Fourier_Draw',
-    name: 'فرکانس-تلفن',
-  },
+
   // Bio games
   {
     component: BioNewspaper,
