@@ -1,23 +1,18 @@
 
+import BioNewspaper from './BioNewspaper';
+// logic workshop
+import Iframe from './Iframe'
+// Image Processing workshop
 import ImageProcessing1 from './image_processing1';
 import ImageProcessing2 from './image_processing2';
 import ImageProcessing3 from './image_processing3';
-// logic workshop
-import Logic_Q0_Madar_1 from './Logic_Q0_1'
-import Logic_Q0_Madar_2 from './Logic_Q0_2'
-import Logic_Q1_Madar_1 from './Logic_Q1_Madar_1'
-import Logic_Q1_Madar_2 from './Logic_Q1_Madar_2'
-import Logic_Q1_Madar_3 from './Logic_Q1_Madar_3'
-import Logic_Q1_Madar_4 from './Logic_Q1_Madar_4'
-import Logic_Q2 from './run_circuit'
-import Logic_Q3 from './Logic_Q3'
 // Physics workshop
 import Physic_collision from './Physic_collision';
 // signal workshop
 import Signal from './signal1';
-import BioNewspaper from './BioNewspaper';
 
 const MINI_GAMES = [
+  // Image processing games
   {
     component: ImageProcessing1,
     props: {
@@ -84,6 +79,7 @@ const MINI_GAMES = [
     name: 'پردازش تصویر - عکس سه تایی - ۱',
   },
 
+  // Signal games
   {
     component: Signal,
     props: { sound_file: 'Noise.wav', duration: 1.22 },
@@ -103,60 +99,87 @@ const MINI_GAMES = [
     name: 'بازی فوریه ۱-۳',
   },
 
+  // Bio games
   {
     component: BioNewspaper,
     url: '/bio-newspaper',
     name: 'بایو - روزنامه',
   },
+
   // Logic games
   {
-    component: Logic_Q0_Madar_1,
-    props: {},
+    component: Iframe,
+    props: {
+      src: 'https://circuitverse.org/simulator/embed/q0_1',
+      title: 'logic_Q0_Madar_1',
+    },
     url: '/logic_Q0_Madar_1',
     name: 'منطق_Q0_1',
   },
   {
-    component: Logic_Q0_Madar_2,
-    props: {},
+    component: Iframe,
+    props: {
+      src: 'https://circuitverse.org/simulator/embed/q0_2',
+      title: 'logic_Q0_Madar_2',
+    },
     url: '/logic_Q0_Madar_2',
     name: 'منطق_Q0_2',
   },
   {
-    component: Logic_Q1_Madar_1,
-    props: {},
+    component: Iframe,
+    props: {
+      src: 'https://circuitverse.org/simulator/embed/q1_madar_1',
+      title: 'logic_Q1_Madar_1',
+    },
     url: '/logic_Q1_Madar_1',
     name: 'منطق_Q1_Madar_1',
   },
   {
-    component: Logic_Q1_Madar_2,
-    props: {},
+    component: Iframe,
+    props: {
+      src: 'https://circuitverse.org/simulator/embed/q1_madar_2',
+      title: 'logic_Q1_Madar_1',
+    },
     url: '/logic_Q1_Madar_2',
     name: 'منطق_Q1_madar_2',
   },
   {
-    component: Logic_Q1_Madar_3,
-    props: {},
+    component: Iframe,
+    props: {
+      src: 'https://circuitverse.org/simulator/embed/q1_madar_3',
+      title: 'logic_Q1_Madar_1',
+    },
     url: '/logic_Q1_Madar_3',
     name: 'منطق_Q1_Madar_3',
   },
   {
-    component: Logic_Q1_Madar_4,
-    props: {},
+    component: Iframe,
+    props: {
+      src: 'https://circuitverse.org/simulator/embed/q1_madar_4',
+      title: 'logic_Q1_Madar_1',
+    },
     url: '/logic_Q1_Madar_4',
     name: 'منطق_Q1_madar_4',
   },
   {
-    component: Logic_Q2,
-    props: {},
+    component: Iframe,
+    props: {
+      src: `${process.env.PUBLIC_URL}/MiniGames/run_circuit/Logic Gate Simulator _ Academo.org - Free, interactive, education..html`,
+      title: 'Logic Circuit',
+    },
     url: '/Logic_Q2',
     name: 'منطق_Q2_طراحی مدار',
   },
   {
-    component: Logic_Q3,
-    props: {},
+    component: Iframe,
+    props: {
+      src: 'https://circuitverse.org/simulator/embed/q3-087a7688-c91e-4dd2-8bda-168a0bb7494d',
+      title: 'Logic_Q3',
+    },
     url: '/Logic_Q3',
     name: 'منطق_Q3',
   },
+
   // Physics workshop
   {
     component: Physic_collision,
