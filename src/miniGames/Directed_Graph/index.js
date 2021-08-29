@@ -17,7 +17,7 @@ function index() {
   const classes = useStyles();
   return (
     <div className={classes.div}>
-      <iframe className={classes.iframe} title='Directed_Graph' src={`${process.env.PUBLIC_URL}/MiniGames/Directed_Graph/index.html`} />
+      <iframe className={classes.iframe} title='Directed_Graph' src={`${process.env.PUBLIC_URL}/MiniGames/Directed_Graph/Directed Graph Editor.html`} />
     </div>
   );
 }
