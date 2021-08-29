@@ -5,6 +5,7 @@ import Furier_Draw from './Furier_Draw'
 // logic workshop
 import Iframe from './Iframe'
 import Logic_Table1 from './Logic_table1'
+import Logic_table2 from './Logic_table2'
 // Image Processing workshop
 import ImageProcessing1 from './image_processing1';
 import ImageProcessing2 from './image_processing2';
@@ -294,10 +295,10 @@ const MINI_GAMES = [
     name: 'منطق - جدول حقیقت ۱',
   },
   {
-    component: Logic_Table2,
+    component:  Logic_table2,
     props: {},
-    url: '/Logic_Table1',
-    name: 'منطق - جدول حقیقت ۱',
+    url: '/Logic_Table2',
+    name: 'منطق - جدول حقیقت ۲',
   },
 
   // Physics workshop
