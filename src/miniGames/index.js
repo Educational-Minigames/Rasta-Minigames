@@ -14,8 +14,8 @@ import Physic_collision from './Physic_collision';
 import Signal1 from './signal1';
 import Signal2 from './signal2';
 import Signal3 from './signal3';
-import Sine_Waves from './Sine_Waves'
-import Sine_Waves2 from './Sine_Waves2'
+import Sine_Waves from './Sine_Waves';
+import Sine_Waves2 from './Sine_Waves2';
 
 const MINI_GAMES = [
   // Image processing games
