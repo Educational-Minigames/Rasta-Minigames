@@ -87,40 +87,16 @@ const MINI_GAMES = [
   // Signal games
   {
     component: Signal1,
-    props: { sound_file: 'Noise.wav', duration: 1.22 },
+    props: { sound_file: 'DTMF_Signal.wav', duration: 1.22 },
     url: '/signal1-1',
     name: 'بازی فوریه ۱-۱',
-  },
-  {
-    component: Signal1,
-    props: { sound_file: 'Noisy.wav', duration: 1.22 },
-    url: '/signal1-2',
-    name: 'بازی فوریه ۱-۲',
-  },
-  {
-    component: Signal1,
-    props: { sound_file: 'Main.wav', duration: 1.22 },
-    url: '/signal1-3',
-    name: 'بازی فوریه ۱-۳',
   },
 
   {
     component: Signal2,
-    props: { sound_file: 'Noise.wav', duration: 1.22 },
+    props: { sound_file: 'DTMF_Signal.wav', duration: 1.22 },
     url: '/signal2-1',
     name: 'بازی فوریه ۲-۱',
-  },
-  {
-    component: Signal2,
-    props: { sound_file: 'Noisy.wav', duration: 1.22 },
-    url: '/signal2-2',
-    name: 'بازی فوریه ۲-۲',
-  },
-  {
-    component: Signal2,
-    props: { sound_file: 'Main.wav', duration: 1.22 },
-    url: '/signal2-3',
-    name: 'بازی فوریه ۲-۳',
   },
 
   {
@@ -135,7 +111,12 @@ const MINI_GAMES = [
     url: '/signal3-2',
     name: 'بازی فوریه ۳-۲',
   },
-
+  {
+    component: Signal3,
+    props: { sound_file: 'Noisy.wav', duration: 2.22 },
+    url: '/signal3-3',
+    name: 'بازی فوریه ۳-۳',
+  },
 
   {
     component: Sine_Waves,
