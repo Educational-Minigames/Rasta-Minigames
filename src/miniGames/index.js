@@ -293,6 +293,12 @@ const MINI_GAMES = [
     url: '/Logic_Table1',
     name: 'منطق - جدول حقیقت ۱',
   },
+  {
+    component: Logic_Table2,
+    props: {},
+    url: '/Logic_Table1',
+    name: 'منطق - جدول حقیقت ۱',
+  },
 
   // Physics workshop
   {
