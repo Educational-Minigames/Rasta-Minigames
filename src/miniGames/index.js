@@ -4,6 +4,7 @@ import Directed_Graph from './Directed_Graph';
 import Furier_Draw from './Furier_Draw'
 // logic workshop
 import Iframe from './Iframe'
+import Logic_Table1 from './Logic_table1'
 // Image Processing workshop
 import ImageProcessing1 from './image_processing1';
 import ImageProcessing2 from './image_processing2';
@@ -285,6 +286,12 @@ const MINI_GAMES = [
     },
     url: '/Logic_Q3',
     name: 'منطق_Q3',
+  },
+  {
+    component: Logic_Table1,
+    props: {},
+    url: '/Logic_Table1',
+    name: 'منطق - جدول حقیقت ۱',
   },
 
   // Physics workshop
