@@ -62,9 +62,9 @@ function Index({
   }
 
   const doSetFixedSegmentLength = () => {
-    if (segmentLength >= 1 || segmentLength < 0) {
+    if (segmentLength >= duration || segmentLength < 0) {
       addNotification({
-        message: 'لطفاً یک عدد مثبت کمتر از ۱ وارد کن!',
+        message: 'لطفاً یک عدد مثبت کمتر از '+ duration + ' وارد کن!',
         type: 'error',
       });
       return;
