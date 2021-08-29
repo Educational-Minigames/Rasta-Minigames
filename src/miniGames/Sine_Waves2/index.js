@@ -17,7 +17,7 @@ function index() {
   const classes = useStyles();
   return (
     <div className={classes.div}>
-      <iframe className={classes.iframe} title='Sine_waves2' src={`${process.env.PUBLIC_URL}/MiniGames/Sine_waves2/index.html`} />
+      <iframe className={classes.iframe} title='Sine_waves2' src={`${process.env.PUBLIC_URL}/MiniGames/Sine_Waves2/index.html`} />
     </div>
   );
 }
