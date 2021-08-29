@@ -88,14 +88,14 @@ const MINI_GAMES = [
   // Signal games
   {
     component: Signal1,
-    props: { sound_file: 'DTMF_Signal.wav', duration: 1.22 },
+    props: { sound_file: 'DTMF_Signal.wav', duration: 4.6 },
     url: '/signal1-1',
     name: 'بازی فوریه ۱-۱',
   },
 
   {
     component: Signal2,
-    props: { sound_file: 'DTMF_Signal.wav', duration: 1.22 },
+    props: { sound_file: 'DTMF_Signal.wav', duration: 4.6},
     url: '/signal2-1',
     name: 'بازی فوریه ۲-۱',
   },
@@ -182,24 +182,24 @@ const MINI_GAMES = [
     url: '/signal_phone',
     name: 'فرکانس - تلفن(استیت ۱۳)',
   },
-  {
-    component: Signal2,
-    props: { sound_file: 'Noise.wav', duration: 1.22 },
-    url: '/signal2-1',
-    name: 'بازی سیگنال ۲-۱',
-  },
-  {
-    component: Signal2,
-    props: { sound_file: 'Noisy.wav', duration: 1.22 },
-    url: '/signal2-2',
-    name: 'بازی سیگنال ۲-۲',
-  },
-  {
-    component: Signal2,
-    props: { sound_file: 'Main.wav', duration: 1.22 },
-    url: '/signal2-3',
-    name: 'بازی سیگنال ۲-۳',
-  },
+  // {
+    // component: Signal2,
+    // props: { sound_file: 'Noise.wav', duration: 1.22 },
+    // url: '/signal2-1',
+    // name: 'بازی سیگنال ۲-۱',
+  // },
+  // {
+    // component: Signal2,
+    // props: { sound_file: 'Noisy.wav', duration: 1.22 },
+    // url: '/signal2-2',
+    // name: 'بازی سیگنال ۲-۲',
+  // },
+  // {
+    // component: Signal2,
+    // props: { sound_file: 'Main.wav', duration: 1.22 },
+    // url: '/signal2-3',
+    // name: 'بازی سیگنال ۲-۳',
+  // },
 
   // Bio games
   {
