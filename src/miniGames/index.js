@@ -1,5 +1,6 @@
 
 import BioNewspaper from './BioNewspaper';
+import Directed_Graph from './Directed_Graph';
 import Furier_Draw from './Furier_Draw'
 // logic workshop
 import Iframe from './Iframe'
@@ -205,6 +206,11 @@ const MINI_GAMES = [
     component: BioNewspaper,
     url: '/bio-newspaper',
     name: 'بایو - روزنامه',
+  },
+  {
+    component: Directed_Graph,
+    url: '/bio-graph',
+    name: 'بایو - گراف',
   },
 
   // Logic games
