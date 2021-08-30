@@ -111,7 +111,7 @@ const MINI_GAMES = [
   },
   {
     component: Signal3,
-    props: { sound_file: 'kotlet_kargah-2.wav', duration: 2.22 },
+    props: { sound_file: 'kotlet_kargah_2.wav', duration: 2.22 },
     url: '/signal3-2',
     name: 'بازی فوریه ۳-۲(استیت ۱۶)',
   },
