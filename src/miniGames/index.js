@@ -87,6 +87,15 @@ const MINI_GAMES = [
     url: '/image_processing3-1',
     name: 'پردازش تصویر - عکس سه تایی - ۱',
   },
+  {
+    component: ImageProcessing1,
+    props: {
+      imageFileSource: process.env.PUBLIC_URL + '/image_processing/bar255.jpg',
+      imageFileName: 'doogh_br.jpg',
+    },
+    url: '/image_morpho2',
+    name: 'پردازش تصویر - مورفولوژی۲',
+  },
 
   // Signal games
   {
