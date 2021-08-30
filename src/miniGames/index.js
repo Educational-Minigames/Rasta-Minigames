@@ -1,7 +1,7 @@
 
 import BioNewspaper from './BioNewspaper';
-import Directed_Graph from './Directed_Graph';
 import Furier_Draw from './Furier_Draw'
+import Bio_workshop from './Bio_workshop';
 // logic workshop
 import Iframe from './Iframe'
 import Logic_Table1 from './Logic_table1'
@@ -17,6 +17,7 @@ import physic_centrifugal_force from './physic_centrifugal_force'
 import Signal1 from './signal1';
 import Signal2 from './signal2';
 import Signal3 from './signal3';
+import Furier_Draw from './Furier_Draw';
 import Sine_Waves from './Sine_Waves';
 import Sine_Waves2 from './Sine_Waves2';
 
@@ -210,6 +211,12 @@ const MINI_GAMES = [
     url: '/bio-newspaper',
     name: 'بایو - روزنامه',
   },
+  {
+    component: Bio_workshop,
+    url: '/Bio_workshop',
+    name: 'بایو - جدول',
+  },
+  
   // {
   //   component: Directed_Graph,
   //   url: '/bio-graph',
