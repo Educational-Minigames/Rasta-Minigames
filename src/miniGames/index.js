@@ -90,8 +90,8 @@ const MINI_GAMES = [
   {
     component: ImageProcessing1,
     props: {
-      imageFileSource: process.env.PUBLIC_URL + '/image_processing/bar255.jpg',
-      imageFileName: 'doogh_br.jpg',
+      imageFileSource: process.env.PUBLIC_URL + '/image_processing/bar_green.jpg',
+      imageFileName: 'bar_green.jpg',
     },
     url: '/image_morpho2',
     name: 'پردازش تصویر - مورفولوژی۲',
