@@ -12,6 +12,7 @@ import ImageProcessing2 from './image_processing2';
 import ImageProcessing3 from './image_processing3';
 // Physics workshop
 import Physic_collision from './Physic_collision';
+import physic_centrifugal_force from './physic_centrifugal_force'
 // signal workshop
 import Signal1 from './signal1';
 import Signal2 from './signal2';
@@ -209,11 +210,11 @@ const MINI_GAMES = [
     url: '/bio-newspaper',
     name: 'بایو - روزنامه',
   },
-  {
-    component: Directed_Graph,
-    url: '/bio-graph',
-    name: 'بایو - گراف',
-  },
+  // {
+  //   component: Directed_Graph,
+  //   url: '/bio-graph',
+  //   name: 'بایو - گراف',
+  // },
 
   // Logic games
   {
@@ -307,6 +308,12 @@ const MINI_GAMES = [
     props: {},
     url: '/physic_collision',
     name: 'فیزیک - بازی برخورد',
+  },
+  {
+    component: physic_centrifugal_force,
+    props: {},
+    url: '/physic_centrifugal_force',
+    name: 'فیزیک - گریز از مرکز',
   },
 ]
 

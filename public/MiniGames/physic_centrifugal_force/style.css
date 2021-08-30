@@ -1,0 +1,116 @@
+@font-face {
+    font-family: "Samim";
+    src: url("font/Samim.ttf");
+}
+
+.myDiv {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid #0d6efd;
+    margin: 0;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Samim, sans-serif;
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #14151F;
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-style {
+    color: #86b7fe;
+}
+
+.cta {
+    display: inline-block;
+    padding: 10px 30px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 30px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+
+html, body {
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+html {
+    overflow-x: hidden
+}
+
+.field {
+    background-color: transparent;
+    min-width: 200px;
+    padding: 12px 20px;
+    margin: 30px;
+    box-sizing: border-box;
+    display: inline-block;
+    color: white;
+    border: 2px solid crimson;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+
+.cta2 {
+    border: 2px solid crimson;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: crimson;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 15px;
+    transition: .3s ease;
+    transition-property: background-color, color;
+}
+
+.cta:hover {
+    color: white;
+    background-color: crimson;
+}
+
+.cta2:hover {
+    color: white;
+    background-color: transparent;
+    border: 2px solid crimson;
+}
+
+@media only screen and (min-width: 768px) {
+    .cta {
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+
+    h1.section-title {
+        font-size: 6rem;
+    }
+
+}
+
+
