@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     marginRight: 'auto !important',
     marginLeft: 'auto !important',
-    height: '100vh',
+    minHeight: '100vh',
     width: '100vw',
   },
   iframe: {

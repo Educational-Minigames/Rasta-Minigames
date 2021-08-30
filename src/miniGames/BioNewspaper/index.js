@@ -53,8 +53,8 @@ const Index = () => {
             x={star.x}
             y={star.y}
             draggable
-          // scaleX={0.2}
-          // scaleY={0.2}
+            scaleX={0.3}
+            scaleY={0.3}
           />
         ))}
       </Layer>

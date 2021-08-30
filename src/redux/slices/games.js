@@ -98,6 +98,9 @@ const accountSlice = createSlice({
     [getTimeChartOfSoundAction.pending.toString()]: isFetching,
     [getTimeChartOfSoundAction.fulfilled.toString()]: (state, { payload: { response } }) => {
       state.timeChartImage = 'https://' + response.time_dir;
+      state.frequencyChartImage = 'https://' + response.fft_dir;
+      state.frequencyLimit = response.f_domain;
+
       state.isFetching = false;
     },
     [getTimeChartOfSoundAction.rejected.toString()]: isNotFetching,

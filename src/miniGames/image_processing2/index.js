@@ -32,11 +32,11 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-const createMatrix = (size) => {
+const createMatrix = ({ width, height }) => {
   let table = [];
-  for (let i = 0; i < size; i++) {
+  for (let i = 0; i < height; i++) {
     let row = [];
-    for (let j = 0; j < size; j++) {
+    for (let j = 0; j < width; j++) {
       row.push(0)
     }
     table.push(row)
@@ -52,69 +52,84 @@ function Index({
   resultImage,
 }) {
   const classes = useStyles();
-  const [size, setSize] = useState(3);
-  const [table, setTable] = useState(createMatrix(size));
+  const [width, setWidth] = useState(3);
+  const [height, setHeight] = useState(3);
+  const [table, setTable] = useState(createMatrix({ width, height }));
 
 
-  useEffect(() => {
-  }, [size])
-
-  const changeSize = (event) => {
-    setTable(createMatrix(event.target.value));
-    setSize(event.target.value)
+  const changeWidth = (event) => {
+    setTable(createMatrix({ width: event.target.value, height }));
+    setWidth(event.target.value)
   }
 
-  const isJustDigits = (number) => {
-    var regex = new RegExp(`\\d{${number.length}}`);
-    if (regex.test(number)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const changeHeight = (event) => {
+    setTable(createMatrix({ width, height: event.target.value }));
+    setHeight(event.target.value)
+  }
 
   console.log(table)
 
+
   const applyFilter = () => {
-    applyMatrixFilter({ image_file: imageFileName, kernel: JSON.stringify(table) })
+    let newTable = [...table]
+    console.log(newTable)
+    for (let i = 0; i < width; i++) {
+      for (let j = 0; j < height; j++) {
+        newTable[j][i] = parseFloat(newTable[j][i]);
+      }
+    }
+    setTable(newTable);
+    applyMatrixFilter({ image_file: imageFileName, kernel: JSON.stringify(newTable) })
   }
 
   return (
     <Container className={classes.container} >
       <Grid container spacing={2} justify='center' alignItems='center'>
-        <Grid container item xs={6} spacing={2}>
+        <Grid container item xs={6} spacing={1}>
           <Grid item xs={12}>
-            <ThemeProvider theme={MuiTheme}>
-
-              {
-                [...Array(size).keys()].map((i) => (
-                  <Grid key={i} container item>
-                    {[...Array(size).keys()].map((j) => (
-                      <Grid key={j} item xs>
-                        <TextField variant='outlined' value={table[i][j]}
-                          inputProps={{ className: 'ltr-input' }}
-                          onChange={(e) => {
-                            if (isJustDigits(e.target.value)) {
-                              const newTable = [...table];
-                              newTable[i][j] = parseInt(e.target.value) || 0;
-                              setTable(newTable)
-                            }
-                          }} />
-                      </Grid>
-                    ))}
-                  </Grid>
-                ))
-              }
-            </ThemeProvider>
+            {
+              [...Array(width).keys()].map((i) => (
+                <Grid key={i} container item>
+                  {[...Array(height).keys()].map((j) => (
+                    <Grid key={j} item xs>
+                      <TextField
+                        fullWidth
+                        variant='outlined' value={table[j][i]}
+                        inputProps={{ className: 'ltr-input' }}
+                        onChange={(e) => {
+                          let newTable = [...table];
+                          newTable[j][i] = e.target.value;
+                          setTable(newTable);
+                        }} />
+                    </Grid>
+                  ))}
+                </Grid>
+              ))
+            }
           </Grid>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <FormControl size='small' variant="outlined" fullWidth>
-              <InputLabel>اندازه جدول</InputLabel>
+              <InputLabel>طول</InputLabel>
               <Select
-                value={size}
-                onChange={changeSize}
-                name='province'
-                label='اندازه جدول'>
+                value={height}
+                onChange={changeHeight}
+                label='طول'>
+                <MenuItem value={2} >2</MenuItem>
+                <MenuItem value={3} >3</MenuItem>
+                <MenuItem value={4} >4</MenuItem>
+                <MenuItem value={5} >5</MenuItem>
+                <MenuItem value={6} >6</MenuItem>
+                <MenuItem value={7} >7</MenuItem>
+              </Select>
+            </FormControl >
+          </Grid>
+          <Grid item xs={6}>
+            <FormControl size='small' variant="outlined" fullWidth>
+              <InputLabel>ارتفاع</InputLabel>
+              <Select
+                value={width}
+                onChange={changeWidth}
+                label='ارتفاع'>
                 <MenuItem value={2} >2</MenuItem>
                 <MenuItem value={3} >3</MenuItem>
                 <MenuItem value={4} >4</MenuItem>
@@ -134,9 +149,9 @@ function Index({
             <Button onClick={applyFilter}>
               {'اعمال با فیلتر دلخواه'}
             </Button>
-            <Button>
+            {/* <Button>
               {'اعمال با فیلتر گوسی'}
-            </Button>
+            </Button> */}
           </ButtonGroup>
         </Grid>
       </Grid>

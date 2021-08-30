@@ -40,15 +40,16 @@ function Index({
   sound_file = 'Noise.wav',
   duration = 1.22,
   timeChartImage,
+  frequencyChartImage,
+  frequencyLimit,
+
   fftImage,
   filteredFftImage,
   filteredTimeImage,
   sound,
 }) {
   const classes = useStyles();
-  const audioRef = useRef();
-  const [timeValues, setTimeValues] = useState([0.1, 0.6]);
-  const [frequencyValues, setFrequencyValues] = useState([600, 1300]);
+  const [frequencyValues, setFrequencyValues] = useState([7000, 15000]);
 
   useEffect(() => {
     getTimeChartOfSoundAction({ sound_file });
@@ -56,65 +57,43 @@ function Index({
 
   const applyFilter = () => {
     applyFilterWithSpecificFrequencyOnVoiceSegment({
-      start: timeValues[0],
-      end: timeValues[1],
       lowcut: frequencyValues[0],
       highcut: frequencyValues[1],
       sound_file,
+      start: 0,
+      end: duration,
     })
   }
 
-  const manageAudioPlay = (e) => {
-    if (e.target.currentTime >= timeValues[1]) {
-      e.target.pause();
-    }
-  }
-
-  const playAudio = () => {
-    audioRef.current.play();
-  }
 
   return (
     <Container className={classes.container} >
       <Grid container justify='center' direction='column' spacing={1}>
-        <Grid item container >
-          <Grid container item justify='center' alignItems='center' xs={11}>
-            <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
-          </Grid>
-          <Grid item container xs={1} justify='center' alignItems='center'>
+        <Grid container item justify='center' alignItems='center' xs={12}>
+          <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
+        </Grid>
+        <Grid container item justify='center' alignItems='center' xs={12}>
+          <img alt='' src={frequencyChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
+        </Grid>
+        <Grid item container xs={12} justify='center' alignItems='center'
+          style={{ paddingLeft: 55, paddingRight: 55 }}>
+          <ThemeProvider theme={MuiTheme}>
             <Slider
-              orientation='vertical'
-              min={0} max={2000} step={50} marks
+              min={0} max={frequencyLimit || 22000} step={100} marks
               value={frequencyValues} valueLabelDisplay="auto"
               onChange={(_, newValues) => setFrequencyValues(newValues)} />
-          </Grid>
+          </ThemeProvider>
         </Grid>
 
-        <Grid container item justify='center' alignItems='center'>
-          <Grid item xs={11} container justify='center' alignItems='center'>
-            <audio ref={audioRef} onTimeUpdate={manageAudioPlay}>
-              <source src={process.env.PUBLIC_URL + '/music/' + sound_file} type="audio/mp3" />
-            </audio>
-            <ThemeProvider theme={MuiTheme}>
-              <Slider
-                min={0} max={duration} step={0.1} marks
-                value={timeValues} valueLabelDisplay="auto"
-                onChange={(_, newValues) => {
-                  audioRef.current.currentTime = newValues[0];
-                  setTimeValues(newValues);
-                }} />
-            </ThemeProvider>
-          </Grid>
-          <Grid item xs={1} container justify='center' alignItems='center'>
-            <IconButton onClick={playAudio}>
-              <PlayCircleOutlineIcon />
-            </IconButton>
-          </Grid>
+        <Grid item xs={12}>
+          <audio controls style={{ width: '100%' }}>
+            <source src={process.env.PUBLIC_URL + '/music/' + sound_file} type="audio/mp3" />
+          </audio>
         </Grid>
 
         <Grid item xs={12}>
           <Button variant='contained' fullWidth color='primary' onClick={applyFilter}>
-            {'اعمال'}
+            {'ارسال'}
           </Button>
         </Grid>
 
@@ -134,7 +113,7 @@ function Index({
             </Grid>
             <Grid container item justify='center' alignItems='center'>
               <audio controls style={{ width: '100%' }}>
-                <source src={sound} />
+                <source src={sound} type="audio/mp3" />
               </audio>
             </Grid>
           </>
@@ -147,7 +126,9 @@ function Index({
 
 const mapStateToProps = (state) => ({
   timeChartImage: state.games.timeChartImage,
-  resultImage: state.games.resultImage,
+  frequencyChartImage: state.games.frequencyChartImage,
+  frequencyLimit: state.games.frequencyLimit,
+
   fftImage: state.games.fftImage,
   filteredFftImage: state.games.filteredFftImage,
   filteredTimeImage: state.games.filteredTimeImage,
