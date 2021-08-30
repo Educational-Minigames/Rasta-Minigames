@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl" style="background-color:#14151F">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color:#14151F">
+<div id="mainDiv" class="container">
+    <div class="col-lg-4 col-md-4 col-xs-4">
+        <div>
+            <div class="row smooth">
+                <div style="padding:10px">
+                    <label class="my-style">سـرعـت اولیه
+                        <input type="number" value="3" id="leftVelocity">
+                    </label>
+                </div>
+            </div>
+            <div class="row smooth">
+                <div style="padding:10px">
+                    <label class="my-style">جـــــرم آونگ
+                        <input type="number" value="5" id="leftMass">
+                    </label>
+                </div>
+                <div style="padding:10px">
+                    <label class="my-style">طول آونگ
+                        <input type="number" value="180" id="rightMass">
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="col-sm">
+                <button onclick="run()" type="button" class="cta">اجرا</button>
+            </div>
+            <div class="col-sm">
+                <div class="myDiv"><text class="my-style"><label id="lVel">0</label> = F<sub>کششی</sub></text></div>
+                <div class="myDiv"><text class="my-style"><label id="rVel">0</label> = V<sub>لحظه ای</sub></text></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="physic" class="row col-lg-8 col-md-8 col-xs-8">
+    </div>
+</div>
+
+</body>
+<script src="node_modules/matter-js/build/matter.js"></script>
+<script src="physic.js"></script>
+</html>

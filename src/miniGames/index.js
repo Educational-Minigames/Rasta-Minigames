@@ -1,21 +1,22 @@
 
 import BioNewspaper from './BioNewspaper';
-import Directed_Graph from './Directed_Graph';
-import Furier_Draw from './Furier_Draw'
+import Bio_workshop from './Bio_workshop';
 // logic workshop
-import Iframe from './Iframe'
-import Logic_Table1 from './Logic_table1'
-import Logic_table2 from './Logic_table2'
+import Iframe from './Iframe';
+import Logic_Table1 from './Logic_table1';
+import Logic_table2 from './Logic_table2';
 // Image Processing workshop
 import ImageProcessing1 from './image_processing1';
 import ImageProcessing2 from './image_processing2';
 import ImageProcessing3 from './image_processing3';
 // Physics workshop
 import Physic_collision from './Physic_collision';
+import physic_centrifugal_force from './physic_centrifugal_force';
 // signal workshop
 import Signal1 from './signal1';
 import Signal2 from './signal2';
 import Signal3 from './signal3';
+import Furier_Draw from './Furier_Draw';
 import Sine_Waves from './Sine_Waves';
 import Sine_Waves2 from './Sine_Waves2';
 
@@ -106,13 +107,13 @@ const MINI_GAMES = [
     component: Signal3,
     props: { sound_file: 'kotlet_kargah.wav', duration: 5.54 },
     url: '/signal3-1',
-    name: 'بازی فوریه ۳-۱',
+    name: 'بازی فوریه ۳-۱(استیت ۱۵)',
   },
   {
     component: Signal3,
     props: { sound_file: 'kotlet_kargah-2.wav', duration: 2.22 },
     url: '/signal3-2',
-    name: 'بازی فوریه ۳-۲',
+    name: 'بازی فوریه ۳-۲(استیت ۱۶)',
   },
   {
     component: Signal3,
@@ -210,10 +211,16 @@ const MINI_GAMES = [
     name: 'بایو - روزنامه',
   },
   {
-    component: Directed_Graph,
-    url: '/bio-graph',
-    name: 'بایو - گراف',
+    component: Bio_workshop,
+    url: '/Bio_workshop',
+    name: 'بایو - جدول',
   },
+  
+  // {
+  //   component: Directed_Graph,
+  //   url: '/bio-graph',
+  //   name: 'بایو - گراف',
+  // },
 
   // Logic games
   {
@@ -307,6 +314,12 @@ const MINI_GAMES = [
     props: {},
     url: '/physic_collision',
     name: 'فیزیک - بازی برخورد',
+  },
+  {
+    component: physic_centrifugal_force,
+    props: {},
+    url: '/physic_centrifugal_force',
+    name: 'فیزیک - گریز از مرکز',
   },
 ]
 
