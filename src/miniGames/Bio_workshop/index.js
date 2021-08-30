@@ -17,7 +17,7 @@ function index() {
   const classes = useStyles();
   return (
     <div className={classes.div}>
-      <iframe className={classes.iframe} title='Bio' src={`${process.env.PUBLIC_URL}/MiniGames/Bio_workshop/index.html`} />
+      <iframe className={classes.iframe} title='Bio' src={`https://abolfazlghalandary.github.io/`} />
     </div>
   );
 }
