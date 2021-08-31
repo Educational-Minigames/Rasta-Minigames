@@ -55,10 +55,7 @@ const App = ({ dir, loading }) => {
         </div>
       )
     } else {
-      return (
-        <>
-        </>
-      )
+      return (<></>)
     }
   }
 

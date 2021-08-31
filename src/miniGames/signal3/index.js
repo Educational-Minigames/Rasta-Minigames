@@ -100,10 +100,9 @@ function Index({
         {fftImage &&
           <>
             <Grid container item justify='center' alignItems='center'>
-              <ArrowDownwardIcon />
-            </Grid>
-            <Grid container item justify='center' alignItems='center'>
-              <img alt='' src={fftImage} style={{ width: '100%' }} />
+              <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
+              <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
+              <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
             </Grid>
             <Grid container item justify='center' alignItems='center'>
               <img alt='' src={filteredFftImage} style={{ width: '100%' }} />
