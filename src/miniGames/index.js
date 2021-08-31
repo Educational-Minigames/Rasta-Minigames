@@ -87,6 +87,15 @@ const MINI_GAMES = [
     url: '/image_processing3-1',
     name: 'پردازش تصویر - عکس سه تایی - ۱',
   },
+  {
+    component: ImageProcessing1,
+    props: {
+      imageFileSource: process.env.PUBLIC_URL + '/image_processing/bar_green.png',
+      imageFileName: 'bar_green.png',
+    },
+    url: '/image_morpho2',
+    name: 'پردازش تصویر - مورفولوژی۲',
+  },
 
   // Signal games
   {
@@ -111,7 +120,7 @@ const MINI_GAMES = [
   },
   {
     component: Signal3,
-    props: { sound_file: 'kotlet_kargah-2.wav', duration: 2.22 },
+    props: { sound_file: 'kotlet_kargah_2.wav', duration: 2.22 },
     url: '/signal3-2',
     name: 'بازی فوریه ۳-۲(استیت ۱۶)',
   },

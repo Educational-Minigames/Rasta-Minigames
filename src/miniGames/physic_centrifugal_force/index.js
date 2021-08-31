@@ -17,7 +17,7 @@ function index() {
   const classes = useStyles();
   return (
     <div className={classes.div}>
-      <iframe className={classes.iframe} title='physics ' src={`${process.env.PUBLIC_URL}/MiniGames/physic_centrifugal_force/main.html`} />
+      <iframe className={classes.iframe} title='physics ' src={`https://abolfazlghalandary.github.io/physics/centrifugal/`} />
     </div>
   );
 }

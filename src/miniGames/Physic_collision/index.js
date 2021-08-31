@@ -18,7 +18,7 @@ function index() {
   const classes = useStyles();
   return (
     <div className={classes.div}>
-      <iframe className={classes.iframe} title='physic_collision' src={`${process.env.PUBLIC_URL}/MiniGames/physic_collision/main.html`} />
+      <iframe className={classes.iframe} title='physic_collision' src={`https://abolfazlghalandary.github.io/physics/collision/`} />
     </div>
   );
 }
