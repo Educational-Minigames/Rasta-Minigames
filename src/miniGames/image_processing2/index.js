@@ -17,6 +17,8 @@ import MuiTheme from '../../theme/MuiThemes/MuiTheme';
 import { ThemeProvider } from '@material-ui/styles';
 
 import { applyMatrixFilterAction } from "../../redux/slices/games";
+import { Height } from '@material-ui/icons';
+
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -67,12 +69,8 @@ function Index({
     setHeight(event.target.value)
   }
 
-  console.log(table)
-
-
   const applyFilter = () => {
     let newTable = [...table]
-    console.log(newTable)
     for (let i = 0; i < width; i++) {
       for (let j = 0; j < height; j++) {
         newTable[j][i] = parseFloat(newTable[j][i]);
@@ -88,17 +86,17 @@ function Index({
         <Grid container item xs={6} spacing={1}>
           <Grid item xs={12}>
             {
-              [...Array(width).keys()].map((i) => (
+              [...Array(height).keys()].map((i) => (
                 <Grid key={i} container item>
-                  {[...Array(height).keys()].map((j) => (
+                  {[...Array(width).keys()].map((j) => (
                     <Grid key={j} item xs>
                       <TextField
                         fullWidth
-                        variant='outlined' value={table[j][i]}
+                        variant='outlined' value={table[i][width - j - 1]}
                         inputProps={{ className: 'ltr-input' }}
                         onChange={(e) => {
                           let newTable = [...table];
-                          newTable[j][i] = e.target.value;
+                          newTable[i][width - j - 1] = e.target.value;
                           setTable(newTable);
                         }} />
                     </Grid>

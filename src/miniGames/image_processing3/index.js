@@ -62,8 +62,6 @@ function Index({
     decomposeToChannels({ image_file: imageFileName });
   }
 
-  console.log(file)
-
   return (
     <Container className={classes.container} >
       <Grid container spacing={2} justify='center' alignItems='center'>
