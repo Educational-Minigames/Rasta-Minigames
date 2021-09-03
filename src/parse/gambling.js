@@ -8,7 +8,6 @@ export const createPlayerGambler = async ({ name }) => {
   query.equalTo('name', name);
   const playerGamble = await query.find();
   if (playerGamble.length == 0) {
-    console.log("!!!!!!!!!!!")
     const playerGamble = new PlayerGamble();
     playerGamble.set('name', name);
     playerGamble.save();
@@ -23,7 +22,6 @@ export const makeMeOutForThisGame = async ({ name }) => {
   if (!playerGamble) {
     return;
   }
-  console.log(playerGamble)
   playerGamble.set('isActive', false);
   playerGamble.save();
 }

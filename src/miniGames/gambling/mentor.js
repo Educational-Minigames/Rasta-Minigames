@@ -1,19 +1,19 @@
 import {
   Button,
+  ButtonGroup,
   Container,
   Grid,
   makeStyles,
-  Typography,
-  TableContainer,
+  Paper,
+  Slider,
   Table,
   TableBody,
-  TableRow,
-  TableHead,
-  Paper,
   TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
   TextField,
-  Slider,
-  ButtonGroup,
+  Typography,
 } from '@material-ui/core';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import { ThemeProvider } from '@material-ui/styles';
@@ -25,9 +25,9 @@ import {
   createPlayerGambleAction,
   deletePlayerGambleAction,
   getPlayerGambleAction,
-  updatePlayerGambleAction,
-  submitScoreToActivePlayersAction,
   startNewRoundAction,
+  submitScoreToActivePlayersAction,
+  updatePlayerGambleAction,
 } from '../../redux/slices/games';
 import MuiTheme from '../../theme/MuiThemes/MuiTheme';
 
@@ -56,6 +56,15 @@ function Index({
 }) {
   const classes = useStyles();
   const [score, setScore] = useState(0);
+
+  const isJustDigits = (number) => {
+    var regex = new RegExp(`\\d{${number.length}}`);
+    if (regex.test(number)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   useEffect(async () => {
     getPlayerGamble();
@@ -113,11 +122,19 @@ function Index({
       <Grid container justify='center' alignItems='center' spacing={2} xs={12} sm={8}>
         <Grid item xs={12}>
           <Typography align='center' variant='h1'>
-            {'قماربازی'}
+            {'تیاسی'}
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField size='small' label='امتیاز' variant='outlined' fullWidth value={score} onChange={(e) => setScore(e.target.value)} />
+          <TextField
+            size='small' label='امتیاز'
+            variant='outlined' fullWidth
+            value={score}
+            onChange={(e) => {
+              if (isJustDigits(e.target.value)) {
+                setScore(e.target.value)
+              }
+            }} />
         </Grid>
         <Grid item xs={12} sm={6}>
           <ButtonGroup variant='contained' fullWidth color='primary' >

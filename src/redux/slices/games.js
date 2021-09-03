@@ -178,8 +178,10 @@ const accountSlice = createSlice({
       state.allPlayerGambles = newAllPlayerGambles;
     },
     deletePlayerGamble: (state, { payload: { name } }) => {
+      console.log(name)
       let newAllPlayerGambles = [...state.allPlayerGambles];
       for (let i = 0; i < newAllPlayerGambles.length; i++) {
+        console.log(newAllPlayerGambles[i].name)
         if (newAllPlayerGambles[i].name == name) {
           newAllPlayerGambles.splice(i, 1);
         }

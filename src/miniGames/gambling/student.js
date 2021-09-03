@@ -101,7 +101,6 @@ function Index({
     };
   }, [])
 
-
   const doRegister = () => {
     createPlayerGambler({ name });
     setRegistered(true);
@@ -110,9 +109,6 @@ function Index({
   const doLogoutFromGame = () => {
     makeMeOutForThisGame({ name });
   }
-
-  console.log(me);
-
 
   const sortPlayerGambles = (a, b) => {
     if (a.isActive > b.isActive) {
@@ -131,7 +127,7 @@ function Index({
       <Grid container justify='center' alignItems='center' spacing={2} xs={12} sm={8}>
         <Grid item xs={12}>
           <Typography align='center' variant='h1'>
-            {'قماربازی'}
+            {'تیاسی'}
           </Typography>
         </Grid>
         {!isRegistered &&
@@ -140,7 +136,7 @@ function Index({
               <TextField size='small' label='نام و نام خانوادگی' variant='outlined' fullWidth value={name} onChange={(e) => setName(e.target.value)} />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Button variant='contained' fullWidth color='primary' onClick={doRegister}>
+              <Button variant='contained' disabled={!name} fullWidth color='primary' onClick={doRegister}>
                 {'ورود'}
               </Button>
             </Grid>
