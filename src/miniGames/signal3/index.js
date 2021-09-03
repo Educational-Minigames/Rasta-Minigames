@@ -48,6 +48,7 @@ function Index({
   filteredTimeImage,
   sound,
 }) {
+
   const classes = useStyles();
   const audioRef = useRef();
   const [frequencyValues, setFrequencyValues] = useState([7000, 15000]);

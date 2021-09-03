@@ -1,17 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
+import {
+  getPlayerGamble,
+  startNewRound,
+  makeMeOutForThisGame,
+  createPlayerGambler,
+  submitScoreToActivePlayers,
+} from '../../parse/gambling';
 import { Apis } from '../apis';
 import { createAsyncThunkApi } from '../apis/cerateApiAsyncThunk';
 import {
   applyFilterOnVoiceSegmentUrl,
+  applyFilterWithSpecificFrequencyOnVoiceSegmentUrl,
   applyMatrixFilterUrl,
   applyThresholdUrl,
   decomposeToChannelsUrl,
   getTimeChartOfSoundUrl,
-  applyFilterWithSpecificFrequencyOnVoiceSegmentUrl,
 } from '../constants/urls';
 
-const initialState = {};
+const initialState = {
+  allPlayerGambles: [],
+};
 
 export const applyThresholdAction = createAsyncThunkApi(
   'users/applyThresholdAction',
@@ -51,6 +60,94 @@ export const applyFilterWithSpecificFrequencyOnVoiceSegmentAction = createAsyncT
 
 
 
+export const getPlayerGambleAction = createAsyncThunk(
+  'games/getPlayerGambleAction',
+  async (arg, { rejectWithValue }) => {
+    try {
+      const playerGambles = await getPlayerGamble();
+      const allPlayerGambles = [];
+      playerGambles.forEach((request) => {
+        const name = request.get('name');
+        const temporaryScore = request.get('temporaryScore');
+        const totalScore = request.get('totalScore');
+        const isActive = request.get('isActive')
+        allPlayerGambles.push({
+          name,
+          temporaryScore,
+          totalScore,
+          isActive,
+        })
+      });
+      return { allPlayerGambles };
+    } catch (err) {
+      return rejectWithValue({
+        message: 'یه مشکلی وجود داره. یه چند لحظه دیگه دوباره تلاش کن!',
+      });
+    }
+  }
+);
+
+
+export const submitScoreToActivePlayersAction = createAsyncThunk(
+  'games/submitScoreToActivePlayersAction',
+  async ({ score }, { rejectWithValue }) => {
+    try {
+      await submitScoreToActivePlayers({ score });
+    } catch (err) {
+      return rejectWithValue({
+        message: 'یه مشکلی وجود داره!',
+      });
+    }
+  }
+);
+
+
+export const startNewRoundAction = createAsyncThunk(
+  'games/startNewRoundAction',
+  async (arg, { rejectWithValue }) => {
+    try {
+      await startNewRound();
+    } catch (err) {
+      return rejectWithValue({
+        message: 'یه مشکلی وجود داره!',
+      });
+    }
+  }
+);
+
+
+export const createPlayerGamblerAction = createAsyncThunk(
+  'games/createPlayerGamblerAction',
+  async ({ name }, { rejectWithValue }) => {
+    try {
+      makeMeOutForThisGame,
+        await createPlayerGambler({ name });
+    } catch (err) {
+      return rejectWithValue({
+        message: 'یه مشکلی وجود داره!',
+      });
+    }
+  }
+);
+
+export const makeMeOutForThisGameAction = createAsyncThunk(
+  'games/makeMeOutForThisGameAction',
+  async ({ name }, { rejectWithValue }) => {
+    try {
+      await makeMeOutForThisGame({ name });
+    } catch (err) {
+      return rejectWithValue({
+        message: 'یه مشکلی وجود داره!',
+      });
+    }
+  }
+);
+
+
+
+
+
+
 
 
 
@@ -67,6 +164,28 @@ const accountSlice = createSlice({
   initialState,
   reducers: {
     logout: () => initialState,
+    createPlayerGamble: (state, { payload }) => {
+      console.log("payload   ", payload)
+      state.allPlayerGambles = [payload, ...state.allPlayerGambles]
+    },
+    updatePlayerGamble: (state, { payload: { name, temporaryScore, totalScore, isActive } }) => {
+      let newAllPlayerGambles = [...state.allPlayerGambles];
+      for (let i = 0; i < newAllPlayerGambles.length; i++) {
+        if (newAllPlayerGambles[i].name == name) {
+          newAllPlayerGambles[i] = { name, temporaryScore, totalScore, isActive };
+        }
+      }
+      state.allPlayerGambles = newAllPlayerGambles;
+    },
+    deletePlayerGamble: (state, { payload: { name } }) => {
+      let newAllPlayerGambles = [...state.allPlayerGambles];
+      for (let i = 0; i < newAllPlayerGambles.length; i++) {
+        if (newAllPlayerGambles[i].name == name) {
+          newAllPlayerGambles.splice(i, 1);
+        }
+      }
+      state.allPlayerGambles = newAllPlayerGambles;
+    },
   },
   extraReducers: {
     [applyThresholdAction.pending.toString()]: isFetching,
@@ -124,9 +243,23 @@ const accountSlice = createSlice({
     },
     [applyFilterWithSpecificFrequencyOnVoiceSegmentAction.rejected.toString()]: isNotFetching,
 
+
+
+    [getPlayerGambleAction.fulfilled.toString()]: (
+      state,
+      { payload: { allPlayerGambles } }
+    ) => {
+      state.allPlayerGambles = allPlayerGambles;
+    },
+
   },
 });
 
-export const { logout: logoutAction } = accountSlice.actions;
+export const {
+  logout: logoutAction,
+  createPlayerGamble: createPlayerGambleAction,
+  deletePlayerGamble: deletePlayerGambleAction,
+  updatePlayerGamble: updatePlayerGambleAction,
+} = accountSlice.actions;
 
 export const { reducer: gamesReducer } = accountSlice;

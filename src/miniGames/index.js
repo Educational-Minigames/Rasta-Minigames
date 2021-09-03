@@ -2,6 +2,8 @@
 import Bio_workshop from './Bio_workshop';
 import BioNewspaper from './BioNewspaper';
 import Furier_Draw from './Furier_Draw';
+import Student from './gambling/student';
+import Mentor from './gambling/mentor';
 // logic workshop
 import Iframe from './Iframe';
 // Image Processing workshop
@@ -19,6 +21,7 @@ import Signal2 from './signal2';
 import Signal3 from './signal3';
 import Sine_Waves from './Sine_Waves';
 import Sine_Waves2 from './Sine_Waves2';
+
 
 const MINI_GAMES = [
   // Image processing games
@@ -329,6 +332,20 @@ const MINI_GAMES = [
     props: {},
     url: '/physic_centrifugal_force',
     name: 'فیزیک - گریز از مرکز',
+  },
+
+  // شهربازی:
+  {
+    component: Mentor,
+    props: {},
+    url: '/gambling/mentor-mentor-mentor-mentor-mentor-mentor-mentor-mentor-mentor-mentor-mentor-mentor',
+    name: 'قماربازی - صفحه‌ی همیار',
+  },
+  {
+    component: Student,
+    props: {},
+    url: '/gambling/student',
+    name: 'قمابازی - صفحه‌ی دانش‌آموز',
   },
 ]
 
