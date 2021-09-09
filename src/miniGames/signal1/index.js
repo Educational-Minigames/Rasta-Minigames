@@ -50,7 +50,6 @@ function Index({
   }
 
   const setSliderValues = (event, newValues) => {
-    console.log(audioRef.current.duration)
     audioRef.current.currentTime = newValues[0];
     setValues(newValues)
   }

@@ -17,6 +17,7 @@
     "konva": "^7.2.5",
     "lodash.shuffle": "^4.2.0",
     "notistack": "^1.0.5",
+    "parse": "^3.3.0",
     "react": "^17.0.1",
     "react-chartjs-2": "^3.0.4",
     "react-dnd": "^13.1.1",

@@ -11,6 +11,7 @@ import { IntlProvider } from 'react-redux-multilingual';
 import { Slide, ToastContainer } from 'react-toastify';
 
 import Notifier from './components/Notifications/Notifications';
+import { initParseServer } from './parse/init'
 import Root from './root';
 import MuiTheme from './theme/MuiThemes/MuiTheme';
 import RTLMuiTheme from './theme/MuiThemes/RTLMuiTheme';
@@ -42,10 +43,16 @@ const MiniGameApp = () => (
   </SnackbarProvider>
 );
 
-const App = ({ dir, loading }) => {
+const App = ({
+  dir,
+  loading,
+}) => {
+
   useEffect(() => {
     document.body.dir = dir;
   }, [dir]);
+
+  initParseServer();
 
   const Loading = () => {
     if (loading) {

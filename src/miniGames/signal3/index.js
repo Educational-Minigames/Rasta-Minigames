@@ -48,7 +48,9 @@ function Index({
   filteredTimeImage,
   sound,
 }) {
+
   const classes = useStyles();
+  const audioRef = useRef();
   const [frequencyValues, setFrequencyValues] = useState([7000, 15000]);
 
   useEffect(() => {
@@ -65,6 +67,9 @@ function Index({
     })
   }
 
+  useEffect(() => {
+    audioRef.current?.load();
+  }, [sound])
 
   return (
     <Container className={classes.container} >
@@ -111,7 +116,7 @@ function Index({
               <img alt='' src={filteredTimeImage} style={{ width: '100%' }} />
             </Grid>
             <Grid container item justify='center' alignItems='center'>
-              <audio controls style={{ width: '100%' }}>
+              <audio ref={audioRef} controls style={{ width: '100%' }}>
                 <source src={sound} type="audio/mp3" />
               </audio>
             </Grid>

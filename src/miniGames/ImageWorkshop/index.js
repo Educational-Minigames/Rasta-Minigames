@@ -32,7 +32,6 @@ export default function InputSlider() {
   const [imagePreview, setImagePreview] = useState("");
   const [base64, setBase64] = useState();
   const onChange = (e) => {
-    console.log("file", e.target.files[0]);
     let file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -49,8 +48,6 @@ export default function InputSlider() {
     e.preventDefault();
     const reader = new FileReader();
     const file = e.target.files[0];
-    console.log("reader", reader);
-    console.log("file", file);
     if (reader !== undefined && file !== undefined) {
       reader.onloadend = () => {
         setFile(file);
