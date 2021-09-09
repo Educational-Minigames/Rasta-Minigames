@@ -52,6 +52,15 @@ const MINI_GAMES = [
     url: '/image_processing1-3',
     name: 'پردازش تصویر - آپلود فایل و اسلایدر - ۳',
   },
+  {
+    component: ImageProcessing1,
+    props: {
+      imageFileSource: process.env.PUBLIC_URL + '/image_processing/back - Copy - Copy.png',
+      imageFileName: 'back - Copy - Copy.png',
+    },
+    url: '/imagepass',
+    name: 'پردازش تصویر - مسابقه',
+  },
 
   {
     component: ImageProcessing2,
