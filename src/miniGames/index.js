@@ -194,6 +194,27 @@ const MINI_GAMES = [
     url: '/signal_phone',
     name: 'فرکانس - تلفن(استیت ۱۳)',
   },
+  {
+    component: Iframe,
+    props: {
+      src: 'https://preview.p5js.org/AlieNiT/present/Nrsrul7C7',
+      title: 'signal_compq',
+    },
+    url: '/signal_compq',
+    name: 'فرکانس - سوال مسابقه',
+  },
+  {
+    component: Signal3,
+    props: { sound_file: 'audio_file_kotleted.wav', duration: 11.1 },
+    url: '/signalfilter',
+    name: 'بازی فیلتر مسابقه',
+  },
+  {
+    component: Signal1,
+    props: { sound_file: 'DTMF_Signal2.wav', duration: 4.6 },
+    url: '/signalfourier',
+    name: 'بازی فوریه - مسابقه',
+  },
   // {
   // component: Signal2,
   // props: { sound_file: 'Noise.wav', duration: 1.22 },
