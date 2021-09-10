@@ -55,8 +55,8 @@ const MINI_GAMES = [
   {
     component: ImageProcessing1,
     props: {
-      imageFileSource: process.env.PUBLIC_URL + '/image_processing/back - Copy - Copy.png',
-      imageFileName: 'back - Copy - Copy.png',
+      imageFileSource: process.env.PUBLIC_URL + '/image_processing/back-Copy-Copy.png',
+      imageFileName: 'back-Copy-Copy.png',
     },
     url: '/imagepass',
     name: 'پردازش تصویر - مسابقه',
