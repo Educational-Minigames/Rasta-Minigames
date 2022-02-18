@@ -1,9 +1,10 @@
 
 import Bio_workshop from './Bio_workshop';
 import BioNewspaper from './BioNewspaper';
+import Expert from './Experts';
 import Furier_Draw from './Furier_Draw';
-import Student from './gambling/student';
 import Mentor from './gambling/mentor';
+import Student from './gambling/student';
 // logic workshop
 import Iframe from './Iframe';
 // Image Processing workshop
@@ -15,6 +16,10 @@ import Logic_table2 from './Logic_table2';
 import physic_centrifugal_force from './physic_centrifugal_force';
 // Physics workshop
 import Physic_collision from './Physic_collision';
+// old minigames
+import BoxSimulator from './BoxSimulator';
+import PhysicsArticle from './PhysicArticle';
+import Experts from './Experts';
 // signal workshop
 import Signal1 from './signal1';
 import Signal2 from './signal2';
@@ -22,8 +27,34 @@ import Signal3 from './signal3';
 import Sine_Waves from './Sine_Waves';
 import Sine_Waves2 from './Sine_Waves2';
 
-
 const MINI_GAMES = [
+  // old minigames
+  {
+    component: PhysicsArticle,
+    url: '/physics_article_1',
+    name: 'بازی مقاله روز فیزیک',
+  },
+  {
+    component: Experts,
+    url: '/experts',
+    name: 'مسئله خبرگان',
+  },
+  {
+    component: BoxSimulator,
+    url: '/box-simulator-1',
+    props: {
+      mode: 0,
+    },
+    name: 'شبیه‌ساز جعبه‌ها - ۱',
+  },
+  {
+    component: BoxSimulator,
+    url: '/box-simulator-2',
+    props: {
+      mode: 1,
+    },
+    name: 'شبیه‌ساز جعبه‌ها - ۲',
+  },
   // Image processing games
   {
     component: ImageProcessing1,

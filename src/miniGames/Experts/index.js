@@ -9,8 +9,8 @@ import {
 } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 
-import timeoutLoop from '../../../utils/timoutLoop';
-import { faSeri } from '../../../utils/translateNumber';
+import timeoutLoop from '../../utils/timoutLoop';
+import { faSeri } from '../../utils/translateNumber';
 import ChangeRoundDialog from './ChangeRoundDialog';
 import getConfig from './config';
 import ExpertGrid from './ExpertGrid';

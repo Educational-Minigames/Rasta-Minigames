@@ -1,7 +1,7 @@
 import { Button, Dialog, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 
-import { faSeri } from '../../../utils/translateNumber';
+import { faSeri } from '../../utils/translateNumber';
 
 const ChangeRoundDialog = ({ round, handleClose, score }) => {
   const head =

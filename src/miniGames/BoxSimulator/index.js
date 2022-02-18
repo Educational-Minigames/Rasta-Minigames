@@ -3,6 +3,7 @@ import React from 'react';
 import Simulator from './Simulator';
 
 function BoxSimulator({ mode }) {
+  console.log(mode)
   if (mode === 0)
     return (
       <Simulator

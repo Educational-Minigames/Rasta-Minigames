@@ -1,4 +1,4 @@
-import shuffle from '../../../utils/shuffleArray';
+import shuffle from '../../utils/shuffleArray';
 
 export default function getConfig({ count = 16, end = 20, bestErrors = 0 }) {
   const experts = [];
