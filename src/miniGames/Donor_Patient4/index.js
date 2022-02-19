@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-function index() {
+function Index() {
   const classes = useStyles();
   const [Graph, setGraph] = useState(<GraphComponent myGraph={graphs[0]} />);
   const [tab, setTab] = useState(0);
@@ -108,4 +108,4 @@ function index() {
 }
 
 
-export default index;
+export default Index;

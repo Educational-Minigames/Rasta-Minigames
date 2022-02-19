@@ -103,7 +103,7 @@ const options = {
   },
 }
 
-function index() {
+function Index() {
   const classes = useStyles();
   const [_, rerender] = useState();
   const [data, setData] = useState(tmp);
@@ -227,4 +227,4 @@ function index() {
 }
 
 
-export default index;
+export default Index;

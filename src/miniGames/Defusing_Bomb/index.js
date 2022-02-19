@@ -54,7 +54,7 @@ const omm = [
 ]
 const MY_COLOR = '#2eff00';
 
-function index() {
+function Index() {
   const classes = useStyles();
   const [Graph, setGraph] = useState(<GraphComponent myGraph={graphs[0]} />);
   const [currentState, setCurrentState] = useState(0);
@@ -150,4 +150,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

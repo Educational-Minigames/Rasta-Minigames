@@ -43,7 +43,7 @@ const initialData = {
 };
 
 
-const index = ({ myGraph }) => {
+const Index = ({ myGraph }) => {
   const classes = useStyles();
 
   return (
@@ -63,6 +63,6 @@ const index = ({ myGraph }) => {
   );
 }
 
-export default index;
+export default Index;
 
 

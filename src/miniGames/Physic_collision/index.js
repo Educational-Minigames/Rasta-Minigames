@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function index() {
+function Index() {
   const classes = useStyles();
   return (
     <div className={classes.div}>
@@ -23,6 +23,6 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
 
 
