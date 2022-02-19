@@ -2,7 +2,7 @@
 import Bio_workshop from './Bio_workshop';
 import BioNewspaper from './BioNewspaper';
 // old minigames
-// import BoxSimulator from './BoxSimulator';
+import BoxSimulator from './BoxSimulator';
 import Experts from './Experts';
 import Furier_Draw from './Furier_Draw';
 import Mentor from './gambling/mentor';
@@ -38,22 +38,22 @@ const MINI_GAMES = [
     url: '/experts',
     name: 'مسئله خبرگان',
   },
-  // {
-  //   component: BoxSimulator,
-  //   url: '/box-simulator-1',
-  //   props: {
-  //     mode: 0,
-  //   },
-  //   name: 'شبیه‌ساز جعبه‌ها - ۱',
-  // },
-  // {
-  //   component: BoxSimulator,
-  //   url: '/box-simulator-2',
-  //   props: {
-  //     mode: 1,
-  //   },
-  //   name: 'شبیه‌ساز جعبه‌ها - ۲',
-  // },
+  {
+    component: BoxSimulator,
+    url: '/box-simulator-1',
+    props: {
+      mode: 0,
+    },
+    name: 'شبیه‌ساز جعبه‌ها - ۱',
+  },
+  {
+    component: BoxSimulator,
+    url: '/box-simulator-2',
+    props: {
+      mode: 1,
+    },
+    name: 'شبیه‌ساز جعبه‌ها - ۲',
+  },
   // Image processing games
   {
     component: ImageProcessing1,

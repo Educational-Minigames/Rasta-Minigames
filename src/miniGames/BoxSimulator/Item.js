@@ -24,7 +24,8 @@ const Item = ({ num, draggable, onDrop }) => {
   const classes = useStyles({ draggable });
 
   const [{ isDragging }, dragRef] = useDrag({
-    item: { num, type: 'CARD' },
+    item: { num },
+    type: 'CARD',
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult) {

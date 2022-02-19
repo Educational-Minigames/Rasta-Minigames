@@ -1,6 +1,7 @@
 import { Container, Grid, makeStyles } from '@material-ui/core';
 import React, { useCallback, useEffect, useState } from 'react';
 import { DndProvider } from 'react-dnd-multi-backend';
+import MultiBackend from 'react-dnd-multi-backend'
 import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch';
 
 import Answer from './Answer';
@@ -41,6 +42,7 @@ function Simulator({ config, isOnline }) {
     setBoxes([[], [], []]);
     setOnlineMode(onlineMode + 1);
   };
+
   useEffect(() => {
     setItems([...getConfig().initItems]);
   }, [onlineMode]);
