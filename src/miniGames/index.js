@@ -1,7 +1,9 @@
 
 import Bio_workshop from './Bio_workshop';
 import BioNewspaper from './BioNewspaper';
-import Expert from './Experts';
+// old minigames
+// import BoxSimulator from './BoxSimulator';
+import Experts from './Experts';
 import Furier_Draw from './Furier_Draw';
 import Mentor from './gambling/mentor';
 import Student from './gambling/student';
@@ -16,10 +18,7 @@ import Logic_table2 from './Logic_table2';
 import physic_centrifugal_force from './physic_centrifugal_force';
 // Physics workshop
 import Physic_collision from './Physic_collision';
-// old minigames
-import BoxSimulator from './BoxSimulator';
 import PhysicsArticle from './PhysicArticle';
-import Experts from './Experts';
 // signal workshop
 import Signal1 from './signal1';
 import Signal2 from './signal2';
@@ -39,22 +38,22 @@ const MINI_GAMES = [
     url: '/experts',
     name: 'مسئله خبرگان',
   },
-  {
-    component: BoxSimulator,
-    url: '/box-simulator-1',
-    props: {
-      mode: 0,
-    },
-    name: 'شبیه‌ساز جعبه‌ها - ۱',
-  },
-  {
-    component: BoxSimulator,
-    url: '/box-simulator-2',
-    props: {
-      mode: 1,
-    },
-    name: 'شبیه‌ساز جعبه‌ها - ۲',
-  },
+  // {
+  //   component: BoxSimulator,
+  //   url: '/box-simulator-1',
+  //   props: {
+  //     mode: 0,
+  //   },
+  //   name: 'شبیه‌ساز جعبه‌ها - ۱',
+  // },
+  // {
+  //   component: BoxSimulator,
+  //   url: '/box-simulator-2',
+  //   props: {
+  //     mode: 1,
+  //   },
+  //   name: 'شبیه‌ساز جعبه‌ها - ۲',
+  // },
   // Image processing games
   {
     component: ImageProcessing1,
