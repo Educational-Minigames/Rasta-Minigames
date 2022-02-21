@@ -25,12 +25,14 @@ const MyRoute = () => {
     <Switch>
       {
         MINI_GAMES.map((miniGame, index) => {
-          return (
-            <Route key={index} exact path={miniGame.url} render={() => <miniGame.component {...miniGame.props} />} />
-          )
+          if (miniGame.component) {
+            return (
+              <Route key={index} exact path={miniGame.url} render={() => <miniGame.component {...miniGame.props} />} />
+            )
+          }
         })
       }
-      <Route exact path="/Conways_Game_Of_Life" component={Conways_Game_Of_Life} />
+      {/* <Route exact path="/Conways_Game_Of_Life" component={Conways_Game_Of_Life} /> */}
       <Route exact path="/Collective_Behavior_Of_Fish" component={Collective_Behavior_Of_Fish} />
       <Route exact path="/Ant_Colony_Optimization" component={Ant_Colony_Optimization} />
       <Route exact path="/Game_Of_Life_Simulation" component={Game_Of_Life_Simulation} />
