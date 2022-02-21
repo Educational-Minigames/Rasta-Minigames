@@ -1,26 +1,21 @@
 
 import Bio_workshop from './Bio_workshop';
 import BioNewspaper from './BioNewspaper';
-// old minigames
 import BoxSimulator from './BoxSimulator';
+import Corona from './Corona';
 import Experts from './Experts';
 import Furier_Draw from './Furier_Draw';
 import Mentor from './gambling/mentor';
 import Student from './gambling/student';
-
-// logic workshop
 import Iframe from './Iframe';
-// Image Processing workshop
 import ImageProcessing1 from './image_processing1';
 import ImageProcessing2 from './image_processing2';
 import ImageProcessing3 from './image_processing3';
 import Logic_Table1 from './Logic_table1';
 import Logic_table2 from './Logic_table2';
 import physic_centrifugal_force from './physic_centrifugal_force';
-// Physics workshop
 import Physic_collision from './Physic_collision';
 import PhysicsArticle from './PhysicArticle';
-// signal workshop
 import Signal1 from './signal1';
 import Signal2 from './signal2';
 import Signal3 from './signal3';
@@ -28,6 +23,11 @@ import Sine_Waves from './Sine_Waves';
 import Sine_Waves2 from './Sine_Waves2';
 
 const MINI_GAMES = [
+  {
+    component: Corona,
+    url: '/corona_karsoogh',
+    name: 'بازی کرونا - مرحله اول کارسوق ۲۱',
+  },
   {
     url: '/miniGames/Conways_Game_Of_Life',
     name: 'بازی زندگی کانوی ',
