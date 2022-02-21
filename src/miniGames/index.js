@@ -27,6 +27,10 @@ import Sine_Waves from './Sine_Waves';
 import Sine_Waves2 from './Sine_Waves2';
 
 const MINI_GAMES = [
+  {
+    url: '/miniGames/Conways_Game_Of_Life',
+    name: 'بازی زندگی کانوی ',
+  },
   // old minigames
   {
     component: PhysicsArticle,
@@ -201,13 +205,8 @@ const MINI_GAMES = [
     name: 'فرکانس -استیت ۲',
   },
   {
-    component: Iframe,
-    props: {
-      src: 'https://preview.p5js.org/AlieNiT/embed/avyX5fP9j',
-      title: 'signal_state3',
-    },
-    url: '/signal_state3',
-    name: 'فرکانس - استیت۳)',
+    url: 'https://preview.p5js.org/AlieNiT/embed/avyX5fP9j',
+    name: 'فرکانس - استیت۳',
   },
   {
     component: Iframe,
