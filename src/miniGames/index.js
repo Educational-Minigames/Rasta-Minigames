@@ -7,6 +7,7 @@ import Experts from './Experts';
 import Furier_Draw from './Furier_Draw';
 import Mentor from './gambling/mentor';
 import Student from './gambling/student';
+
 // logic workshop
 import Iframe from './Iframe';
 // Image Processing workshop
@@ -407,6 +408,11 @@ const MINI_GAMES = [
     url: '/gambling/student',
     name: 'قمابازی - صفحه‌ی دانش‌آموز',
   },
+  {
+    url: '/MiniGames/Genetic_Graph',
+    name: 'گراف - بیوانفورماتیک',
+  },
+
 ]
 
 export default MINI_GAMES;

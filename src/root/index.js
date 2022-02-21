@@ -9,6 +9,7 @@ import Ant_Colony_Optimization from '../miniGames/Ant_Colony_Optimization';
 import Collective_Behavior_Of_Fish from '../miniGames/Collective_Behavior_Of_Fish';
 import Conways_Game_Of_Life from '../miniGames/Conways_Game_Of_Life';
 import Defusing_Bomb from '../miniGames/Defusing_Bomb';
+
 import Donor_Patient1 from '../miniGames/Donor_Patient1';
 import Donor_Patient2 from '../miniGames/Donor_Patient2';
 import Donor_Patient3 from '../miniGames/Donor_Patient3';
