@@ -143,7 +143,7 @@ function start() {
           reset();
         });
   setTimeout(() => {
-    document.getElementById("result").style.display = "block";
+    document.getElementById("result").style.display = "flex";
     document.getElementById("dice").style.display = "none";
   }, 2400);
 }

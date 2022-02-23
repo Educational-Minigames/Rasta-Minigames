@@ -96,8 +96,15 @@
 
       <div
         id="result"
-        style="transition: 0.5s ease; margin-top: 14px; display: none"
+        style="
+          transition: 0.5s ease;
+          margin-top: 14px;
+          display: none;
+          flex-direction: column;
+          align-items: center;
+        "
       >
+        <h2>Result</h2>
         <span class="resultTile" id="r0"
           ><p>user</p>
           <p id="r0Score">0</p>
@@ -130,6 +137,7 @@
           ><p>pro</p>
           <p id="r7Score">0</p>
         </span>
+        <button id="startBtn" onclick="reset()">Start again</button>
       </div>
     </div>
     <script src="code.js"></script>
