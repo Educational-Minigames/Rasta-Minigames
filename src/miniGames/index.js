@@ -417,7 +417,7 @@ const MINI_GAMES = [
     component: Student,
     props: {},
     url: '/gambling/student',
-    name: 'قمابازی - صفحه‌ی دانش‌آموز',
+    name: 'قماربازی - صفحه‌ی دانش‌آموز',
   },
   {
     url: '/MiniGames/Genetic_Graph',
