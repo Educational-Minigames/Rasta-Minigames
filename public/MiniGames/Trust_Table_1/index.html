@@ -1,0 +1,174 @@
+<html><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><link type="text/css" id="dark-mode" rel="stylesheet" href=""><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .mystyle {
+      background-color: red;
+      color: white;
+      font-size: 25px;
+      box-sizing: border-box;
+    }
+    .select {
+        background:rgb(255,145,0);
+    }
+    .red {
+        background:rgb(255, 0, 0);
+        font-size: 25px;
+        box-sizing: border-box;
+    }
+    .green {
+        background:rgb(0, 255, 13);
+        font-size: 25px;
+        box-sizing: border-box;
+    }
+    .none {
+        background:rgb(148, 151, 148);
+        font-size: 25px;
+        box-sizing: border-box;
+    }
+    .select.highlight {
+        background:rgb(26, 255, 0);
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body data-new-gr-c-s-check-loaded="14.1050.0" data-gr-ext-installed="">
+        <style type="text/css">
+            .tg  {border-collapse:collapse;border-color:#93a1a1;border-spacing:0;}
+            .tg td{background-color:#fdf6e3;border-color:#93a1a1;border-style:solid;border-width:1px;color:#002b36;
+              font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:4px 3px;word-break:normal;}
+            .tg th{background-color:#657b83;border-color:#93a1a1;border-style:solid;border-width:1px;color:#fdf6e3;
+              font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:4px 3px;word-break:normal;}
+            .tg .tg-nvgb{border-color:inherit;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;font-size:24px;
+              font-weight:bold;text-align:center;vertical-align:middle}
+            .tg .tg-peok{border-color:inherit;color:#efefef;font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;
+              font-size:24px;font-weight:bold;text-align:center;vertical-align:middle}
+            .tg .tg-3n39{background-color:#eee8d5;border-color:inherit;
+              font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif !important;;font-size:24px;font-weight:bold;
+              text-align:center;vertical-align:middle}
+            </style>
+            <table class="tg" style="undefined; table-layout: fixed; width: 687px">
+            <colgroup>
+            <col style="width: 43px">
+            <col style="width: 43px">
+            <col style="width: 43px">
+            <col style="width: 112px">
+            <col style="width: 228px">
+            <col style="width: 275px">
+            <col style="width: 375px">
+            </colgroup>
+            <thead>
+              <tr>
+                <th class="tg-nvgb">L1</th>
+                <th class="tg-nvgb">L2</th>
+                <th class="tg-nvgb">L3</th>
+                <th class="tg-nvgb">(L2 ∧  L3)</th>
+                <th class="tg-nvgb">((¬L1 ∨ L1) → L3)</th>
+                <th class="tg-peok">(L1 ∨ L3)  ∧  L2</th>
+                <th class="tg-peok">((¬L1 ∨ L1) → (¬L2 ∧ L2)) → L3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="1" id="select2" class="green static"></td>
+              </tr>
+              <tr>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="1" id="select2" class="green static"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="1" id="select2" class="green static"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="1" id="select2" class="green static"></td>
+              </tr>
+              <tr>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="1" id="select2" class="green static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="0" id="select2" class="red static"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="1" id="select2" class="green static"></td>
+              </tr>
+              <tr>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+              </tr>
+              <tr>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+              </tr>
+              <tr>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+              </tr>
+              <tr>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-nvgb"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+              </tr>
+              <tr>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+                <td class="tg-3n39"><input type="button" name="Ignore Insert" value="-" id="select2" class="none"></td>
+              </tr>
+            </tbody>
+            </table>
+    <!-- <button class='red'></button> -->
+    <!-- <input type="button" name="Ignore Insert" value="-" id="select2" class="none" /> -->
+    
+    
+    <script>
+    jQuery(function ($) {
+        $(':button').click(function () {
+            var gValue = $(this).attr('class');
+        if (gValue == 'none') {
+            $(this).removeClass("none");
+            $(this).addClass("red");
+            $(this).prop('value', '0');
+        } else if (gValue == 'red'){
+            $(this).removeClass("red");
+            $(this).addClass("green");
+            $(this).prop('value', '1');
+        } else if (gValue == 'green'){
+            $(this).removeClass("green");
+            $(this).addClass("none");
+            $(this).prop('value', '-');
+        }
+        })
+    })
+    
+    </script>
+    
+    
+    
+    
+    </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

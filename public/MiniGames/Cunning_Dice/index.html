@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cunning dice</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="head">
+      <h1>Cunning dice</h1>
+      <button id="startBtn" onclick="start()">Start the game</button>
+    </div>
+    <div id="choose">
+      <div
+        id="mainConfigs"
+        style="
+          transition: 0.5s ease;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <h4>Choose players</h4>
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap">
+          <div class="chooseBox" id="b1" onclick="btn0()">noob 1</div>
+          <div class="chooseBox" id="b2" onclick="btn1()">noob 2</div>
+          <div class="chooseBox" id="b3" onclick="btn2()">noob 3</div>
+          <div class="chooseBox" id="b4" onclick="btn3()">smart 1</div>
+          <div class="chooseBox" id="b5" onclick="btn4()">smart 2</div>
+          <div class="chooseBox" id="b6" onclick="btn5()">smart 3</div>
+          <div class="chooseBox" id="b7" onclick="btn6()">pro</div>
+        </div>
+
+        <div class="chooseBox" id="b8" onclick="btnPlayer()">
+          i want to play too
+        </div>
+        <div
+          id="playConfigs"
+          style="
+            display: none;
+            align-items: center;
+            border: 1px ridge #ccc;
+            padding: 14px;
+            margin: 5px;
+            border-radius: 14px;
+          "
+        >
+          <p>Score</p>
+          <input id="score" value="0" />
+          <p>Turn</p>
+          <input id="turn" value="4" />
+        </div>
+        <p>Rounds</p>
+        <input id="rounds" value="5" />
+      </div>
+      <section
+        class="container"
+        id="dice"
+        style="display: none; margin-bottom: 180px"
+      >
+        <div id="cube">
+          <div class="front">
+            <span class="dot dot1"></span>
+          </div>
+          <div class="back">
+            <span class="dot dot1"></span>
+            <span class="dot dot2"></span>
+          </div>
+          <div class="right">
+            <span class="dot dot1"></span>
+            <span class="dot dot2"></span>
+            <span class="dot dot3"></span>
+          </div>
+          <div class="left">
+            <span class="dot dot1"></span>
+            <span class="dot dot2"></span>
+            <span class="dot dot3"></span>
+            <span class="dot dot4"></span>
+          </div>
+          <div class="top">
+            <span class="dot dot1"></span>
+            <span class="dot dot2"></span>
+            <span class="dot dot3"></span>
+            <span class="dot dot4"></span>
+            <span class="dot dot5"></span>
+          </div>
+          <div class="bottom">
+            <span class="dot dot1"></span>
+            <span class="dot dot2"></span>
+            <span class="dot dot3"></span>
+            <span class="dot dot4"></span>
+            <span class="dot dot5"></span>
+            <span class="dot dot6"></span>
+          </div>
+        </div>
+      </section>
+
+      <div
+        id="result"
+        style="transition: 0.5s ease; margin-top: 14px; display: none"
+      >
+        <span class="resultTile" id="r0"
+          ><p>user</p>
+          <p id="r0Score">0</p>
+        </span>
+        <span class="resultTile" id="r1"
+          ><p>noob 1</p>
+          <p id="r1Score">0</p>
+        </span>
+        <span class="resultTile" id="r2"
+          ><p>noob 2</p>
+          <p id="r2Score">0</p>
+        </span>
+        <span class="resultTile" id="r3"
+          ><p>noob 3</p>
+          <p id="r3Score">0</p>
+        </span>
+        <span class="resultTile" id="r4"
+          ><p>smart 1</p>
+          <p id="r4Score">0</p>
+        </span>
+        <span class="resultTile" id="r5"
+          ><p>smart 2</p>
+          <p id="r5Score">0</p>
+        </span>
+        <span class="resultTile" id="r6"
+          ><p>smart 3</p>
+          <p id="r6Score">0</p>
+        </span>
+        <span class="resultTile" id="r7"
+          ><p>pro</p>
+          <p id="r7Score">0</p>
+        </span>
+      </div>
+    </div>
+    <script src="code.js"></script>
+  </body>
+</html>

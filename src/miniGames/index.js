@@ -24,6 +24,18 @@ import Sine_Waves2 from './Sine_Waves2';
 
 const MINI_GAMES = [
   {
+    url: '/MiniGames/Trust_Table_1',
+    name: 'جدول صحت',
+  },
+  {
+    url: '/MiniGames/Cunning_Dice',
+    name: 'تاس حیله‌گر',
+  },
+  {
+    url: '/corona_karsoogh',
+    name: 'بازی کرونا - مرحله اول کارسوق ۲۱',
+  },
+  {
     component: Corona,
     url: '/corona_karsoogh',
     name: 'بازی کرونا - مرحله اول کارسوق ۲۱',
