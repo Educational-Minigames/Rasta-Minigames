@@ -99,54 +99,62 @@ function btnPlayer() {
 
 function start() {
   let sPlayers = "";
-  players.forEach((value) => (sPlayers += value));
+  turn = document.getElementById("turn").value;
+  score = document.getElementById("score").value;
   rounds = parseInt(document.getElementById("rounds").value);
-  score = parseInt(document.getElementById("score").value);
-  turn = parseInt(document.getElementById("turn").value);
+  if (score.length === 0 && turn.length === 0) {
+    if (players.includes("0")) {
+      players.splice(players.indexOf("0"), 1);
+    }
+  } else {
+    if (!players.includes("0")) {
+      players.push("0");
+    }
+  }
+  turn = parseInt(turn);
+  score = parseInt(score);
+  if (players.length === 0 && !(rounds >= 0)) {
+    alert("please join some players & enter rounds number!");
+    return;
+  }
+  if (!(rounds >= 0)) {
+    alert("please enter rounds number");
+    return;
+  }
+  if (players.length === 0) {
+    alert("please join some players before playing !");
+    return;
+  }
+  players.forEach((value) => (sPlayers += value));
   document.getElementById("mainConfigs").style.display = "none";
   document.getElementById("startBtn").style.display = "none";
   document.getElementById("dice").style.display = "block";
-
-  document.getElementById("playConfigs").style.display === "none"
-    ? fetch("http://127.0.0.1:8000/run", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ids: sPlayers,
-          rounds: rounds,
-        }),
-      })
-        .then((res) => {
-          res.json();
-        })
-        .then((jResponse) => handleResult(jResponse))
-        .catch((e) => {
-          alert("sorry, an error occurred\n", e);
-          reset();
-        })
-    : fetch("http://127.0.0.1:8000/run", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ids: sPlayers,
-          rounds: rounds,
-          score: score,
-          turn: turn,
-        }),
-      })
-        .then((res) => {
-          res.json();
-        })
-        .then((jResponse) => handleResult(jResponse))
-        .catch((e) => {
-          alert("sorry, an error occurred\n", e);
-          reset();
-        });
-  setTimeout(() => {
-    document.getElementById("result").style.display = "flex";
-    document.getElementById("dice").style.display = "none";
-  }, 2400);
+  let url =
+    "https://ali.v20dlstar.ml/run/?ids=" + sPlayers + "&rounds=" + rounds;
+  if (score >= 0) {
+    url += "&score=" + score;
+  }
+  if (turn >= 0) {
+    url += "&turn=" + turn;
+  }
+  console.log(url);
+  fetch(url)
+    .then((res) => {
+      res.json().then((jResponse) => {
+        handleResult(jResponse);
+        setTimeout(() => {
+          document.getElementById("result").style.display = "flex";
+          document.getElementById("dice").style.display = "none";
+        }, 2400);
+      });
+    })
+    .catch((e) => {
+      alert("sorry, an error occurred\n", e);
+      console.error(e);
+      reset();
+    });
 }
+
 function handleResult(response) {
   if (response.error === 0) {
     for (var i = 0; i <= 7; i++) {
@@ -156,7 +164,8 @@ function handleResult(response) {
       }
     }
   } else {
-    alert("sorry, an error occurred");
+    alert("sorry, an error occurred (error code 1)");
+    console.error(response);
     reset();
   }
 }

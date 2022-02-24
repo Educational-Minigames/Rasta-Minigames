@@ -7,7 +7,7 @@
   <body>
     <div id="head">
       <h1>Cunning dice</h1>
-      <button id="startBtn" onclick="start()">Start the game</button>
+      <button id="startBtn" onclick="start()">Play</button>
     </div>
     <div id="choose">
       <div
@@ -31,7 +31,7 @@
         </div>
 
         <div class="chooseBox" id="b8" onclick="btnPlayer()">
-          i want to play too
+          i want to play to
         </div>
         <div
           id="playConfigs"
@@ -45,12 +45,12 @@
           "
         >
           <p>Score</p>
-          <input id="score" value="0" />
+          <input id="score" value="" />
           <p>Turn</p>
-          <input id="turn" value="4" />
+          <input id="turn" value="" />
         </div>
         <p>Rounds</p>
-        <input id="rounds" value="5" />
+        <input id="rounds" value="10000" />
       </div>
       <section
         class="container"
@@ -106,7 +106,7 @@
       >
         <h2>Result</h2>
         <span class="resultTile" id="r0"
-          ><p>user</p>
+          ><p>You!</p>
           <p id="r0Score">0</p>
         </span>
         <span class="resultTile" id="r1"
@@ -137,7 +137,7 @@
           ><p>pro</p>
           <p id="r7Score">0</p>
         </span>
-        <button id="startBtn" onclick="reset()">Start again</button>
+        <button id="startBtn" onclick="reset()">Play again</button>
       </div>
     </div>
     <script src="code.js"></script>

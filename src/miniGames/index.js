@@ -417,11 +417,19 @@ const MINI_GAMES = [
     component: Student,
     props: {},
     url: '/gambling/student',
-    name: 'قماربازی - صفحه‌ی دانش‌آموز',
+    name: 'قمابازی - صفحه‌ی دانش‌آموز',
   },
   {
     url: '/MiniGames/Genetic_Graph',
     name: 'گراف - بیوانفورماتیک',
+  },
+  {
+    url: '/MiniGames/WowGame',
+    name: 'جدول منطق - کارگاه صفر و یک',
+  },
+  {
+    url: '/MiniGames/Cunning_Dice2',
+    name: 'تاس حیله‌گر - کارگاه سو‌گیری شناختی',
   },
 
 ]
