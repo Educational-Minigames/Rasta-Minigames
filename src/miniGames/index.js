@@ -15,7 +15,8 @@ import Logic_Table1 from './Logic_table1';
 import Logic_table2 from './Logic_table2';
 import physic_centrifugal_force from './physic_centrifugal_force';
 import Physic_collision from './Physic_collision';
-import PhysicsArticle from './PhysicArticle';
+import PhysicsArticleGraph from './PhysicArticle/Graph';
+import PhysicsArticleChart from './PhysicArticle/Chart';
 import Signal1 from './signal1';
 import Signal2 from './signal2';
 import Signal3 from './signal3';
@@ -46,9 +47,14 @@ const MINI_GAMES = [
   },
   // old minigames
   {
-    component: PhysicsArticle,
-    url: '/physics_article_1',
-    name: 'بازی مقاله روز فیزیک',
+    component: PhysicsArticleGraph,
+    url: '/physics_article_graph',
+    name: 'بازی مقاله روز فیزیک - گراف',
+  },
+  {
+    component: PhysicsArticleChart,
+    url: '/physics_article_chart',
+    name: 'بازی مقاله روز فیزیک - نمودار',
   },
   {
     component: Experts,
