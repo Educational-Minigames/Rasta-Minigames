@@ -25,6 +25,10 @@ import Sine_Waves2 from './Sine_Waves2';
 
 const MINI_GAMES = [
   {
+    url: '/MiniGames/optic',
+    name: 'شکست نور',
+  },
+  {
     url: '/MiniGames/Trust_Table_1',
     name: 'جدول صحت',
   },
