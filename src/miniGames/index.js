@@ -29,12 +29,24 @@ const MINI_GAMES = [
     name: 'شکست نور',
   },
   {
-    url: '/MiniGames/Geometry1',
+    url: '/MiniGames/geometry/1',
     name: 'کارگاه هندسه - بازی ۱',
   },
   {
-    url: '/MiniGames/Geometry2',
-    name: 'کارگاه هندسه - بازی ۲',
+    url: '/MiniGames/geometry/3',
+    name: 'کارگاه هندسه - بازی ۳',
+  },
+  {
+    url: '/MiniGames/geometry/4',
+    name: 'کارگاه هندسه - بازی ۴',
+  },
+  {
+    url: '/MiniGames/geometry/5',
+    name: 'کارگاه هندسه - بازی ۵',
+  },
+  {
+    url: '/MiniGames/geometry/6',
+    name: 'کارگاه هندسه - بازی ۶',
   },
   {
     url: '/MiniGames/Trust_Table_1',
