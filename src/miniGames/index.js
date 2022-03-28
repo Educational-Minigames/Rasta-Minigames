@@ -49,6 +49,22 @@ const MINI_GAMES = [
     name: 'کارگاه هندسه - بازی ۶',
   },
   {
+    url: 'https://probability-minigame.pages.dev/1',
+    name: 'کارگاه احتمال - بازی ۱',
+  },
+  {
+    url: 'https://probability-minigame.pages.dev/2',
+    name: 'کارگاه احتمال - بازی ۲',
+  },
+  {
+    url: 'https://probability-minigame.pages.dev/3',
+    name: 'کارگاه احتمال - بازی ۳',
+  },
+  {
+    url: 'https://probability-minigame.pages.dev/4',
+    name: 'کارگاه احتمال - بازی ۴',
+  },
+  {
     url: '/MiniGames/Trust_Table_1',
     name: 'جدول صحت',
   },
