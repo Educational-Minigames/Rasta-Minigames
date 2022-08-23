@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <section>
+        <div>
+          <label>A :</label>
+          <input id="a_value" type="text" maxlength="10" />
+        </div>
+        <div>
+          <label>A possibility :</label>
+          <input id="a_value_possibility" type="number" min="0" max="1" />
+        </div>
+      </section>
+      <section>
+        <div>
+          <label>B :</label>
+          <input id="b_value" type="text" maxlength="10" />
+        </div>
+        <div>
+          <label>B possibility :</label>
+          <input id="b_value_possibility" type="number" min="0" max="1" />
+        </div>
+      </section>
+      <section>
+        <div>
+          <label>C :</label>
+          <input id="c_value" type="text" maxlength="10" />
+        </div>
+        <div>
+          <label>C possibility :</label>
+          <input id="c_value_possibility" type="number" min="0" max="1" />
+        </div>
+      </section>
+      <section>
+        <div>
+          <label>D :</label>
+          <input id="d_value" type="text" maxlength="10" />
+        </div>
+        <div>
+          <label>D possibility :</label>
+          <input id="d_value_possibility" type="number" min="0" max="1" />
+        </div>
+      </section>
+      <section>
+        <label>Decoded Input :</label>
+        <input id="input_value" type="text" />
+      </section>
+      <section>
+        <label>Set inputs equal or not ?</label>
+        <input id="set_equal" type="checkbox" />
+      </section>
+      <button id="show">show answers</button>
+    </form>
+    <div id="answers"></div>
+    <script src="./grid.js"></script>
+  </body>
+</html>
