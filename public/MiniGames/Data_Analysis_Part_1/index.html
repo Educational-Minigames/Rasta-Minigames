@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+    <script src="https://d3js.org/d3-collection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <script src="https://d3js.org/d3-request.v1.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="myForm">
+      <!-- text input  -->
+      <form method="post">
+        <input type="text" name="text" placeholder="Enter name of the File" id="csvFileName"/>
+        <input type="submit" value="Submit" />
+      </form>
+      <button id="show_options">Show Options</button>
+      <section id="options_container"></section>
+    </section>
+
+    <section id="chart_container"></section>
+
+    <script src="grid.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+form {
+  margin: 1rem auto;
+  text-align: center;
+  border: 2px dashed #0702ad;
+  width: 30rem;
+  padding: 2rem 0;
+  border-radius: 1rem;
+}
+
+input {
+  border: 1px solid #49d1d1;
+  outline: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  color: #0702ad;
+}
+
+section {
+  margin: 1rem 0;
+}
+
+section div {
+  margin: 0.5rem 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: #49d1d1;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: #0702ad;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #0702ad;
+  color: #49d1d1;
+}
+
+#answers {
+  border: 2px dashed #0702ad;
+  width: 30rem;
+  height: fit-content;
+  margin: 1rem auto;
+  text-align: center;
+  padding: 2rem 0;
+  border-radius: 1rem;
+  display: none;
+}

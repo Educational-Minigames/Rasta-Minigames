@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <table class="input_container">
+        <thead>
+          <tr>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <input id="a_value" type="text" maxlength="5" />
+            </td>
+            <td>
+              <input id="b_value" type="text" maxlength="5" />
+            </td>
+            <td>
+              <input id="c_value" type="text" maxlength="5" />
+            </td>
+            <td>
+              <input id="d_value" type="text" maxlength="5" />
+            </td>
+            <td>
+              <input id="e_value" type="text" maxlength="5" />
+            </td>
+            <td>
+              <input id="f_value" type="text" maxlength="5" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="run">RUN</button>
+      <section id="state_2">
+        <h1 id="state_2_current_code"></h1>
+        <h1 id="state_2_new_code"></h1>
+        <div>
+          <button id="state_2_char_completed">
+            The character code has been completed .
+          </button>
+          <input id="state_2_char_completed_input" type="text" maxlength="1" />
+        </div>
+        <button id="state_2_char_not_completed">
+          The character code has not been completed .
+        </button>
+      </section>
+    </main>
+    <script src="grid.js"></script>
+  </body>
+</html>

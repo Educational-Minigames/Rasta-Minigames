@@ -1,0 +1,48 @@
+.btn {
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 0;
+    text-align: center;
+    font-size: 1.2vw;
+    color: white;
+    transition: padding .8s ease;
+
+}
+
+.btn:hover {
+    padding: 10px 30px;
+    cursor: pointer;
+}
+
+.btn-gray {
+    background-color: white;
+    color: #444;
+!important;
+}
+
+.btn-blue {
+    background-color: #3cadd4;
+    color: white;
+!important;
+}
+
+.btn-blue:hover {
+    background-color: #58acd0;
+}
+
+.btn-big {
+    font-size: 20px;
+    padding: 15px 35px;
+    transition: padding .8s ease;
+}
+
+.btn-big:hover {
+    padding: 15px 50px;
+    cursor: pointer;
+}
+
+.btn-dark {
+    background-color: #383b43;
+    color: #ffffff !important;
+}
+
