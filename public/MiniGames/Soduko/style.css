@@ -1,0 +1,20 @@
+#table {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: auto;
+  text-align: center;
+  width: 28rem;
+  border: 1px dashed blue;
+  padding: 0.5rem 1rem;
+}
+
+.table_intro {
+  width: 100px;
+  height: 100px;
+  margin: 1rem auto;
+  border: 1px solid blue;
+}
+
+.table_intro h1 {
+  margin: 37%;
+}
