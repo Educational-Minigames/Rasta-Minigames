@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  margin: 3rem auto;
+  text-align: center;
+}
+
+table {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+input[type="text"] {
+  border: 1px solid blue;
+  outline: none;
+  border-radius: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  margin: 0.5rem;
+  color: black;
+}
+
+button {
+  border: 1px solid blue;
+  outline: none;
+  color: blue;
+  padding: 0.5rem 1rem;
+  background-color: aqua;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.3rem;
+}
+
+button:hover {
+  border: none;
+  color: aqua;
+  background-color: blue;
+}
+
+#state_2 {
+  display: none;
+  width: 40rem;
+  margin: 2rem auto;
+  border: 1px dashed blue;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+}
