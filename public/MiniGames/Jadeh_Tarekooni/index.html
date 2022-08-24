@@ -12,49 +12,121 @@
 </head>
 
 <body>
-<button id="graph1" class="btn btn-blue btn-big">graph 1</button>
-<button id="graph2" class="btn btn-blue btn-big">graph 2</button>
-<button id="graph3" class="btn btn-blue btn-big">graph 3</button>
+<button class="btn btn-blue btn-big" id="graph1">graph 1</button>
+<button class="btn btn-blue btn-big" id="graph2">graph 2</button>
+<button class="btn btn-blue btn-big" id="graph3">graph 3</button>
+<button class="btn btn-dark btn-big" id="graph1-c">graph 1-c</button>
+<button class="btn btn-dark btn-big" id="graph2-c">graph 2-c</button>
+<button class="btn btn-dark btn-big" id="graph3-c">graph 3-c</button>
+<button class="btn btn-gray btn-big" id="graph3-sp">graph 3-sp</button>
 <div id="graph"></div>
 
 <script type="text/jsx">
     document.getElementById("graph1").addEventListener("click", graphFunc1);
     document.getElementById("graph2").addEventListener("click", graphFunc2);
     document.getElementById("graph3").addEventListener("click", graphFunc3);
+    document.getElementById("graph1-c").addEventListener("click", graphFunc1_c);
+    document.getElementById("graph2-c").addEventListener("click", graphFunc2_c);
+    document.getElementById("graph3-c").addEventListener("click", graphFunc3_c);
+    document.getElementById("graph3-sp").addEventListener("click", graphFunc3_sp);
     const {useRef} = React;
+
     function graphFunc1() {
-        show('./a.json',0,9);
+        show('./a.json', 0, 9, true);
     }
+
+    function graphFunc1_c() {
+        show('./a.json', 0, 9, false);
+    }
+
     function graphFunc2() {
-        show('./b.json',0,21);
+        show('./b.json', 0, 21, true);
     }
+
+    function graphFunc2_c() {
+        show('./b.json', 0, 21, false);
+    }
+
     function graphFunc3() {
-        show('./c.json',0,27);
+        show('./c.json', 0, 27, true);
+    }
+
+    function graphFunc3_c() {
+        show('./c.json', 0, 27, false);
+    }
+
+    function graphFunc3_sp() {
+        show2('./c.json', 0, 27, true);
     }
 
 
-    function show(file,f,l){
+    function show(file, f, l, x) {
         fetch(file).then(res => res.json()).then(data => {
             data.nodes[f].color = "#026f0a"
             data.nodes[l].color = "#bd0000"
             const FocusGraph = () => {
                 const fgRef = useRef();
                 let mainNode = data.nodes[0];
-                console.log(mainNode);
                 const handleClick = link => {
                     let node = data.nodes.find(o => o.id === link.target.id);
-                    if (mainNode.id === node.id )
+                    if (mainNode.id === node.id)
                         node = data.nodes.find(o => o.id === link.source.id);
-                    console.log(node);
                     mainNode = node;
-                    link.color = "#026f0a"
-                    node.color = "#026f0a"
-                    data.nodes[l].color="#bd0000"
+                    if (x) {
+                        link.color = "#026f0a"
+                        node.color = "#026f0a"
+                    }
+                    data.nodes[l].color = "#bd0000"
                     const distance = 10;
                     const distRatio = 1 + distance / Math.hypot(node.x, node.y);
                     console.log(distRatio);
-                    fgRef.current.centerAt(node.x , node.y, 1000);
-                    fgRef.current.zoom(20);
+                    fgRef.current.centerAt(node.x, node.y, 1000);
+                    fgRef.current.zoom(40);
+
+                };
+
+                return <ForceGraph2D
+                    ref={fgRef}
+                    graphData={data}
+                    nodeLabel="id"
+                    nodeAutoColorBy="group"
+                    onLinkClick={handleClick}
+                />;
+            };
+            ReactDOM.render(
+                <FocusGraph/>,
+                document.getElementById('graph')
+            );
+        });
+    }
+
+    function show2(file, f, l, x) {
+        fetch(file).then(res => res.json()).then(data => {
+            data.nodes[f].color = "#026f0a"
+            data.nodes[l].color = "#bd0000"
+            data.nodes[2].color = "#0009bd"
+            data.nodes[3].color = "#0009bd"
+            const FocusGraph = () => {
+                const fgRef = useRef();
+                let mainNode = data.nodes[0];
+                const handleClick = link => {
+                    let node = data.nodes.find(o => o.id === link.target.id);
+                    if (mainNode.id === node.id)
+                        node = data.nodes.find(o => o.id === link.source.id);
+                    mainNode = node;
+                    if (x) {
+                        link.color = "#026f0a"
+                        node.color = "#026f0a"
+                    }
+                    data.nodes[l].color = "#bd0000"
+                    data.links[2].color = "#0009bd"
+                    data.nodes[2].color = "#0009bd"
+                    data.nodes[3].color = "#0009bd"
+                    const distance = 10;
+                    const distRatio = 1 + distance / Math.hypot(node.x, node.y);
+                    console.log(distRatio);
+                    fgRef.current.centerAt(node.x, node.y, 1000);
+                    fgRef.current.zoom(40);
 
                 };
 
