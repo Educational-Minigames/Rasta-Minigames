@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+html,body {
+    margin:0;
+    background:lightgray;
+    font-family: Arial;
+    align-self: center;
+}
+
+.cels {
+    height: 800px;
+    width: 800px;
+    background-color: black;
+    color: white;
+    margin: 10% auto;
+
+}
+
+p{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    text-align: right;
+}
+
+.undo-button{
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.reset-button{
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.screen {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
+    padding: 20px 5px;
+    align-items: left;
+    margin-bottom: 15px;
+}
+
+.cel-button {
+    background-color: #0b0b0b;
+    color: white;
+    height: 50px;
+    width: 50px;
+    border: 1px solid #000000;
+    border-radius: 0;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+
+.cel-rows {
+    display: flex;
+    justify-content: stretch    ;
+    align-items: stretch;
+    margin-bottom: 0.0%;
+}
