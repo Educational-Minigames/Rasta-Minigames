@@ -14,7 +14,7 @@ const playRoad = new Road(playCanvas.width / 2, playCanvas.width * 0.9, 3);
 const AIroad = new Road(AICanvas.width / 2, AICanvas.width * 0.9, 3);
 
 // algorithm parameters:
-const N = 100;
+const N = 20;
 const mutationAmount = 1;
 
 var playCar = new Car(playRoad.getLaneCenter(1), 100, "KEYS");
