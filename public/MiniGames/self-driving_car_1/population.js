@@ -48,7 +48,7 @@ class Population {
             let parent2 = this.matingPool[Math.floor(Math.random() * this.matingPool.length)];
             let [offspring1,offspring2] = NeuralNetwork.crossover(parent1.brain, parent2.brain);
             // let [offspring1,offspring2] = [structuredClone(parent1.brain),structuredClone(parent2.brain)];
-            console.log(offspring1);
+            // console.log(offspring1);
             NeuralNetwork.mutate(offspring1);
             NeuralNetwork.mutate(offspring2);
 
