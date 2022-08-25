@@ -11,7 +11,7 @@
     <!--<script src="../../src/packages/react-force-graph-3d/dist/react-force-graph-3d.js"></script>-->
 </head>
 
-<body>
+<body id="body">
 <button class="btn btn-blue btn-big" id="graph1">graph 1</button>
 <button class="btn btn-blue btn-big" id="graph2">graph 2</button>
 <button class="btn btn-blue btn-big" id="graph3">graph 3</button>
@@ -19,9 +19,12 @@
 <button class="btn btn-dark btn-big" id="graph2-c">graph 2-c</button>
 <button class="btn btn-dark btn-big" id="graph3-c">graph 3-c</button>
 <button class="btn btn-gray btn-big" id="graph3-sp">graph 3-sp</button>
-<div id="graph"></div>
-
+<div id="graph" style="display: none"></div>
+<div style="display: flex;align-content: center">
+<p id="wait" style="display: none;size: 20px">wait 15 seconds <br/> loading...</p>
+</div>
 <script type="text/jsx">
+
     document.getElementById("graph1").addEventListener("click", graphFunc1);
     document.getElementById("graph2").addEventListener("click", graphFunc2);
     document.getElementById("graph3").addEventListener("click", graphFunc3);
@@ -32,36 +35,89 @@
     const {useRef} = React;
 
     function graphFunc1() {
+        document.getElementById("wait").style.display = "flex";
+        document.getElementById("graph").style.display = "none";
         show('./a.json', 0, 9, true);
+        setTimeout(function (){
+            document.getElementById("graph").style.display = "flex";
+            document.getElementById("wait").style.display = "flex";
+
+        },15000)
+
     }
 
     function graphFunc1_c() {
+
+        document.getElementById("wait").style.display = "flex";
+        document.getElementById("graph").style.display = "none";
         show('./a.json', 0, 9, false);
+        setTimeout(function (){
+            document.getElementById("graph").style.display = "flex";
+            document.getElementById("wait").style.display = "flex";
+
+        },15000)
     }
 
     function graphFunc2() {
+
+        document.getElementById("wait").style.display = "flex";
+        document.getElementById("graph").style.display = "none";
         show('./b.json', 0, 21, true);
+        setTimeout(function (){
+            document.getElementById("graph").style.display = "flex";
+            document.getElementById("wait").style.display = "flex";
+
+        },15000)
     }
 
     function graphFunc2_c() {
+
+        document.getElementById("wait").style.display = "flex";
         show('./b.json', 0, 21, false);
+        setTimeout(function (){
+            document.getElementById("graph").style.display = "flex";
+            document.getElementById("wait").style.display = "flex";
+
+        },15000)
     }
 
     function graphFunc3() {
+
+        document.getElementById("wait").style.display = "flex";
         show('./c.json', 0, 27, true);
+        setTimeout(function (){
+            document.getElementById("graph").style.display = "flex";
+            document.getElementById("wait").style.display = "flex";
+
+        },15000)
     }
 
     function graphFunc3_c() {
+
+        document.getElementById("wait").style.display = "flex";
         show('./c.json', 0, 27, false);
+        setTimeout(function (){
+            document.getElementById("graph").style.display = "flex";
+            document.getElementById("wait").style.display = "flex";
+
+        },15000)
     }
 
     function graphFunc3_sp() {
+
+        document.getElementById("wait").style.display = "flex";
         show2('./c.json', 0, 27, true);
+        setTimeout(function (){
+            document.getElementById("graph").style.display = "flex";
+            document.getElementById("wait").style.display = "flex";
+
+        },15000)
     }
 
 
     function show(file, f, l, x) {
         fetch(file).then(res => res.json()).then(data => {
+
             data.nodes[f].color = "#026f0a"
             data.nodes[l].color = "#bd0000"
             const FocusGraph = () => {
@@ -91,11 +147,17 @@
                     nodeLabel="id"
                     nodeAutoColorBy="group"
                     onLinkClick={handleClick}
+                    onEngineTick={() => {
+                        let node = data.nodes[0];
+                        fgRef.current.centerAt(node.x, node.y, 10);
+                        fgRef.current.zoom(40);
+                    }}
+                    minZoom={40}
+                    maxZoom={40}
                 />;
             };
             ReactDOM.render(
-                <FocusGraph/>,
-                document.getElementById('graph')
+                <FocusGraph/>, document.getElementById('graph')
             );
         });
     }
