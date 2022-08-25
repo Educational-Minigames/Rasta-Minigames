@@ -1,16 +1,16 @@
-// const my_table = [
-//   [3, 1, 2, 4],
-//   [4, 2, 1, 3],
-//   [1, 4, 3, 2],
-//   [2, 3, 4, 1],
-// ]
+var my_table = [
+   [3, 1, 2, 4],
+   [4, 2, 1, 3],
+   [1, 4, 3, 2],
+   [2, 3, 4, 1],
+ ]
 
-var my_table =  [
-    [-1, -1, -1, -1],
-    [-1, -1, -1, -1],
-    [-1, -1, -1, -1],
-    [-1, -1, -1, -1],
-  ]
+//var my_table =  [
+//    [-1, -1, -1, -1],
+//    [-1, -1, -1, -1],
+//    [-1, -1, -1, -1],
+//    [-1, -1, -1, -1],
+//  ]
 function choice(arr, cursed) {
   let len = arr.length
   if(len == cursed.length){
@@ -63,7 +63,7 @@ function generate_soduko(i, j){
   
 }
 
-generate_soduko(0, 0)
+//generate_soduko(0, 0)
 
 
 
