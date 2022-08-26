@@ -75,3 +75,30 @@ p{
     align-items: stretch;
     margin-bottom: 0.0%;
 }
+
+.golabi{
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.ananas{
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.chose{
+    margin:0;
+    background:lightgray;
+    font-family: Arial;
+    align-self: center;
+}
