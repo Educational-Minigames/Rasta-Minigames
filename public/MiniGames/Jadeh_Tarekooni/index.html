@@ -142,7 +142,6 @@
                     console.log(distRatio);
                     fgRef.current.centerAt(node.x, node.y, 1000);
                     fgRef.current.zoom(40);
-
                 };
 
                 return <ForceGraph2D
@@ -158,6 +157,7 @@
                     }}
                     minZoom={40}
                     maxZoom={40}
+                    linkWidth={30}
                 />;
             };
             ReactDOM.render(
@@ -193,7 +193,6 @@
                     console.log(distRatio);
                     fgRef.current.centerAt(node.x, node.y, 1000);
                     fgRef.current.zoom(40);
-
                 };
 
                 return <ForceGraph2D
@@ -202,6 +201,7 @@
                     nodeLabel="id"
                     nodeAutoColorBy="group"
                     onLinkClick={handleClick}
+                    linkWidth={30}
                 />;
             };
             ReactDOM.render(
