@@ -15,6 +15,7 @@ myForm.addEventListener('submit',  function (e) {
   csvFileName = document.getElementById('csvFileName').value
   d3.csv(`${csvFileName}.csv`, function (error, data) {
     csvFile = data;
+    console.log(data);
   });
 
 });
