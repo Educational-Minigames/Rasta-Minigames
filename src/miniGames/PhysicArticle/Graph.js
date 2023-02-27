@@ -2,9 +2,7 @@ import { Button, Container, Grid, TextField } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import React, { useState } from 'react';
 import Graph from 'react-graph-network';
-
-// FIXME checkout https://mui.com/components/use-media-query/#migrating-from-withwidth
-const withWidth = () => (WrappedComponent) => (props) => <WrappedComponent {...props} width="xs" />;
+import useWidth from '../../utils/UseWidth'
 
 const useStyles = makeStyles(() => ({
   row1: {
@@ -33,7 +31,8 @@ const generateNewGraph = (n, p) => {
   return newData;
 };
 
-const GraphTab = ({ width }) => {
+const GraphTab = () => {
+  const width = useWidth();
   const classes = useStyles();
   const [data, setData] = useState(generateNewGraph(initial_n, initial_p));
   const [n, setN] = useState(initial_n);
@@ -128,4 +127,4 @@ const GraphTab = ({ width }) => {
   );
 };
 
-export default withWidth()(GraphTab);
+export default GraphTab;

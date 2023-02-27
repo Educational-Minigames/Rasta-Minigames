@@ -57,7 +57,7 @@ const HorizontalBox = ({ items, onDrop, hidden }) => {
           style={{ overflow: 'hidden', display: 'flex' }}
           className={hidden && classes.hidden}>
           {staticItems?.map((item, index) => (
-            <div item key={index}>
+            <div key={index}>
               <Item num={!hidden && item} />
             </div>
           ))}
