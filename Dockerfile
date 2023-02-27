@@ -1,4 +1,4 @@
-FROM node:latest as build
+FROM node:18.14.2 as build
 WORKDIR /app
 COPY ./package.json ./yarn.lock ./
 RUN yarn --production
