@@ -1,4 +1,5 @@
-import { Backdrop, Grid, makeStyles, Typography } from '@material-ui/core';
+import { Backdrop, Grid, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React from 'react';
 
 import failure from './styles/failure.svg';
@@ -24,7 +25,7 @@ const ShowAnswer = ({ open, handleClose, answer }) => {
       className={classes.backdrop}
       open={answer?.type && open}
       onClick={handleClose}>
-      <Grid container alignItems="center" justify="center" direction="column">
+      <Grid container alignItems="center" justifyContent="center" direction="column">
         <Grid item>
           <img
             src={IMG[answer?.result]}

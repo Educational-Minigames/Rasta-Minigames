@@ -5,19 +5,19 @@ import {
   FormControl,
   Grid,
   InputLabel,
-  makeStyles,
   MenuItem,
   Select,
   TextField,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import MuiTheme from '../../theme/MuiThemes/MuiTheme';
-import { ThemeProvider } from '@material-ui/styles';
+import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 
 import { applyMatrixFilterAction } from "../../redux/slices/games";
-import { Height } from '@material-ui/icons';
+import { Height } from '@mui/icons-material';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -82,7 +82,7 @@ function Index({
 
   return (
     <Container className={classes.container} >
-      <Grid container spacing={2} justify='center' alignItems='center'>
+      <Grid container spacing={2} justifyContent='center' alignItems='center'>
         <Grid container item xs={6} spacing={1}>
           <Grid item xs={12}>
             {
@@ -108,10 +108,7 @@ function Index({
           <Grid item xs={6}>
             <FormControl size='small' variant="outlined" fullWidth>
               <InputLabel>طول</InputLabel>
-              <Select
-                value={height}
-                onChange={changeHeight}
-                label='طول'>
+              <Select variant="standard" value={height} onChange={changeHeight} label='طول'>
                 <MenuItem value={2} >2</MenuItem>
                 <MenuItem value={3} >3</MenuItem>
                 <MenuItem value={4} >4</MenuItem>
@@ -124,10 +121,7 @@ function Index({
           <Grid item xs={6}>
             <FormControl size='small' variant="outlined" fullWidth>
               <InputLabel>ارتفاع</InputLabel>
-              <Select
-                value={width}
-                onChange={changeWidth}
-                label='ارتفاع'>
+              <Select variant="standard" value={width} onChange={changeWidth} label='ارتفاع'>
                 <MenuItem value={2} >2</MenuItem>
                 <MenuItem value={3} >3</MenuItem>
                 <MenuItem value={4} >4</MenuItem>
@@ -138,11 +132,11 @@ function Index({
             </FormControl >
           </Grid>
         </Grid>
-        <Grid item container justify='center' alignItems='center' xs={6}>
+        <Grid item container justifyContent='center' alignItems='center' xs={6}>
           <img alt='' className={classes.image}
             src={resultImage || imageFileSource} />
         </Grid>
-        <Grid item xs={12} container justify='center'>
+        <Grid item xs={12} container justifyContent='center'>
           <ButtonGroup fullWidth variant='contained' color='primary'>
             <Button onClick={applyFilter}>
               {'اعمال با فیلتر دلخواه'}

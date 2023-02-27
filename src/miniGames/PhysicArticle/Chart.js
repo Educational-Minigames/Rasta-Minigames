@@ -1,11 +1,12 @@
-import { Grid, makeStyles, Slider } from '@material-ui/core';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { Grid, Slider, adaptV4Theme } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import { createTheme, ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
-const theme = createMuiTheme({
+const theme = createTheme(adaptV4Theme({
   direction: 'ltr', // Both here and <body dir="rtl">
-});
+}));
 
 const useStyles = makeStyles(() => ({
   row1: {
@@ -65,36 +66,36 @@ const ChartTab = () => {
     setLastPoint(newInput / step);
   };
 
-  return (
-    <>
-      <Grid container direction="column">
-        <Grid container item direction="row" className={classes.row1}>
-          <Line
-            height={5}
-            width={5}
-            data={{
-              labels,
-              datasets: [
-                {
-                  ...chartConfig,
-                  data: labels
-                    .slice(0, lastPoint)
-                    .map((label) => Math.log(label)),
-                },
-              ],
-            }}
-            options={options}
-          />
-        </Grid>
-        <Grid
-          container
-          item
-          direction="row"
-          justify="center"
-          alignItems="center"
-          className={classes.row2}
-          spacing={2}>
-          <Grid item style={{ width: '80%' }}>
+  return <>
+    <Grid container direction="column">
+      <Grid container item direction="row" className={classes.row1}>
+        <Line
+          height={5}
+          width={5}
+          data={{
+            labels,
+            datasets: [
+              {
+                ...chartConfig,
+                data: labels
+                  .slice(0, lastPoint)
+                  .map((label) => Math.log(label)),
+              },
+            ],
+          }}
+          options={options}
+        />
+      </Grid>
+      <Grid
+        container
+        item
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        className={classes.row2}
+        spacing={2}>
+        <Grid item style={{ width: '80%' }}>
+          <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>
               <div dir="ltr">
                 <Slider
@@ -108,11 +109,11 @@ const ChartTab = () => {
                 />
               </div>
             </ThemeProvider>
-          </Grid>
+          </StyledEngineProvider>
         </Grid>
       </Grid>
-    </>
-  );
+    </Grid>
+  </>;
 };
 
 export default ChartTab;

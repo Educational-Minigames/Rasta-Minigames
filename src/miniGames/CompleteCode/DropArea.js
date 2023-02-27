@@ -1,4 +1,5 @@
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React from 'react';
 import { useDrop } from 'react-dnd';
 
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     border: '1px dotted black',
     minWidth: 50,
     height: 30,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       minWidth: 40,
       height: 20,
     },
@@ -42,7 +43,7 @@ function DropArea({ dropItem, onSelectDropArea }) {
     <Grid
       container
       alignItems="center"
-      justify="center"
+      justifyContent="center"
       ref={dropRef}
       className={classes.dropArea}
       onClick={() => onSelectDropArea(dropItem)}>

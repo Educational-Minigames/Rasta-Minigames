@@ -1,12 +1,5 @@
-import {
-  AppBar,
-  Button,
-  Container,
-  Grid,
-  Hidden,
-  makeStyles,
-  Paper,
-} from '@material-ui/core';
+import { AppBar, Button, Container, Grid, Hidden, Paper } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd-multi-backend';
 import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch';
@@ -26,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   dragItemsPaper: {
     padding: theme.spacing(0.5, 0.2),
     background: 'white',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       borderRadius: '10px 10px 0 0',
     },
   },
@@ -55,7 +48,7 @@ const DragItems = ({ options, drop, setSelectedDragItemOption }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.dragItemsPaper}>
-      <Grid container spacing={1} alignItems="center" justify="center">
+      <Grid container spacing={1} alignItems="center" justifyContent="center">
         {options.map((option) => (
           <Grid item key={option} style={{ direction: 'ltr' }}>
             <DragItem
@@ -131,7 +124,7 @@ function CompleteCode({ mode = 0 }) {
       </Hidden>
       <Container className={classes.container}>
         <Grid container spacing={1} alignItems="stretch">
-          <Hidden xsDown>
+          <Hidden smDown>
             <Grid
               item
               sm={4}

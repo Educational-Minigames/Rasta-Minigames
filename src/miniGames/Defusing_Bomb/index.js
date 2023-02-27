@@ -1,13 +1,5 @@
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  Grid,
-  makeStyles,
-  Paper,
-  TextField,
-  Typography,
-} from '@material-ui/core';
+import { Button, ButtonGroup, Container, Grid, Paper, TextField, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -117,7 +109,7 @@ function Index() {
       {Graph}
       {currentState != 6 && currentState != 7 && currentState != 5 &&
         <div className={classes.bottomButtons}>
-          <Grid container justify='center' alignItems='center' spacing={1}>
+          <Grid container justifyContent='center' alignItems='center' spacing={1}>
             <Grid item>
               <ButtonGroup
                 color="primary"
@@ -134,7 +126,7 @@ function Index() {
       }
       {(currentState == 6 || currentState == 7 || currentState == 5) &&
         <div className={classes.bottomButtons}>
-          <Grid container justify='center' alignItems='center' spacing={1}>
+          <Grid container justifyContent='center' alignItems='center' spacing={1}>
             <Grid item>
               <ButtonGroup
                 color="primary"

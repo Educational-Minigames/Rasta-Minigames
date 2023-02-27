@@ -1,16 +1,9 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import {
-  Button,
-  Container,
-  Grid,
-  IconButton,
-  makeStyles,
-  Slider,
-  TextField,
-} from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-import { ThemeProvider } from '@material-ui/styles';
+import { Button, Container, Grid, IconButton, Slider, TextField } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux'
 
@@ -73,21 +66,23 @@ function Index({
 
   return (
     <Container className={classes.container} >
-      <Grid container justify='center' direction='column' spacing={1}>
-        <Grid container item justify='center' alignItems='center' xs={12}>
+      <Grid container justifyContent='center' direction='column' spacing={1}>
+        <Grid container item justifyContent='center' alignItems='center' xs={12}>
           <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
         </Grid>
-        <Grid container item justify='center' alignItems='center' xs={12}>
+        <Grid container item justifyContent='center' alignItems='center' xs={12}>
           <img alt='' src={frequencyChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
         </Grid>
-        <Grid item container xs={12} justify='center' alignItems='center'
+        <Grid item container xs={12} justifyContent='center' alignItems='center'
           style={{ paddingLeft: 55, paddingRight: 55 }}>
-          <ThemeProvider theme={MuiTheme}>
-            <Slider
-              min={0} max={frequencyLimit || 22000} step={100} marks
-              value={frequencyValues} valueLabelDisplay="auto"
-              onChange={(_, newValues) => setFrequencyValues(newValues)} />
-          </ThemeProvider>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={MuiTheme}>
+              <Slider
+                min={0} max={frequencyLimit || 22000} step={100} marks
+                value={frequencyValues} valueLabelDisplay="auto"
+                onChange={(_, newValues) => setFrequencyValues(newValues)} />
+            </ThemeProvider>
+          </StyledEngineProvider>
         </Grid>
 
         <Grid item xs={12}>
@@ -104,18 +99,18 @@ function Index({
 
         {fftImage &&
           <>
-            <Grid container item justify='center' alignItems='center'>
+            <Grid container item justifyContent='center' alignItems='center'>
               <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
               <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
               <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
             </Grid>
-            <Grid container item justify='center' alignItems='center'>
+            <Grid container item justifyContent='center' alignItems='center'>
               <img alt='' src={filteredFftImage} style={{ width: '100%' }} />
             </Grid>
-            <Grid container item justify='center' alignItems='center'>
+            <Grid container item justifyContent='center' alignItems='center'>
               <img alt='' src={filteredTimeImage} style={{ width: '100%' }} />
             </Grid>
-            <Grid container item justify='center' alignItems='center'>
+            <Grid container item justifyContent='center' alignItems='center'>
               <audio ref={audioRef} controls style={{ width: '100%' }}>
                 <source src={sound} type="audio/mp3" />
               </audio>

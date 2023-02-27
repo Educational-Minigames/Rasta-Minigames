@@ -1,12 +1,7 @@
-import {
-  Button,
-  Container,
-  Grid,
-  makeStyles,
-  Slider,
-} from '@material-ui/core';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import { ThemeProvider } from '@material-ui/styles';
+import { Button, Container, Grid, Slider } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
@@ -43,26 +38,28 @@ function Index({
 
   return (
     <Container className={classes.container} >
-      <Grid container justify='center'>
-        <Grid container item justify='center' alignItems='center' xs={5}>
+      <Grid container justifyContent='center'>
+        <Grid container item justifyContent='center' alignItems='center' xs={5}>
           <img alt='' className={classes.image}
             src={resultImage || imageFileSource} />
         </Grid>
-        <Grid container item justify='center' alignItems='center' xs={2} direction='column'>
+        <Grid container item justifyContent='center' alignItems='center' xs={2} direction='column'>
           <Grid item>
             <ArrowRightAltIcon />
           </Grid>
         </Grid>
-        <Grid container item justify='center' alignItems='center' xs={5}>
+        <Grid container item justifyContent='center' alignItems='center' xs={5}>
           <img alt='' className={classes.image}
             width='150px' src={imageFileSource || process.env.PUBLIC_URL + '/loading.gif'} />
         </Grid>
         <Grid item xs={12}>
-          <ThemeProvider theme={MuiTheme}>
-            <Slider min={0} max={255}
-              value={threshold} valueLabelDisplay="auto"
-              onChange={(event, newValue) => setThreshold(newValue)} />
-          </ThemeProvider>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={MuiTheme}>
+              <Slider min={0} max={255}
+                value={threshold} valueLabelDisplay="auto"
+                onChange={(event, newValue) => setThreshold(newValue)} />
+            </ThemeProvider>
+          </StyledEngineProvider>
         </Grid>
         <Grid item xs={6}>
           <Button variant='outlined' fullWidth color='primary' onClick={onClick}>

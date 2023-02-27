@@ -3,7 +3,6 @@ import {
   ButtonGroup,
   Container,
   Grid,
-  makeStyles,
   Paper,
   Slider,
   Table,
@@ -14,9 +13,10 @@ import {
   TableRow,
   TextField,
   Typography,
-} from '@material-ui/core';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
-import { ThemeProvider } from '@material-ui/styles';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
@@ -119,7 +119,7 @@ function Index({
 
   return (
     <Container className={classes.container} >
-      <Grid container justify='center' alignItems='center' spacing={2} xs={12} sm={8}>
+      <Grid container justifyContent='center' alignItems='center' spacing={2} xs={12} sm={8}>
         <Grid item xs={12}>
           <Typography align='center' variant='h1'>
             {'تیاسی'}

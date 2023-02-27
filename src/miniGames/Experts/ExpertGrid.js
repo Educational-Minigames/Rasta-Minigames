@@ -1,11 +1,11 @@
-import { Grid, Zoom } from '@material-ui/core';
+import { Grid, Zoom } from '@mui/material';
 import React from 'react';
 
 import Expert from './Expert';
 
 const ExpertGrid = ({ experts = [], zoomIn, forecast }) => {
   return (
-    <Grid container spacing={1} alignItems="center" justify="center">
+    <Grid container spacing={1} alignItems="center" justifyContent="center">
       {experts
         .filter((expert) => !forecast || expert.forecast === forecast)
         .map((expert, index) => (

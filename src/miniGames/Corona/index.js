@@ -5,12 +5,12 @@ import {
   FormControl,
   Grid,
   InputLabel,
-  makeStyles,
   MenuItem,
   Paper,
   Select,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React, { useState } from 'react';
 import { Layer, Stage } from 'react-konva';
 
@@ -106,7 +106,7 @@ function CoronaTest() {
           </Grid>
         </Grid>
       </div>
-      <Grid container justify='center' spacing={2}>
+      <Grid container justifyContent='center' spacing={2}>
         <Grid item>
           <Stage width={window.innerWidth} height={window.innerHeight * 2} >
             <Layer>
@@ -127,18 +127,18 @@ function CoronaTest() {
           </Stage >
         </Grid>
         {mode === 0 &&
-          <Grid container item spacing={2} justify='center' alignItems='center'>
-            <Grid item xs={12} sm={6} container justify='center' alignItems='center'>
+          <Grid container item spacing={2} justifyContent='center' alignItems='center'>
+            <Grid item xs={12} sm={6} container justifyContent='center' alignItems='center'>
               <FormControl variant="outlined" fullWidth >
                 <InputLabel id="demo-simple-select-required-label">تست‌ها</InputLabel>
                 <Select
+                  variant="standard"
                   fullWidth
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   name='test'
                   label='تست‌ها'
-                  onChange={(event) => { society.selectTest(event.target.value) }}
-                >
+                  onChange={(event) => { society.selectTest(event.target.value) }}>
                   {TESTS.map((test, index) => {
                     return (
                       <MenuItem key={index} value={index}>{`تست شماره ${toPersianNumber(index + 1)} با درصد‌تشخیص ${toPersianNumber(test.diagnosis)} و دشواری ${toPersianNumber(test.difficulty)}. هزینه‌ی این تست به ازای هر نفر ${toPersianNumber(test.cost)} تومان است.`}</MenuItem>
@@ -147,7 +147,7 @@ function CoronaTest() {
                 </Select>
               </FormControl >
             </Grid>
-            <Grid item xs={12} sm={3} container justify='center' alignItems='center'>
+            <Grid item xs={12} sm={3} container justifyContent='center' alignItems='center'>
               <Button variant='contained' color='secondary' fullWidth onClick={doTakeTest}>
                 انجام تست
               </Button>
@@ -155,8 +155,8 @@ function CoronaTest() {
           </Grid>
         }
         {mode === 1 &&
-          <Grid container item spacing={2} justify='center' alignItems='center'>
-            <Grid item xs={12} sm={6} container justify='center' alignItems='center'>
+          <Grid container item spacing={2} justifyContent='center' alignItems='center'>
+            <Grid item xs={12} sm={6} container justifyContent='center' alignItems='center'>
               <Button variant='contained' color='secondary' fullWidth onClick={getReadyForAnotherTest}>
                 انجام تست مجدد
               </Button>
@@ -164,8 +164,8 @@ function CoronaTest() {
           </Grid>
         }
         {mode === 2 &&
-          <Grid container item spacing={2} justify='center' alignItems='center'>
-            <Grid item xs={12} container justify='center' alignItems='center'>
+          <Grid container item spacing={2} justifyContent='center' alignItems='center'>
+            <Grid item xs={12} container justifyContent='center' alignItems='center'>
               <Button variant='contained' color='secondary' fullWidth onClick={doSendToHospital}>
                 افرادی رو که فکر می‌کنی بیمار هستند، انتخاب کن و به بیمارستان معرفیشون کن!
               </Button>
@@ -173,8 +173,8 @@ function CoronaTest() {
           </Grid>
         }
         {mode === 3 &&
-          <Grid container item spacing={2} justify='center' alignItems='center'>
-            <Grid item xs={12} container justify='center' alignItems='center'>
+          <Grid container item spacing={2} justifyContent='center' alignItems='center'>
+            <Grid item xs={12} container justifyContent='center' alignItems='center'>
               <Paper className={classes.paper}>
                 <Typography variant='h4'>
                   {`امتیاز شما: ${toPersianNumber(score)}`}
@@ -185,7 +185,7 @@ function CoronaTest() {
         }
       </Grid>
     </Container>
-  )
+  );
 }
 
 

@@ -1,13 +1,10 @@
-import {
-  Button,
-  Container,
-  Grid,
-  makeStyles,
-  TextField,
-  withWidth,
-} from '@material-ui/core';
+import { Button, Container, Grid, TextField } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React, { useState } from 'react';
 import Graph from 'react-graph-network';
+
+// FIXME checkout https://mui.com/components/use-media-query/#migrating-from-withwidth
+const withWidth = () => (WrappedComponent) => (props) => <WrappedComponent {...props} width="xs" />;
 
 const useStyles = makeStyles(() => ({
   row1: {
@@ -77,7 +74,7 @@ const GraphTab = ({ width }) => {
           item
           container
           direction="row-reverse"
-          justify="center"
+          justifyContent="center"
           alignItems="center"
           spacing={2}>
           <Grid item xs={4} md={3}>

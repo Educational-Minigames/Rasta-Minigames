@@ -1,4 +1,5 @@
-import { Container, Grid, makeStyles } from '@material-ui/core';
+import { Container, Grid } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React, { useCallback, useEffect, useState } from 'react';
 import { DndProvider } from 'react-dnd-multi-backend';
 import MultiBackend from 'react-dnd-multi-backend'
@@ -59,7 +60,7 @@ function Simulator({ config, isOnline }) {
   return (
     <Container className={classes.root} maxWidth="xs">
       <DndProvider options={HTML5toTouch}>
-        <Grid container spacing={2} justify="center">
+        <Grid container spacing={2} justifyContent="center">
           {items.length === 0 && (
             <Answer
               answer={getConfig().answer}
@@ -73,7 +74,7 @@ function Simulator({ config, isOnline }) {
             />
           )}
           {boxes.map((box, index) => (
-            <Grid key={index} item container justify="center" xs={2}>
+            <Grid key={index} item container justifyContent="center" xs={2}>
               <VerticalBox dropItem={index} items={box} />
             </Grid>
           ))}

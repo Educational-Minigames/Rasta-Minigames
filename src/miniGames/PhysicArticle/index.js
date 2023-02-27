@@ -1,4 +1,5 @@
-import { Button, ButtonGroup, Container, makeStyles } from '@material-ui/core';
+import { Button, ButtonGroup, Container } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React, { useState } from 'react';
 
 import Chart from './Chart';

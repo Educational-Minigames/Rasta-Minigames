@@ -1,16 +1,9 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import {
-  Button,
-  Container,
-  Grid,
-  IconButton,
-  makeStyles,
-  Slider,
-  TextField,
-} from '@material-ui/core';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
-import { ThemeProvider } from '@material-ui/styles';
+import { Button, Container, Grid, IconButton, Slider, TextField } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux'
 
@@ -110,12 +103,12 @@ function Index({
           {'از اول'}
         </Button>
       </div>
-      <Grid container justify='center' direction='column' spacing={1}>
-        <Grid container item justify='center' alignItems='center'>
+      <Grid container justifyContent='center' direction='column' spacing={1}>
+        <Grid container item justifyContent='center' alignItems='center'>
           <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
         </Grid>
 
-        <Grid item container justify='center' alignItems='center' spacing={1}>
+        <Grid item container justifyContent='center' alignItems='center' spacing={1}>
           <Grid item xs={6}>
             <Button disabled={fixedSegmentLength} variant='contained' fullWidth color='primary' onClick={doSetFixedSegmentLength}>
               {'ثبت'}
@@ -130,21 +123,23 @@ function Index({
           </Grid>
         </Grid>
 
-        <Grid container item justify='center' alignItems='center'>
-          <Grid item xs={10} container justify='center' alignItems='center'>
+        <Grid container item justifyContent='center' alignItems='center'>
+          <Grid item xs={10} container justifyContent='center' alignItems='center'>
             <audio ref={audioRef} onTimeUpdate={manageAudioPlay}>
               <source src={process.env.PUBLIC_URL + '/music/' + sound_file} type="audio/mp3" />
             </audio>
-            <ThemeProvider theme={MuiTheme}>
-              <Slider
-                disabled={!fixedSegmentLength}
-                min={0} max={duration} step={0.01} marks
-                value={values} valueLabelDisplay="auto"
-                onChange={setSliderValues} />
-            </ThemeProvider>
+            <StyledEngineProvider injectFirst>
+              <ThemeProvider theme={MuiTheme}>
+                <Slider
+                  disabled={!fixedSegmentLength}
+                  min={0} max={duration} step={0.01} marks
+                  value={values} valueLabelDisplay="auto"
+                  onChange={setSliderValues} />
+              </ThemeProvider>
+            </StyledEngineProvider>
           </Grid>
-          <Grid item xs={1} container justify='center' alignItems='center'>
-            <IconButton disabled={!fixedSegmentLength} onClick={playAudio}>
+          <Grid item xs={1} container justifyContent='center' alignItems='center'>
+            <IconButton disabled={!fixedSegmentLength} onClick={playAudio} size="large">
               <PlayCircleOutlineIcon />
             </IconButton>
           </Grid>
@@ -158,10 +153,10 @@ function Index({
 
         {resultImage &&
           <>
-            <Grid container item justify='center' alignItems='center'>
+            <Grid container item justifyContent='center' alignItems='center'>
               <ArrowDownwardIcon />
             </Grid>
-            <Grid container item justify='center' alignItems='center'>
+            <Grid container item justifyContent='center' alignItems='center'>
               <img alt='' src={resultImage} style={{ width: '100%' }} />
             </Grid>
           </>

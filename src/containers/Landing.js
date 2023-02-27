@@ -1,6 +1,4 @@
-import {
-  makeStyles,
-} from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 import React from 'react';
 
 import MINI_GAMES from '../miniGames';

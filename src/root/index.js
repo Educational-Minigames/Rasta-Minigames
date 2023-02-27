@@ -1,4 +1,4 @@
-import { PhotoSizeSelectLargeSharp } from '@material-ui/icons';
+import { PhotoSizeSelectLargeSharp } from '@mui/icons-material';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 

@@ -1,4 +1,4 @@
-import { Button, Dialog, Grid, Typography } from '@material-ui/core';
+import { Button, Dialog, Grid, Typography } from '@mui/material';
 import React from 'react';
 
 import { faSeri } from '../../utils/translateNumber';
@@ -16,7 +16,7 @@ const ChangeRoundDialog = ({ round, handleClose, score }) => {
       <Grid
         container
         alignItems="center"
-        justify="center"
+        justifyContent="center"
         style={{ height: '100%' }}
         direction="column"
         spacing={3}>

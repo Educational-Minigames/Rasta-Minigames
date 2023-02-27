@@ -1,5 +1,6 @@
-import { Avatar, Badge, withStyles } from '@material-ui/core';
-import { green } from '@material-ui/core/colors';
+import { Avatar, Badge } from '@mui/material';
+import withStyles from '@mui/styles/withStyles';
+import { green } from '@mui/material/colors';
 import React from 'react';
 
 import businessmanImage from './styles/businessman_3.svg';
@@ -12,7 +13,7 @@ const StyledBadge = withStyles((theme) => ({
     border: '1px solid #ccc',
     background: green[500],
     color: 'white',
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       fontSize: 9,
       padding: 2,
       right: 0,
@@ -23,7 +24,7 @@ const StyledBadge = withStyles((theme) => ({
 
 const StyledAvatar = withStyles((theme) => ({
   root: {
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       width: theme.spacing(3),
       height: theme.spacing(3),
     },

@@ -1,11 +1,6 @@
-import {
-  Button,
-  Container,
-  Grid,
-  ButtonGroup,
-  makeStyles,
-} from '@material-ui/core';
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import { Button, Container, Grid, ButtonGroup } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
 import {
@@ -64,19 +59,19 @@ function Index({
 
   return (
     <Container className={classes.container} >
-      <Grid container spacing={2} justify='center' alignItems='center'>
-        <Grid container item justify='center' alignItems='center' xs={5} direction='column' spacing={2}>
-          <Grid container item justify='center' alignItems='center' xs={12}>
+      <Grid container spacing={2} justifyContent='center' alignItems='center'>
+        <Grid container item justifyContent='center' alignItems='center' xs={5} direction='column' spacing={2}>
+          <Grid container item justifyContent='center' alignItems='center' xs={12}>
             <img alt='' className={classes.image} src={blueResultImage || imageFileSource} />
           </Grid>
-          <Grid container item justify='center' alignItems='center' xs={12}>
+          <Grid container item justifyContent='center' alignItems='center' xs={12}>
             <img alt='' className={classes.image} src={redResultImage || imageFileSource} />
           </Grid>
-          <Grid container item justify='center' alignItems='center' xs={12}>
+          <Grid container item justifyContent='center' alignItems='center' xs={12}>
             <img alt='' className={classes.image} src={greenResultImage || imageFileSource} />
           </Grid>
         </Grid>
-        <Grid container item justify='center' alignItems='center' xs={2} direction='column'>
+        <Grid container item justifyContent='center' alignItems='center' xs={2} direction='column'>
           <Grid item>
             <ArrowRightAltIcon />
           </Grid>
@@ -87,7 +82,7 @@ function Index({
             <ArrowRightAltIcon />
           </Grid>
         </Grid>
-        <Grid container item justify='center' alignItems='center' xs={5}>
+        <Grid container item justifyContent='center' alignItems='center' xs={5}>
           <img alt='' className={classes.image}
             src={imageFileSource} />
         </Grid>

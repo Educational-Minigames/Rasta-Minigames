@@ -1,5 +1,5 @@
-import { IconButton, Popover, Typography } from '@material-ui/core';
-import { Help as HelpIcon } from '@material-ui/icons';
+import { IconButton, Popover, Typography } from '@mui/material';
+import { Help as HelpIcon } from '@mui/icons-material';
 import React, { useState } from 'react';
 
 function Help({ help }) {

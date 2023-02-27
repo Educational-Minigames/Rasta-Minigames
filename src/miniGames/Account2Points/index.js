@@ -1,12 +1,5 @@
-import {
-  Button,
-  ButtonGroup,
-  Container,
-  Grid,
-  makeStyles,
-  TextField,
-  Typography,
-} from '@material-ui/core';
+import { Button, ButtonGroup, Container, Grid, TextField, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import * as druid from "@saehrimnir/druidjs";
 import React, { useEffect, useState } from 'react';
 import { Scatter } from 'react-chartjs-2';
@@ -188,7 +181,7 @@ function Index() {
       } */}
 
       {tab == 0 &&
-        <Grid container justify='center' alignItems='center'>
+        <Grid container justifyContent='center' alignItems='center'>
           <div className={classes.tableContainer} >
             <table className={classes.table}>
               <tr>
@@ -216,7 +209,7 @@ function Index() {
       }
 
       {tab == 1 &&
-        <Grid container justify='center' alignItems='center' xs={12} md={10} >
+        <Grid container justifyContent='center' alignItems='center' xs={12} md={10} >
           <Scatter data={chartData} options={options} />
         </Grid>
       }

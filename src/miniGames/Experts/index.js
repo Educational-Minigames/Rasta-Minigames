@@ -1,12 +1,5 @@
-import {
-  Button,
-  Container,
-  Grid,
-  makeStyles,
-  Paper,
-  Typography,
-  Zoom,
-} from '@material-ui/core';
+import { Button, Container, Grid, Paper, Typography, Zoom } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React, { useEffect, useState } from 'react';
 
 import timeoutLoop from '../../utils/timoutLoop';
@@ -141,9 +134,9 @@ function Experts() {
         container
         direction="column"
         alignItems="center"
-        justify="center"
+        justifyContent="center"
         spacing={4}>
-        <Grid item container alignItems="center" justify="center" spacing={1}>
+        <Grid item container alignItems="center" justifyContent="center" spacing={1}>
           <Grid item>
             <Typography variant="h2" align="center" gutterBottom>
               {`روز ${faSeri(config.day)}`}
@@ -158,14 +151,14 @@ function Experts() {
             <Grid
               container
               alignItems="stretch"
-              justify="center"
+              justifyContent="center"
               spacing={2}
               className={classes.page}
               style={{ zIndex: running ? 1 : 0 }}>
               <Grid
                 item
                 container
-                justify="space-evenly"
+                justifyContent="space-evenly"
                 direction="column"
                 xs={4}
                 style={{ position: 'relative' }}
@@ -203,14 +196,14 @@ function Experts() {
                 container
                 xs={4}
                 alignItems="center"
-                justify="center"
+                justifyContent="center"
                 spacing={1}>
                 <ExpertGrid experts={config.experts} zoomIn={running} />
               </Grid>
               <Grid
                 item
                 container
-                justify="space-evenly"
+                justifyContent="space-evenly"
                 direction="column"
                 xs={4}
                 style={{ position: 'relative' }}
@@ -244,7 +237,7 @@ function Experts() {
             <Grid
               container
               alignItems="center"
-              justify="center"
+              justifyContent="center"
               direction="column"
               spacing={2}
               className={classes.page}

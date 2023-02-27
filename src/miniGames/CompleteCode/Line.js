@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import makeStyles from '@mui/styles/makeStyles';
 import React from 'react';
 
 import DropArea from './DropArea';
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   item: {
     fontWeight: 700,
     margin: 5,
-    [theme.breakpoints.down('xs')]: {
+    [theme.breakpoints.down('sm')]: {
       fontWeight: 500,
       margin: 3,
     },

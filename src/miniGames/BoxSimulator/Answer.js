@@ -1,13 +1,5 @@
-import {
-  Button,
-  Divider,
-  Grid,
-  List,
-  ListItem,
-  makeStyles,
-  Paper,
-  Typography,
-} from '@material-ui/core';
+import { Button, Divider, Grid, List, ListItem, Paper, Typography } from '@mui/material';
+import makeStyles from '@mui/styles/makeStyles';
 import React from 'react';
 import { useTranslate } from 'react-redux-multilingual/lib/context';
 
@@ -38,7 +30,7 @@ const Answer = ({
       item
       container
       alignItems="stretch"
-      justify="space-between"
+      justifyContent="space-between"
       xs={6}
       direction="column"
       spacing={2}>
