@@ -3,12 +3,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { CssBaseline, LinearProgress } from '@mui/material';
 import StylesProvider from '@mui/styles/StylesProvider';
-import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
+import { ThemeProvider } from '@mui/material';
+import { CacheProvider } from "@emotion/react";
 import { SnackbarProvider } from 'notistack';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { IntlProvider } from 'react-redux-multilingual';
 import { Slide, ToastContainer } from 'react-toastify';
+import createEmotionCache from './configs/CreateEmotionCache'
+import selectTheme from './configs/themes';
 
 import Notifier from './components/Notifications/Notifications';
 import { initParseServer } from './parse/init'
@@ -68,27 +71,17 @@ const App = ({
 
   return (
     <IntlProvider translations={translations}>
-      {dir === 'rtl' ? (
-        <>
-          <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={RTLMuiTheme}>
-              <StylesProvider jss={jss}>
-                <Loading />
-                <MiniGameApp />
-              </StylesProvider>
-            </ThemeProvider>
-          </StyledEngineProvider>
-        </>
-      ) : (
-          <>
-            <StyledEngineProvider injectFirst>
-              <ThemeProvider theme={MuiTheme}>
-                <Loading />
-                <MiniGameApp />
-              </ThemeProvider>
-            </StyledEngineProvider>
-          </>
-        )}
+      <CacheProvider value={createEmotionCache(dir)}>
+        <ThemeProvider theme={selectTheme(dir)}>
+
+          <ThemeProvider theme={RTLMuiTheme}>
+            <StylesProvider jss={jss}>
+              <Loading />
+              <MiniGameApp />
+            </StylesProvider>
+          </ThemeProvider>
+        </ThemeProvider>
+      </CacheProvider>
     </IntlProvider>
   );
 };

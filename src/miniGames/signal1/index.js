@@ -3,7 +3,6 @@ import { Button, Container, Grid, IconButton, Slider } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux'
 
@@ -11,7 +10,6 @@ import {
   applyFilterOnVoiceSegmentAction,
   getTimeChartOfSoundAction,
 } from '../../redux/slices/games';
-import MuiTheme from '../../theme/MuiThemes/MuiTheme';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -74,14 +72,10 @@ function Index({
             <audio ref={audioRef} onTimeUpdate={manageAudioPlay}>
               <source src={process.env.PUBLIC_URL + '/music/' + sound_file} type="audio/mp3" />
             </audio>
-            <StyledEngineProvider injectFirst>
-              <ThemeProvider theme={MuiTheme}>
-                <Slider
-                  min={0} max={duration} step={0.001}
-                  value={values} valueLabelDisplay="auto"
-                  onChange={setSliderValues} />
-              </ThemeProvider>
-            </StyledEngineProvider>
+            <Slider
+              min={0} max={duration} step={0.001}
+              value={values} valueLabelDisplay="auto"
+              onChange={setSliderValues} />
           </Grid>
           <Grid item xs={1} container justifyContent='center' alignItems='center'>
             <IconButton onClick={playAudio} size="large">

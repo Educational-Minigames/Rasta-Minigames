@@ -3,7 +3,6 @@ import { Button, Container, Grid, IconButton, Slider, TextField } from '@mui/mat
 import makeStyles from '@mui/styles/makeStyles';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux'
 
@@ -57,7 +56,7 @@ function Index({
   const doSetFixedSegmentLength = () => {
     if (segmentLength >= duration || segmentLength < 0) {
       addNotification({
-        message: 'لطفاً یک عدد مثبت کمتر از '+ duration + ' وارد کن!',
+        message: 'لطفاً یک عدد مثبت کمتر از ' + duration + ' وارد کن!',
         type: 'error',
       });
       return;
@@ -128,15 +127,11 @@ function Index({
             <audio ref={audioRef} onTimeUpdate={manageAudioPlay}>
               <source src={process.env.PUBLIC_URL + '/music/' + sound_file} type="audio/mp3" />
             </audio>
-            <StyledEngineProvider injectFirst>
-              <ThemeProvider theme={MuiTheme}>
-                <Slider
-                  disabled={!fixedSegmentLength}
-                  min={0} max={duration} step={0.01} marks
-                  value={values} valueLabelDisplay="auto"
-                  onChange={setSliderValues} />
-              </ThemeProvider>
-            </StyledEngineProvider>
+            <Slider
+              disabled={!fixedSegmentLength}
+              min={0} max={duration} step={0.01} marks
+              value={values} valueLabelDisplay="auto"
+              onChange={setSliderValues} />
           </Grid>
           <Grid item xs={1} container justifyContent='center' alignItems='center'>
             <IconButton disabled={!fixedSegmentLength} onClick={playAudio} size="large">

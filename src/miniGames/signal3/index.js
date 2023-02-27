@@ -1,9 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import { Button, Container, Grid, IconButton, Slider, TextField } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux'
 
@@ -75,14 +72,10 @@ function Index({
         </Grid>
         <Grid item container xs={12} justifyContent='center' alignItems='center'
           style={{ paddingLeft: 55, paddingRight: 55 }}>
-          <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={MuiTheme}>
-              <Slider
-                min={0} max={frequencyLimit || 22000} step={100} marks
-                value={frequencyValues} valueLabelDisplay="auto"
-                onChange={(_, newValues) => setFrequencyValues(newValues)} />
-            </ThemeProvider>
-          </StyledEngineProvider>
+          <Slider
+            min={0} max={frequencyLimit || 22000} step={100} marks
+            value={frequencyValues} valueLabelDisplay="auto"
+            onChange={(_, newValues) => setFrequencyValues(newValues)} />
         </Grid>
 
         <Grid item xs={12}>

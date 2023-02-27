@@ -1,7 +1,6 @@
 import { Button, Container, Grid, Slider } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
-import { ThemeProvider, StyledEngineProvider } from '@mui/styles';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
@@ -53,13 +52,9 @@ function Index({
             width='150px' src={imageFileSource || process.env.PUBLIC_URL + '/loading.gif'} />
         </Grid>
         <Grid item xs={12}>
-          <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={MuiTheme}>
-              <Slider min={0} max={255}
-                value={threshold} valueLabelDisplay="auto"
-                onChange={(event, newValue) => setThreshold(newValue)} />
-            </ThemeProvider>
-          </StyledEngineProvider>
+          <Slider min={0} max={255}
+            value={threshold} valueLabelDisplay="auto"
+            onChange={(event, newValue) => setThreshold(newValue)} />
         </Grid>
         <Grid item xs={6}>
           <Button variant='outlined' fullWidth color='primary' onClick={onClick}>

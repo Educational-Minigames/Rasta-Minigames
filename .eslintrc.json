@@ -12,7 +12,6 @@
     "jsx-a11y/label-has-associated-control": "off",
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/no-autofocus": "off",
-    "simple-import-sort/imports": "warn",
     "react/prop-types": "off",
     "no-unused-vars": "warn"
   },
