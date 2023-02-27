@@ -1,6 +1,5 @@
-import { PhotoSizeSelectLargeSharp } from '@mui/icons-material';
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Landing from '../containers/Landing';
 import MINI_GAMES from '../miniGames';
@@ -22,36 +21,35 @@ import Tarkibiat3 from '../miniGames/Tarkibiat3';
 
 const MyRoute = () => {
   return (
-    <Switch>
+    <Routes>
       {
         MINI_GAMES.map((miniGame, index) => {
           if (miniGame.component) {
             return (
-              <Route key={index} exact path={miniGame.url} render={() => <miniGame.component {...miniGame.props} />} />
+              <Route key={index} exact path={miniGame.url} element={<miniGame.component {...miniGame.props} />} />
             )
           }
         })
       }
       {/* <Route exact path="/Conways_Game_Of_Life" component={Conways_Game_Of_Life} /> */}
-      <Route exact path="/Collective_Behavior_Of_Fish" component={Collective_Behavior_Of_Fish} />
-      <Route exact path="/Ant_Colony_Optimization" component={Ant_Colony_Optimization} />
-      <Route exact path="/Game_Of_Life_Simulation" component={Game_Of_Life_Simulation} />
-      <Route exact path="/Network_Vaccination" component={Network_Vaccination} />
-      <Route exact path="/Tarkibiat/1" component={Tarkibiat1} />
-      <Route exact path="/Tarkibiat/2" component={Tarkibiat2} />
-      <Route exact path="/Tarkibiat/3" component={Tarkibiat3} />
-      <Route exact path="/Defusing_Bomb" component={Defusing_Bomb} />
-      <Route exact path="/Account2Points" component={Account2Points} />
-      <Route exact path="/Donor_Patient/1" component={Donor_Patient1} />
-      <Route exact path="/Donor_Patient/2" component={Donor_Patient2} />
-      <Route exact path="/Donor_Patient/3" component={Donor_Patient3} />
-      <Route exact path="/Donor_Patient/4" component={Donor_Patient4} />
-      <Route exact path="/" component={Landing} />
-      <Route
-        path="*"
-        render={() => <Redirect to={{ pathname: '/' }} />}
+      <Route exact path="/Collective_Behavior_Of_Fish" element={<Collective_Behavior_Of_Fish />} />
+      <Route exact path="/Ant_Colony_Optimization" element={<Ant_Colony_Optimization />} />
+      <Route exact path="/Game_Of_Life_Simulation" element={<Game_Of_Life_Simulation />} />
+      <Route exact path="/Network_Vaccination" element={<Network_Vaccination />} />
+      <Route exact path="/Tarkibiat/1" element={<Tarkibiat1 />} />
+      <Route exact path="/Tarkibiat/2" element={<Tarkibiat2 />} />
+      <Route exact path="/Tarkibiat/3" element={<Tarkibiat3 />} />
+      <Route exact path="/Defusing_Bomb" element={<Defusing_Bomb />} />
+      <Route exact path="/Account2Points" element={<Account2Points />} />
+      <Route exact path="/Donor_Patient/1" element={<Donor_Patient1 />} />
+      <Route exact path="/Donor_Patient/2" element={<Donor_Patient2 />} />
+      <Route exact path="/Donor_Patient/3" element={<Donor_Patient3 />} />
+      <Route exact path="/Donor_Patient/4" element={<Donor_Patient4 />} />
+      <Route exact path="/" element={<Landing />} />
+      <Route path="*" element={<Navigate to={{ pathname: '/' }} />}
       />
-    </Switch>
+    </Routes>
   );
 };
+
 export default MyRoute;

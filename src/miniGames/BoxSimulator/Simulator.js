@@ -2,8 +2,7 @@ import { Container, Grid } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 import React, { useCallback, useEffect, useState } from 'react';
 import { DndProvider } from 'react-dnd-multi-backend';
-import MultiBackend from 'react-dnd-multi-backend'
-import HTML5toTouch from 'react-dnd-multi-backend/dist/esm/HTML5toTouch';
+import { HTML5toTouch } from 'rdndmb-html5-to-touch';
 
 import Answer from './Answer';
 import HorizontalBox from './HorizontalBox';
