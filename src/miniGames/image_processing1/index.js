@@ -1,26 +1,10 @@
-import { Button, Container, Grid, Slider } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { Button, Container, Grid, Slider, Stack } from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-
 import {
   applyThresholdAction
 } from '../../redux/slices/games';
-import MuiTheme from '../../theme/MuiThemes/MuiTheme';
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '100vh',
-  },
-  image: {
-    width: '100%',
-    borderRadius: '5px',
-  }
-}))
 
 function Index({
   applyThreshold,
@@ -28,40 +12,49 @@ function Index({
   imageFileSource,
   resultImage,
 }) {
-  const classes = useStyles();
   const [threshold, setThreshold] = useState(100);
 
   const onClick = () => {
     applyThreshold({ threshold, image_file: imageFileName });
   }
-
   return (
-    <Container className={classes.container} >
-      <Grid container justifyContent='center'>
-        <Grid container item justifyContent='center' alignItems='center' xs={5}>
-          <img alt='' className={classes.image}
-            src={resultImage || imageFileSource} />
-        </Grid>
-        <Grid container item justifyContent='center' alignItems='center' xs={2} direction='column'>
+    <Container>
+      <Stack
+        container
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          minHeight: '100vh',
+        }}
+        spacing={2}>
+        <Grid container alignItems='center' justifyContent='center' spacing={2}>
+          <Grid item xs={12} sm={5}>
+            <img
+              alt=''
+              style={{
+                width: '100%', borderRadius: '5px',
+              }}
+              src={resultImage || imageFileSource} />
+          </Grid>
           <Grid item>
             <ArrowRightAltIcon />
           </Grid>
+          <Grid item xs={12} sm={5}>
+            <img
+              alt=''
+              style={{
+                width: '100%', borderRadius: '5px',
+              }}
+              width='150px' src={imageFileSource || process.env.PUBLIC_URL + '/loading.gif'} />
+          </Grid>
         </Grid>
-        <Grid container item justifyContent='center' alignItems='center' xs={5}>
-          <img alt='' className={classes.image}
-            width='150px' src={imageFileSource || process.env.PUBLIC_URL + '/loading.gif'} />
-        </Grid>
-        <Grid item xs={12}>
-          <Slider min={0} max={255}
-            value={threshold} valueLabelDisplay="auto"
-            onChange={(event, newValue) => setThreshold(newValue)} />
-        </Grid>
-        <Grid item xs={6}>
-          <Button variant='outlined' fullWidth color='primary' onClick={onClick}>
-            {'اعمال'}
-          </Button>
-        </Grid>
-      </Grid>
+        <Slider min={0} max={255}
+          value={threshold} valueLabelDisplay="auto"
+          onChange={(event, newValue) => setThreshold(newValue)} />
+        <Button variant='contained' fullWidth color='primary' onClick={onClick}>
+          {'اعمال'}
+        </Button>
+      </Stack>
     </Container >
   );
 }
@@ -71,9 +64,6 @@ const mapStateToProps = (state) => ({
   resultImage: state.games.resultImage,
 })
 
-export default connect(
-  mapStateToProps,
-  {
-    applyThreshold: applyThresholdAction,
-  }
-)(Index);
+export default connect(mapStateToProps, {
+  applyThreshold: applyThresholdAction,
+})(Index);
