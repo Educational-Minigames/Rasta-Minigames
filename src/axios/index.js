@@ -2,8 +2,8 @@ import Axios from 'axios';
 
 export const baseURL =
   process.env.NODE_ENV === 'production'
-    ? 'https://utility.rastaiha.ir'
-    : 'https://utility.rastaiha.ir/'
+    ? 'https://backend.minigames.kamva.academy'
+    : 'https://backend.minigames.kamva.academy'
 
 const baseAxios = Axios.create({
   baseURL: baseURL,
