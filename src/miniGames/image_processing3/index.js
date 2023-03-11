@@ -41,7 +41,7 @@ function Index({
   }
 
   return (
-    <Container>
+    <Container sx={{ py: 2 }}>
       <Stack
         container
         justifyContent="center"
