@@ -1,5 +1,5 @@
 import { Button, Container, Grid, Slider, Stack } from '@mui/material';
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import { ArrowLeft } from '@mui/icons-material';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -34,10 +34,10 @@ function Index({
               style={{
                 width: '100%', borderRadius: '5px',
               }}
-              src={resultImage || imageFileSource} />
+              width='150px' src={imageFileSource || process.env.PUBLIC_URL + '/loading.gif'} />
           </Grid>
           <Grid item>
-            <ArrowRightAltIcon />
+            <ArrowLeft />
           </Grid>
           <Grid item xs={12} sm={5}>
             <img
@@ -45,7 +45,7 @@ function Index({
               style={{
                 width: '100%', borderRadius: '5px',
               }}
-              width='150px' src={imageFileSource || process.env.PUBLIC_URL + '/loading.gif'} />
+              src={resultImage || imageFileSource} />
           </Grid>
         </Grid>
         <Slider min={0} max={255}
