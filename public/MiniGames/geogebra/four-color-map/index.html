@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+</head>
+
+<body>
+    <div id="ggbApplet"></div>
+    <script>
+        var parameters = {
+            "id": "ggbApplet",
+            "width": 500,
+            "height": 500,
+            "filename": "Coloreando el mapa.ggb",
+        };
+        var applet = new GGBApplet(parameters);
+        window.onload = function () { applet.inject('ggbApplet') };
+        applet.setPreviewImage('data:image/gif;base64,R0lGODlhAQABAAAAADs=', 'https://www.geogebra.org/images/GeoGebra_loading.png', 'https://www.geogebra.org/images/applet_play.png');
+    </script>
+</body>
+
+</html>
