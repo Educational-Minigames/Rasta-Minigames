@@ -9,4 +9,8 @@ const MuiTheme = createTheme(adaptV4Theme({
   typography
 }));
 
+const LTRTheme = createTheme(adaptV4Theme({
+  direction: 'ltr'
+}));
+
 export default MuiTheme;
