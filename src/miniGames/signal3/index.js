@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import { Button, Container, Grid, Slider } from '@mui/material';
-import makeStyles from '@mui/styles/makeStyles';
+import { Button, Container, Divider, Grid, Slider, Stack, Typography } from '@mui/material';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux'
@@ -13,14 +12,6 @@ import {
 } from '../../redux/slices/notifications';
 import LTRTheme from '../../theme/MuiThemes/MuiTheme';
 
-const useStyles = makeStyles((theme) => ({
-  container: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '100vh',
-  },
-}))
 
 
 function Index({
@@ -39,7 +30,6 @@ function Index({
   sound,
 }) {
 
-  const classes = useStyles();
   const audioRef = useRef();
   const [frequencyValues, setFrequencyValues] = useState([200, 1000]);
 
@@ -61,61 +51,56 @@ function Index({
     audioRef.current?.load();
   }, [sound])
 
+  useEffect(() => {
+    if (fftImage) {
+      setTimeout(() => {
+        document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+      }, 1000)
+    }
+  }, [fftImage])
+
   return (
-    <Container className={classes.container} >
-      <Grid container justifyContent='center' direction='column' spacing={1}>
-        <Grid container item justifyContent='center' alignItems='center' xs={12}>
+    <Container maxWidth='sm' sx={{ paddingBottom: 2 }}>
+      <Stack alignItems={'center'} justifyContent='center' spacing={1}>
+        <Stack alignItems={'center'}>
           <img alt='' src={timeChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
-        </Grid>
-        <Grid container item justifyContent='center' alignItems='center' xs={12}>
           <img alt='' src={frequencyChartImage || process.env.PUBLIC_URL + '/loading.gif'} style={{ width: '100%' }} />
-        </Grid>
-        <Grid item container xs={12} justifyContent='center' alignItems='center'
-          style={{ paddingLeft: 55, paddingRight: 55 }}>
           <StyledEngineProvider injectFirst>
             <ThemeProvider theme={LTRTheme}>
-              <Slider style={{ direction: 'ltr' }}
+              <Slider
+                sx={{ direction: 'ltr', width: '70%' }}
                 min={0} max={frequencyLimit || 22000} step={100} marks
                 value={frequencyValues} valueLabelDisplay="auto"
                 onChange={(_, newValues) => setFrequencyValues(newValues)} />
             </ThemeProvider>
           </StyledEngineProvider>
-        </Grid>
-
-        <Grid item xs={12}>
-          <audio controls style={{ width: '100%' }}>
+          <audio controls style={{ width: '100%', marginY: 1 }}>
             <source src={process.env.PUBLIC_URL + '/music/' + sound_file} type="audio/mp3" />
           </audio>
-        </Grid>
-
-        <Grid item xs={12}>
-          <Button variant='contained' fullWidth color='primary' onClick={applyFilter}>
+          <Button variant='contained' fullWidth color='primary' onClick={applyFilter} sx={{ marginTop: 2 }}>
             {'ارسال'}
           </Button>
-        </Grid>
+        </Stack>
 
         {fftImage &&
           <>
-            <Grid container item justifyContent='center' alignItems='center'>
-              <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
-              <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
-              <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
-            </Grid>
-            <Grid container item justifyContent='center' alignItems='center'>
+            <Stack alignItems={'center'} spacing={1}>
+              <Stack direction={'row'} alignItems={'center'} sx={{ marginTop: 6 }}>
+                <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
+                <Typography id='result' align='center' variant='h1' fontWeight={600}>
+                  {'نتایج'}
+                </Typography>
+                <img width='40px' alt='' src={process.env.PUBLIC_URL + '/down.gif'} />
+              </Stack>
               <img alt='' src={filteredFftImage} style={{ width: '100%' }} />
-            </Grid>
-            <Grid container item justifyContent='center' alignItems='center'>
               <img alt='' src={filteredTimeImage} style={{ width: '100%' }} />
-            </Grid>
-            <Grid container item justifyContent='center' alignItems='center'>
               <audio ref={audioRef} controls style={{ width: '100%' }}>
                 <source src={sound} type="audio/mp3" />
               </audio>
-            </Grid>
+            </Stack>
           </>
         }
-
-      </Grid>
+      </Stack>
     </Container >
   );
 }
