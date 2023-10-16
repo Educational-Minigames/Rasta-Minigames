@@ -31,7 +31,7 @@ function Index({
 }) {
 
   const audioRef = useRef();
-  const [frequencyValues, setFrequencyValues] = useState([200, 1000]);
+  const [frequencyValues, setFrequencyValues] = useState([1000, 3000]);
 
   useEffect(() => {
     getTimeChartOfSoundAction({ sound_file });
