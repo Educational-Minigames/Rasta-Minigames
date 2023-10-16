@@ -11,8 +11,6 @@ export const errorHandler = (
     });
   }
 
-  console.log(error.response)
-
   if (error.response.data?.detail) {
     return rejectWithValue({
       message: error.response.data?.detail,
